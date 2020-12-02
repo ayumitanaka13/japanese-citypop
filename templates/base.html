@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Japanese City Pop">
+    <meta name="keywords" content="citypop, city pop, Tatsuro Yamashita, Mariya Takeuchi">
+    <!-- ogp -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Japanese City Pop" />
+	<meta property="og:description" content="Japanese City Pop 70s-80s" />
+	<meta property="og:image" content="img/ogp.png">
+	<meta property="og:image:alt" content="home">
+	<meta property="og:url" content="https://citypop.netlify.app/" />
+	<meta property="og:site_name" content="Japanese City Pop" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/base.css">
+    <!-- Tailwind -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Title -->
+    <title>Japanese City Pop</title>
+</head>
+
+<body class="text-white bg-purple-300">
+    <header>
+        <nav class="w-full flex flex-wrap items-center justify-between bg-transparent lg:text-lg p-4 px-4 md:px-12 fixed box">
+            <!-- search bar -->
+            <div class="flex items-center flex-shrink-0">
+				<form action="searchResult" class="flex text-lg md:text-xl">
+					<input type="search" name="search" placeholder="Search" class="w-full text-gray-500 rounded-full outline-none py-1 px-4 mr-2">
+					<input type="submit" name="search" value="Search" class="bg-transparent hover:bg-blue-500 border-2 border-white rounded-full outline-none py-1 px-4">
+				</form>
+            </div>
+            <!-- toggle -->
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded hover:bg-blue-500">
+                    <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    	<title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- nav bar -->
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-4 lg:pt-0" id="nav-content">
+                <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center py-2">
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('main') }}">Home</a>
+                    </li>
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('load_album_list') }}">Album</a>
+                    </li>
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('load_song_list') }}">Song</a>
+                    </li>
+                    <li>
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('terms_of_service') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/4538f04da3.js" crossorigin="anonymous"></script>   
+    <!-- javascript -->
+    <script src="/static/js/index.js"></script>
+
+</body>
+</html>

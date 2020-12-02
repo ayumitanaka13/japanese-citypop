@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <img src="{{ url_for('static', filename=album.album_pic_path) }}">
+        <ul>
+            <li>Age: {{album.year}}</li>
+            <li>Name: {{album.name}}</li>
+            <li>Title: {{album.title}}</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

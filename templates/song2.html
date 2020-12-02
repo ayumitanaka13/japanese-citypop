@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="h-screen w-screen grid grid-cols-2 flex items-center p-8 md:p-10 gap-8 box">
+
+    <!-- Ohtaki -->
+    <div class="col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t border-blue-300 transform duration-700 ease-linear hover:scale-105" id="ohtaki">
+        <div class="grid grid-rows-5 p-4 sm:p-6 gap-0 sm:gap-3 lg:gap-0 xl:gap-3">
+
+            <div class="row-span-1 box flex items-center">
+                <div class="grid grid-cols-5">
+                    <div class="col-span-1 box">
+                        <img src="img/p-ohtaki.jpg" class="w-full rounded-full border-solid border-4 border-blue-500">
+                    </div>
+                    <div class="col-span-4 flex items-center box">
+                        <div class="pl-4 xl:pl-8 box">
+                            <h3 class="text-xl sm:text-3xl xl:text-4xl font-semibold">
+                                {{ album.member1 }} <span>大瀧 詠一</span>
+                            </h3>            
+                        </div>
+                    </div>       
+                </div>
+            </div>
+
+            <div class="row-span-2 py-4 px-2 box">
+                <iframe class="w-full h-full shadow rounded-lg" src="https://www.youtube.com/embed/dH9yLGoIxBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="row-span-1 px-2 box flex items-center">
+                <div class="grid grid-cols-5 flex items-center">
+                    <div class="col-span-1 box">
+                        <img src="img/s1.jpg" alt="" class="w-full shadow">
+                    </div>
+                    <div class="col-span-4 flex items-center box">
+                        <div class="pl-4 xl:pl-8 box">
+                            <h4 class="text-base sm:text-xl xl:text-2xl">
+                                <i class="fas fa-compact-disc mr-1"></i>1982<br>Kimi wa Tennen Shoku <span>君は天然色</span>
+                            </h4>            
+                        </div>
+                    </div>       
+                </div>
+            </div>
+
+            <div class="row-span-1 flex items-center px-2 box">
+                <div class="box">
+                    <p class="text-sm xl:text-base">
+                        The best of Japanese pop song! This one of the Ohtaki's most popular song is included on the album "A long vacation".
+                        Lyricist Takashi Matsumoto said everything he saw had lost its color after losing his sister.
+                        The lyrics reflect his's feelings for her. 
+                        Amazingly, the sound is a one-shot recording like Phil Spector did.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Yamashita -->
+    <div class="col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t border-blue-300 transform duration-700 ease-linear hover:scale-105" id="yamashita">
+        <div class="grid grid-rows-5 p-4 sm:p-6 gap-0 sm:gap-3 lg:gap-0 xl:gap-3">
+
+            <div class="row-span-1 box flex items-center">
+                <div class="grid grid-cols-5">
+                    <div class="col-span-1 box">
+                        <img src="img/p-yamashita.jpg" class="w-full rounded-full border-solid border-4 border-blue-500">
+                    </div>
+                    <div class="col-span-4 flex items-center box">
+                        <div class="pl-4 xl:pl-8 box">
+                            <h3 class="text-xl sm:text-3xl xl:text-4xl font-semibold">
+                                Tatsuro Yamashita <span>山下 達郎</span>
+                            </h3>            
+                        </div>
+                    </div>       
+                </div>
+            </div>
+
+            <div class="row-span-2 py-4 px-2 box">
+                <iframe class="w-full h-full shadow rounded-lg" src="https://www.youtube.com/embed/1rdlHKioR6A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="row-span-1 px-2 box flex items-center">
+                <div class="grid grid-cols-5 flex items-center">
+                    <div class="col-span-1 box">
+                        <img src="img/s2.jpg" alt="" class="w-full shadow">
+                    </div>
+                    <div class="col-span-4 flex items-center box">
+                        <div class="pl-4 xl:pl-8 box">
+                            <h4 class="text-base sm:text-xl xl:text-2xl">
+                                <i class="fas fa-compact-disc mr-1"></i>1980<br>Ride On Time <span>ライド・オン・タイム</span>
+                            </h4>            
+                        </div>
+                    </div>       
+                </div>
+            </div>
+
+            <div class="row-span-1 flex items-center px-2 box">
+                <div class="box">
+                    <p class="text-sm xl:text-base">
+                        Tatsuro Yamashita's first big hit, a very popular and iconic city pop song!
+                        You can feel the uplifting feeling from the start of the song.
+                        Not only Tatsuro's voice, but also Minako Yoshida's chorus is wonderful.
+                        And don't miss the soul-style slow number on the B-side, Rainy Walk.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
