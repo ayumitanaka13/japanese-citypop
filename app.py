@@ -43,7 +43,7 @@ album_list = [
 ]
 
 class SongInfo:
-    def __init__(self, year, nameF, nameL, nameJ, title, titleJ, words, music, desc, singer_desc, youtube, band, song_pic_path, singer_pic_path):
+    def __init__(self, year, nameF, nameL, nameJ, title, titleJ, words, music, desc, singer_desc, youtube, band, icon_pic_path, song_pic_path, singer_pic_path):
         self.year = year
         self.nameF = nameF
         self.nameL = nameL
@@ -56,6 +56,7 @@ class SongInfo:
         self.singer_desc = singer_desc
         self.youtube = youtube
         self.band = band
+        self.icon_pic_path = icon_pic_path
         self.song_pic_path = song_pic_path
         self.singer_pic_path = singer_pic_path
     
@@ -66,15 +67,14 @@ song_list = [
         'The lyrics reflect his feelings for her. Amazingly, the sound is a one-shot recording like Phil Spector did.',
         'Eiichi Ohtaki (July 28, 1948 – December 30, 2013) was a Japanese musician, songwriter and record producer.' +
         'He first became known as a member of the rock band Happy End, but was better known for his solo work which began in 1972.',
-        'https://www.youtube.com/embed/dH9yLGoIxBw', 'Happy End', 'image/s1.jpg', 'image/p-ohtaki.jpg'),
+        'https://www.youtube.com/embed/dH9yLGoIxBw', 'Happy End', 'image/icon1.jpg', 'image/s1.jpg', 'image/p-ohtaki.jpg'),
     SongInfo(1980, 'Tatsuro', 'Yamashita', '山下 達郎', 'Ride On Time', 'ライド・オン・タイム', 'Tatsuro Yamashita', 'Tatsuro Yamashita',
         'Tatsuro\'s first big hit, a very popular and iconic city pop song! You can feel the uplifting feeling from the start of the song.' +
         'Not only Tatsuro\'s voice, but also Minako Yoshida\'s chorus is wonderful. And do not miss the soul-style slow number on the B-side, "Rainy Walk".',
         'Yamashita Tatsuro (February 4, 1953) is a Japanese singer-songwriter and record producer' +
         'who helped pioneer the style of Japanese adult-oriented rock/soft rock dubbed "city pop". He has also collaborated with his wife Mariya Takeuchi.',
-        'https://www.youtube.com/embed/1rdlHKioR6A', 'Suger Babe', 'image/s2.jpg', 'image/p-yamashita.jpg')
+        'https://www.youtube.com/embed/1rdlHKioR6A', 'Suger Babe', 'image/icon2.jpg', 'image/s2.jpg', 'image/p-yamashita.jpg')
 ]
-
 
 @app.route('/') # main
 def main():
@@ -83,27 +83,6 @@ def main():
 @app.route('/albumlist') # all albums
 def load_album_list():
     return render_template('album_list.html', album_list=album_list)
-
-@app.route('/album/<string:album_member1>') # album detail
-def song(album_member1):
-    for album in album_list:
-        if album.member1==album_member1:
-            return render_template('song.html', album=album)
-    return redirect(url_for('main'))
-
-@app.route('/album/<string:album_member2>')
-def song2(album_member2):
-    for album in album_list:
-        if album.member2==album_member2:
-            return render_template('song2.html', album=album)
-    return redirect(url_for('main'))
-
-@app.route('/album/<string:album_member3>')
-def song3(album_member3):
-    for album in album_list:
-        if album.member3==album_member3:
-            return render_template('song3.html', album=album)
-    return redirect(url_for('main'))
 
 @app.route('/songlist') # all songs
 def load_song_list():

@@ -32,6 +32,7 @@
             <!-- comments -->
             <div class="row-span-2 flex items-center py-4 px-2 box">
                 <div class="grid grid-rows-3 gap-0 sm:gap-3 lg:gap-0 xl:gap-3 box">
+
                     <div class="row-span-1 px-2 box flex items-center">
                         <div class="flex">
                             <div class="w-1/12 flex items-center">
@@ -42,7 +43,7 @@
                                     <p class="text-lg xl:text-xl font-semibold">
                                         <a href="#">Amy @helloAmy</a>
                                     </p>
-                                    <p class="text-base xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
+                                    <p class="text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +59,7 @@
                                     <p class="text-lg xl:text-xl font-semibold">
                                         <a href="#">Amy @helloAmy</a>
                                     </p>
-                                    <p class="text-base xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
+                                    <p class="text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
                                 </div>
                             </div>
                         </div>
@@ -74,12 +75,14 @@
                                     <p class="text-lg xl:text-xl font-semibold">
                                         <a href="#">Amy @helloAmy</a>
                                     </p>
-                                    <p class="text-base xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
+                                    <p class="text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, deserunt!</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             </div>
             <!-- links -->
             <div class="row-span-1 flex items-center px-2 box">
@@ -102,11 +105,11 @@
 
 
     <!-- song -->
-    <div class="col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-purple-300">
+    <div class="col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300">
         <div class="grid grid-rows-5 p-4 sm:p-6 gap-0 sm:gap-3 lg:gap-0 xl:gap-3">
             <!-- song title -->
-            <div class="row-span-1 px-2 box flex items-center">
-                <div class="grid grid-cols-5">
+            <div class="row-span-1 box flex items-center">
+                <div class="grid grid-cols-5 flex items-center">
                     <div class="col-span-1 box">
                         <img src="{{ url_for('static', filename=song.song_pic_path) }}" alt="" class="w-full shadow">
                     </div>
@@ -122,8 +125,8 @@
                 </div>
             </div>
             <!-- song youtube -->
-            <div class="row-span-3 flex items-center py-4 px-2 box">
-                <iframe class="w-full h-full shadow rounded-lg" src="{{ song.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="row-span-3 py-4 px-2 box">
+                <iframe class="w-full h-full shadow rounded-lg transform duration-700 ease-linear hover:scale-105" src="{{ song.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <!-- song desc -->
             <div class="row-span-1 flex items-center px-2 box">
@@ -133,8 +136,10 @@
                     </p>
                 </div>
             </div>
+
         </div>
     </div>
+
 </div>
 
 {% endfor %}

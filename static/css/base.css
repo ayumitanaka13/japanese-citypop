@@ -17,11 +17,11 @@ body:after {
     z-index: -1;
 }
 
-/* .box {
+.box {
     background-color: rgba(255, 255, 255, 0);
     border: #fc5e55 1px solid;
     z-index: 100;
-} */
+}
 
 
 h1 {
@@ -35,22 +35,4 @@ h2, h3, h4 {
 span {
     font-size: 60%;
     font-weight: normal;
-}
-
-.flash {
-    animation: flash 3s linear infinite;
-}
-/* 
-#more {
-    width: 200%;
-}
-   */
-@keyframes flash {
-    0%,100% {
-      opacity: 1;
-    }
-  
-    50% {
-      opacity: 0;
-    }
 }
