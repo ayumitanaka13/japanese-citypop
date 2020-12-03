@@ -74,6 +74,21 @@
                     <li class="mr-12">
                         <a class="inline-block hover:opacity-75" href="{{ url_for('song.song') }}">Song</a>
                     </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{url_for('app.logout')}}">Sign out</a>
+                    </li>
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{url_for('app.user')}}">User</a>
+                    </li>
+                    {% else %}
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{url_for('app.register')}}">Sign up</a>
+                    </li>
+                    <li class="mr-12">
+                        <a class="inline-block hover:opacity-75" href="{{url_for('app.login')}}">Sign in</a>
+                    </li>
+                    {% endif %}
                     <li>
                         <a class="inline-block hover:opacity-75" href="{{ url_for('contact') }}">Contact</a>
                     </li>
