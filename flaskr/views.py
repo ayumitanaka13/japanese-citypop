@@ -24,7 +24,7 @@ def login():
             login_user(user, remember=True)
             next = request.args.get('next')
             if not next:
-                next = url_for('app.welcome')
+                next = url_for('app.home')
             return redirect(next)
     return render_template('login.html', form=form)
 
