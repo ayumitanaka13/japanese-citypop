@@ -36,7 +36,7 @@ song_list = [
         'https://www.youtube.com/embed/1rdlHKioR6A', 'Suger Babe', 'image/icon2.jpg', 'image/s2.jpg', 'image/p-yamashita.jpg')
 ]
 
-@song_bp.route('/')
+@song_bp.route('')
 def song():
     return render_template('song/song.html', song_list=song_list)
   

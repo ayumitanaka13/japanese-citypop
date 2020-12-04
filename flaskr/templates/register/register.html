@@ -1,5 +1,5 @@
-{% from "_formhelpers.html" import render_field %}
-{% extends "base.html" %}
+{% from "/_formhelpers.html" import render_field %}
+{% extends "/base.html" %}
 {% block content %}
 
 <div class="h-screen w-screen p-8 md:p-12 md:py-20 xl:p-20 box">
@@ -7,7 +7,7 @@
         <div class="w-1/3 box">
             <h1 class="text-7xl lg:text-8xl text-center font-black box animate-pulse">Sign Up</h1>
             <div class="flex items-center justify-center bg-white bg-opacity-30 rounded mt-8 py-16">
-                <form method="POST" class="text-gray-100 box">
+                <form method="POST" class="text-gray-200 box">
                     {{form.csrf_token}}
                     <h4 class="text-lg sm:text-3xl xl:text-3xl">
                         {{render_field(form.username)}}

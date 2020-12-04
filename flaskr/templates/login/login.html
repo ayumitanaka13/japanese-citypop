@@ -1,5 +1,5 @@
-{% from "_formhelpers.html" import render_field %}
-{% extends "base.html" %}
+{% from "/_formhelpers.html" import render_field %}
+{% extends "/base.html" %}
 {% block content %}
 {% for message in get_flashed_messages() %}
 {{ message }}

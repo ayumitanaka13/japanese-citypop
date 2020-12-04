@@ -42,6 +42,6 @@ album_list = [
         'Mariya Takeuchi', 'Tatsuro Yamashita', 'Taeko Ohnuki', 'image/3.png', 'image/3a.jpg')
 ]
 
-@album_bp.route('/')
+@album_bp.route('')
 def album():
     return render_template('album/album.html', album_list=album_list)

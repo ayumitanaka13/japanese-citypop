@@ -8,11 +8,6 @@ app = create_app()
 def home():
     return render_template('home.html')
 
-#contact
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
 #redirect
 @app.errorhandler(404)
 def redirect_main_page(error):
