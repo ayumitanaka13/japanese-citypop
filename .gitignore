@@ -2,4 +2,4 @@
 .DS_Store
 data.sqlite
 migrations/
-__pycache__.DS_Store
+__pycache__
