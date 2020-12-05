@@ -2,16 +2,21 @@
 {% block content %}
 <div class="h-screen w-screen p-8 md:p-12 md:py-20 xl:p-20 box">
     <div class="h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
-        <div class="w-1/2 box">
+        <div class="w-4/5 xl:w-1/2 box">
             {% if current_user.is_authenticated %}
             <h1 class="text-7xl lg:text-8xl text-center font-black box animate-pulse">Hello, {{current_user.username}}</h1>
             {% else %}
             <p>Sign in or Sign up</p>
             {% endif %}
-            <div class="flex items-center justify-center bg-white bg-opacity-30 rounded mt-8 py-16">
-                <h4 class="text-lg sm:text-3xl xl:text-3xl">
-                    My Favorites
-                </h4>
+            <div class="flex items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-8 py-16">
+                <div>
+                    <h4 class="text-lg sm:text-3xl xl:text-3xl">
+                        Your email<br>{{current_user.email}}
+                    </h4>
+                    <h4 class="text-lg sm:text-3xl xl:text-3xl mt-2">
+                        Your Favorites
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
