@@ -8,12 +8,18 @@
             {% else %}
             <p>Sign in or Sign up</p>
             {% endif %}
-            <div class="flex items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-8 py-16">
-                <div>
+            <div class="flex w-full items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-8 py-16">
+                <div class="text-center box">
                     <h4 class="text-lg sm:text-3xl xl:text-3xl">
+                        Your image
+                    </h4>
+                    <div class="flex justify-center mt-4">
+                        <img src="/static/image/icon1.jpg" class="w-1/6 rounded-full">
+                    </div>
+                    <h4 class="text-lg sm:text-3xl xl:text-3xl mt-4">
                         Your email<br>{{current_user.email}}
                     </h4>
-                    <h4 class="text-lg sm:text-3xl xl:text-3xl mt-2">
+                    <h4 class="text-lg sm:text-3xl xl:text-3xl mt-4">
                         Your Favorites
                     </h4>
                 </div>
