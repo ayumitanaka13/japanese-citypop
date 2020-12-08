@@ -2,18 +2,18 @@
 {% block content %}
 {% for song in song_list %}
 
-<div class="h-screen w-screen grid grid-cols-1 lg:grid-cols-2 flex items-center p-8 md:p-12 md:py-20 xl:p-20 gap-8 box">
+<div class="min-h-screen w-screen grid grid-cols-2 flex items-center p-8 md:p-12 md:py-20 xl:p-20 gap-8 box">
     <!-- singer -->
-    <div class="h-full col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300 p-4 sm:p-6">
+    <div class="h-screen lg:h-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300 p-4 sm:p-6">
         <!-- singer name -->
         <div class="h-1/5 box flex items-center">
             <div class="h-full w-full grid grid-cols-5">
-                <div class="h-full col-span-1 flex items-center box p-2">
+                <div class="h-full col-span-1 flex items-center box lg:p-2">
                     <img src="{{ url_for('static', filename=song.singer_pic_path) }}" class="w-full rounded-full border-solid border-4 border-blue-500">
                 </div>
                 <div class="h-full col-span-4 flex items-center box">
-                    <div class="pl-4 xl:pl-8 box">
-                        <h3 class="text-2xl sm:text-4xl xl:text-5xl font-semibold">
+                    <div class="pl-4 2xl:pl-8 box">
+                        <h3 class="text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
                             {{ song.nameF }} {{ song.nameL }} <span>{{ song.nameJ }}</span>
                         </h3>            
                     </div>
@@ -22,7 +22,7 @@
         </div>
         <!-- singer desc -->
         <div class="h-1/5 flex items-center px-2 box">
-            <p class="text-lg xl:text-xl">
+            <p class="text-base 2xl:text-xl">
                 {{ song.singer_desc }}
             </p>
         </div>
@@ -31,41 +31,41 @@
             <div class="h-full w-full box">
                 <div class="h-1/3 box">
                     <div class="h-full w-full grid grid-cols-9 box">
-                        <div class="h-full col-span-1 flex items-center p-2">
+                        <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
                             <img src="{{ url_for('static', filename=song.icon_pic_path) }}" class="rounded-full border-solid border-2 border-blue-500">
                         </div>
                         <div class="h-full col-span-8 flex items-center box">
-                            <div class="ml-4 xl:ml-8 2xl:py-3 px-6 bg-white rounded shadow text-blue-400">
-                                <p class="text-lg xl:text-xl font-semibold">
+                            <div class="ml-4 2xl:ml-8 py-1 2xl:py-3 px-3 2xl:px-6 bg-white rounded shadow text-blue-400">
+                                <p class="text-sm xl:text-base 2xl:text-xl font-semibold">
                                     <a href="#">Amy @amy1993</a>
                                 </p>
-                                <p class="text-base 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                <p class="text-sm lg:text-xs xl:text-sm 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
                     </div>
                     <div class="h-full w-full grid grid-cols-9 box">
-                        <div class="h-full col-span-1 flex items-center p-2">
+                        <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
                             <img src="{{ url_for('static', filename=song.icon_pic_path) }}" class="rounded-full border-solid border-2 border-blue-500">
                         </div>
                         <div class="h-full col-span-8 flex items-center box">
-                            <div class="ml-4 xl:ml-8 py-3 px-6 bg-white rounded shadow text-blue-400">
-                                <p class="text-lg xl:text-xl font-semibold">
+                            <div class="ml-4 2xl:ml-8 py-1 2xl:py-3 px-3 2xl:px-6 bg-white rounded shadow text-blue-400">
+                                <p class="text-sm xl:text-base 2xl:text-xl font-semibold">
                                     <a href="#">Amy @amy1993</a>
                                 </p>
-                                <p class="text-base 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                <p class="text-sm lg:text-xs xl:text-sm 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
                     </div>
                     <div class="h-full w-full grid grid-cols-9 box">
-                        <div class="h-full col-span-1 flex items-center p-2">
+                        <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
                             <img src="{{ url_for('static', filename=song.icon_pic_path) }}" class="rounded-full border-solid border-2 border-blue-500">
                         </div>
                         <div class="h-full col-span-8 flex items-center box">
-                            <div class="ml-4 xl:ml-8 py-3 px-6 bg-white rounded shadow text-blue-400">
-                                <p class="text-lg xl:text-xl font-semibold">
+                            <div class="ml-4 2xl:ml-8 py-1 2xl:py-3 px-3 2xl:px-6 bg-white rounded shadow text-blue-400">
+                                <p class="text-sm xl:text-base 2xl:text-xl font-semibold">
                                     <a href="#">Amy @amy1993</a>
                                 </p>
-                                <p class="text-base 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                                <p class="text-sm lg:text-xs xl:text-sm 2xl:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
                     </div>
@@ -76,12 +76,12 @@
         <div class="h-1/5 flex items-center px-2 box">
             <div class="flex flex-wrap">
                 <a href="#">
-                    <button class="bg-blue-400 hover:bg-blue-500 font-semibold m-1 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
+                    <button class="bg-blue-400 hover:bg-blue-500 font-semibold m-1 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-base lg:text-sm xl:text-lg">
                         # {{ song.band }}
                     </button>
                 </a>
                 <a href="#">
-                    <button class="bg-blue-400 hover:bg-blue-500 font-semibold m-1 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
+                    <button class="bg-blue-400 hover:bg-blue-500 font-semibold m-1 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-base lg:text-sm xl:text-lg">
                         # {{ song.words }}
                     </button>
                 </a>
@@ -91,18 +91,18 @@
 
 
     <!-- song -->
-    <div class="h-full col-span-1 shadow-2xl rounded-lg box border-t-2 border-purple-300 p-4 sm:p-6">
+    <div class="h-screen lg:h-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-purple-300 p-4 sm:p-6">
         <!-- song title -->
         <div class="h-1/5 box flex items-center">
             <div class="h-full w-full grid grid-cols-5">
-                <div class="h-full col-span-1 flex items-center p-2 box">
+                <div class="h-full col-span-1 flex items-center lg:p-2 box">
                     <img src="{{ url_for('static', filename=song.song_pic_path) }}" alt="" class="w-full shadow">
                 </div>
                 <div class="h-full col-span-4 flex items-center box">
-                    <div class="pl-4 xl:pl-8 box">
-                        <h4 class="text-xl sm:text-3xl xl:text-4xl"><i class="fas fa-compact-disc mr-2"></i>{{ song.year }}</h4>
-                        <h4 class="text-xl sm:text-3xl xl:text-4xl pt-2">{{ song.title }} <span>{{ song.titleJ }}</span></h4>
-                        <p class="text-lg">
+                    <div class="pl-4 2xl:pl-8 box">
+                        <h4 class="text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl"><i class="fas fa-compact-disc mr-2"></i>{{ song.year }}</h4>
+                        <h4 class="text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl pt-2">{{ song.title }} <span>{{ song.titleJ }}</span></h4>
+                        <p class="text-sm 2xl:text-lg">
                             <i>Words by {{ song.words }}, Music by {{ song.music }}</i>
                         </p>
                     </div>
@@ -110,12 +110,12 @@
             </div>
         </div>
         <!-- song youtube -->
-        <div class="h-3/5 flex items-center pt-8 px-2 box">
+        <div class="h-3/5 lg:h-2/5 xl:h-3/5 flex items-center lg:p-2 2xl:pt-8 box">
             <iframe class="w-full h-full shadow rounded-lg  transform duration-700 ease-linear hover:scale-105" src="{{ song.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- song desc -->
-        <div class="h-1/5 flex items-center px-2 box">
-            <p class="text-lg xl:text-xl">
+        <div class="h-1/5 lg:h-2/5 xl:h-1/5 flex items-center px-2 box">
+            <p class="text-base 2xl:text-xl">
                 {{ song.desc }}
             </p>
         </div>
