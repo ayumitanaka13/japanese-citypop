@@ -9,6 +9,10 @@ bp = Blueprint('app', __name__, url_prefix='')
 def home():
     return render_template('home.html')
 
+@bp.route('/comingsoon')
+def comingsoon():
+    return render_template('comingsoon.html')
+
 @bp.app_errorhandler(404)
 def page_not_found(e):
     return redirect(url_for('app.home'))
