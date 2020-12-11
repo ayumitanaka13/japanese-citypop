@@ -2,7 +2,9 @@
 
 ![readme](https://user-images.githubusercontent.com/55824449/101867136-4f9b1f80-3b2f-11eb-86a6-947c6db04bcd.jpg)
 
-A web application that recommends you to listen to Japanese city pop music! Users can sign up and leave comments on your favorite songs.
+A web application that recommends you to listen to Japanese city pop music!
+
+Users can sign up and leave comments on your favorite songs.
 
 # Preview
 
