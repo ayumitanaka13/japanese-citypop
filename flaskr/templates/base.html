@@ -69,10 +69,10 @@
                         <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
                     </li>
                     <li class="mr-6 xl:mr-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('album.album') }}">Album</a>
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('album.album') }}">History</a>
                     </li>
                     <li class="mr-6 xl:mr-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('song.song') }}">Song</a>
+                        <a class="inline-block hover:opacity-75" href="{{ url_for('song.song') }}">Artist</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="mr-6 xl:mr-12">

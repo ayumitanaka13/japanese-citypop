@@ -43,17 +43,17 @@
             <div class="row-span-1 flex items-center box">
                 <img class="w-24 sm:w-28 rounded-full mx-1 sm:mx-2 xl:mx-4 border-solid border-2 border-blue-500 shadow" src="{{ url_for('static', filename=album.artist_pic_path) }}" alt="">
                 <div class="flex flex-wrap">
-                    <a href="{{ url_for('song.song') }}">
+                    <a href="{{ url_for('song.song', _anchor=album.member1) }}">
                         <button class="bg-blue-400 hover:bg-blue-500 font-semibold my-1 ml-4 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
                             # {{ album.member1 }}
                         </button>
                     </a>
-                    <a href="{{ url_for('app.comingsoon') }}">
+                    <a href="{{ url_for('song.song', _anchor=album.member1) }}">
                         <button class="bg-blue-400 hover:bg-blue-500 font-semibold my-1 ml-4 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
                             # {{ album.member2 }}
                         </button>
                     </a>
-                    <a href="{{ url_for('app.comingsoon') }}">
+                    <a href="{{ url_for('song.song', _anchor=album.member1) }}">
                         <button class="bg-blue-400 hover:bg-blue-500 font-semibold my-1 ml-4 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
                             # {{ album.member3 }}
                         </button>

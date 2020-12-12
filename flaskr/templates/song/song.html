@@ -2,7 +2,7 @@
 {% block content %}
 {% for song in song_list %}
 
-<div class="min-h-screen w-screen grid grid-cols-2 flex items-center p-8 md:p-12 xl:p-20 pt-20 md:pt-20 lg:pt-0 gap-8 box" id="#{{ song.nameF }}{{ song.nameL }}">
+<div class="min-h-screen w-screen grid grid-cols-2 flex items-center p-8 md:p-12 xl:p-20 pt-20 md:pt-20 lg:pt-0 gap-8 box" id="{{ song.nameF + ' ' + song.nameL }}">
     <!-- singer -->
     <div class="h-screen lg:h-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300 p-4 sm:p-6">
         <!-- singer name -->
