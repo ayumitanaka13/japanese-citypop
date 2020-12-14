@@ -12,4 +12,4 @@ Users can sign up and leave comments on your favorite songs.
 
 # UI Design
 
-<img width="3278" alt="citypop-UI" src="https://user-images.githubusercontent.com/55824449/101993146-34cec500-3c6d-11eb-970a-91f8011ae310.png">
+<img width="521" alt="citypopUI" src="https://user-images.githubusercontent.com/55824449/102039988-4228a400-3d80-11eb-81d4-f73249f8c660.png">
