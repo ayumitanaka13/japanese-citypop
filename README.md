@@ -12,4 +12,4 @@ Users can sign up and leave comments on your favorite songs.
 
 # UI Design
 
-<img width="521" alt="citypopUI" src="https://user-images.githubusercontent.com/55824449/102039988-4228a400-3d80-11eb-81d4-f73249f8c660.png">
+![JapaneseCityPopUI](https://user-images.githubusercontent.com/55824449/102041748-12c86600-3d85-11eb-93a6-cfcb59c132ca.png)
