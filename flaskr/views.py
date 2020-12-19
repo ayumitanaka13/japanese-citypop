@@ -1,7 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
-from flask_login import login_user, login_required, logout_user
-from flaskr.forms import LoginForm, RegisterForm
-from flaskr.models import User
+from flask import Blueprint, render_template, redirect, url_for
 
 bp = Blueprint('app', __name__, url_prefix='')
 

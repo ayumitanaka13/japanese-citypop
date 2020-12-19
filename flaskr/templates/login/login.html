@@ -1,9 +1,6 @@
 {% from "/_formhelpers.html" import render_field %}
 {% extends "/base.html" %}
 {% block content %}
-{% for message in get_flashed_messages() %}
-{{ message }}
-{% endfor %}
 
 <div class="h-screen w-screen p-8 md:p-12 md:py-20 xl:p-20 box">
     <div class="h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">

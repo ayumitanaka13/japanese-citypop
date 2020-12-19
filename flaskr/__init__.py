@@ -19,20 +19,20 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    from flaskr.album.views import album_bp
-    from flaskr.song.views import song_bp
+    from flaskr.history.views import history_bp
+    from flaskr.artist.views import artist_bp
     from flaskr.contact.views import contact_bp
     from flaskr.user.views import user_bp
     from flaskr.login.views import login_bp
     from flaskr.logout.views import logout_bp
-    from flaskr.register.views import register_bp
-    app.register_blueprint(album_bp)
-    app.register_blueprint(song_bp)
+    from flaskr.signup.views import signup_bp
+    app.register_blueprint(history_bp)
+    app.register_blueprint(artist_bp)
     app.register_blueprint(contact_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(logout_bp)
-    app.register_blueprint(register_bp)
+    app.register_blueprint(signup_bp)
 
     from flaskr.views import bp
     app.register_blueprint(bp)

@@ -4,7 +4,7 @@
 
 A web application that recommends you to listen to Japanese city pop music!
 
-Users can sign up and leave comments on your favorite songs.
+Users can sign up and leave comments on your favorite artist's page.
 
 # Preview
 
@@ -12,4 +12,4 @@ Users can sign up and leave comments on your favorite songs.
 
 # UI Design
 
-![JapaneseCityPopUI](https://user-images.githubusercontent.com/55824449/102041748-12c86600-3d85-11eb-93a6-cfcb59c132ca.png)
+<img width="3278" alt="citypop-UI" src="https://user-images.githubusercontent.com/55824449/101993146-34cec500-3c6d-11eb-970a-91f8011ae310.png">
