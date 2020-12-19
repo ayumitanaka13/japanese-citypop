@@ -143,27 +143,14 @@ class Album(db.Model):
 
 
 
-class Member(db.Model):
-
-    __tablename__ = 'members'
-
-    id = db.Column(db.Integer, primary_key=True)
-    from_album_id = db.Column(
-        db.Integer, db.ForeignKey('albums.id'), index=True
-    )
-    name = db.Column(db.String(128))
-
-    def __init__(self, from_album_id, name):
-        self.from_album_id = from_album_id 
-        self.name = name
-
-
-
 class Artist(db.Model):
 
     __tablename__ = 'artists'
 
     id = db.Column(db.Integer, primary_key=True)
+    from_album_id = db.Column(
+        db.Integer, db.ForeignKey('albums.id'), index=True
+    )
     year = db.Column(db.Integer)
     name = db.Column(db.String(128))
     name_j = db.Column(db.String(128))
@@ -175,7 +162,8 @@ class Artist(db.Model):
     song_picture_path = db.Column(db.Text)
     artist_picture_path = db.Column(db.Text)
 
-    def __init__(self, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path):
+    def __init__(self, from_album_id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path):
+        self.from_album_id = from_album_id 
         self.year = year
         self.name = name
         self.name_j = name_j
