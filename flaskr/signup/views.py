@@ -11,7 +11,6 @@ def signup():
         user = User(
             email = form.email.data,
             username = form.username.data,
-            password = form.password.data
         )
         user.add_user()
         return redirect(url_for('login.login'))
