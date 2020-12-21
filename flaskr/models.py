@@ -2,6 +2,7 @@ from flaskr import db, login_manager
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin, current_user
 from sqlalchemy import and_, or_, desc
+from sqlalchemy.orm import relationship
 from datetime import datetime, timedelta
 from uuid import uuid4
 
@@ -121,6 +122,9 @@ class Album(db.Model):
     from_age_id = db.Column(
         db.Integer, db.ForeignKey('ages.id'), index=True
     )
+    to_artist_id = db.Column(
+        db.Integer, db.ForeignKey('artist.id'), index=True
+    )
     year = db.Column(db.Integer)
     name = db.Column(db.String(128))
     name_j = db.Column(db.String(128))
@@ -132,6 +136,7 @@ class Album(db.Model):
 
     def __init__(self, from_age_id, year, name, name_j, title, title_j, info, album_picture_path, artist_picture_path):
         self.from_age_id = from_age_id
+        self.to_artist_id = to_artist_id
         self.year = year
         self.name = name
         self.name_j = name_j
@@ -161,6 +166,7 @@ class Artist(db.Model):
     artist_info = db.Column(db.Text)
     song_picture_path = db.Column(db.Text)
     artist_picture_path = db.Column(db.Text)
+    comment = relationship("Comment")
 
     def __init__(self, from_album_id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path):
         self.from_album_id = from_album_id 

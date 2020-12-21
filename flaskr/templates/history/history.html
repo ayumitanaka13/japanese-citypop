@@ -44,13 +44,11 @@
                 <img class="w-24 sm:w-28 rounded-full mx-1 sm:mx-2 xl:mx-4 border-solid border-2 border-blue-500 shadow" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
                 <div class="flex flex-wrap">
 
-                    {% for artist in artists %}
                     <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
                         <button class="bg-blue-400 hover:bg-blue-500 font-semibold my-1 ml-4 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
-                            # {{ artist.name }}
+                            # {{ album.name }}
                         </button>
                     </a>
-                    {% endfor %}
                     
                 </div>
             </div>
