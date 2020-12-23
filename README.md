@@ -12,4 +12,10 @@ Users can sign up and leave comments on your favorite artist's page.
 
 # UI Design
 
-<img width="3278" alt="citypop-UI" src="https://user-images.githubusercontent.com/55824449/101993146-34cec500-3c6d-11eb-970a-91f8011ae310.png">
+![JapaneseCityPopUI](https://user-images.githubusercontent.com/55824449/103028413-92380100-450c-11eb-96ec-19da0810d482.png)
+
+# Technologies Used
+
+- Python Flask
+- HTML5
+- SQL Alchemy
