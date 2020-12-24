@@ -17,5 +17,7 @@ Users can sign up and leave comments on your favorite artist's page.
 # Technologies Used
 
 - Python Flask
-- HTML5
 - SQL Alchemy
+- HTML5
+- Tailwind CSS
+
