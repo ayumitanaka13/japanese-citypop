@@ -36,9 +36,3 @@ song_list = [
         'who helped pioneer the style of Japanese adult-oriented rock/soft rock dubbed "city pop". He has also collaborated with his wife Mariya Takeuchi.',
         'https://www.youtube.com/embed/1rdlHKioR6A', 'Suger Babe', 'image/icon2.jpg', 'image/s2.jpg', 'image/p-yamashita.jpg')
 ]
-
-<form method="GET">
-    {{ form.csrf_token }}
-    {{ render_field(form.keyword) }}
-    {{ form.submit() }}
-</form>

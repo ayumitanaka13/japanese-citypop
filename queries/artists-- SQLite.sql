@@ -15,3 +15,11 @@ VALUES (2, 1980, 'Tatsuro Yamashita', '山下 達郎', 'Ride On Time', 'ライ�
         'Yamashita Tatsuro (February 4, 1953) is a Japanese singer-songwriter and record producer
          who helped pioneer the style of Japanese adult-oriented rock/soft rock dubbed "city pop". He has also collaborated with his wife Mariya Takeuchi.',
         'image/s2.jpg', 'image/p-yamashita.jpg', 3);
+
+INSERT INTO artists (id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path, from_album_id)
+VALUES (4, 1980, 'Mariya Takeuchi', '竹内まりや', 'Ride On Time', 'ライド・オン・タイム', 'https://www.youtube.com/embed/1rdlHKioR6A',
+        'Tatsuro`s first big hit, a very popular and iconic city pop song! You can feel the uplifting feeling from the start of the song.
+         Not only Tatsuro`s voice, but also Minako Yoshida`s chorus is wonderful. And do not miss the soul-style slow number on the B-side, "Rainy Walk".',
+        'Yamashita Tatsuro (February 4, 1953) is a Japanese singer-songwriter and record producer
+         who helped pioneer the style of Japanese adult-oriented rock/soft rock dubbed "city pop". He has also collaborated with his wife Mariya Takeuchi.',
+        'image/s2.jpg', 'image/p-yamashita.jpg', 3);
