@@ -10,8 +10,7 @@ from flaskr.models import User, LikeAlbum
 
 
 
-
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     email = StringField(
         'Mail', validators=[DataRequired(), Email('Your email adress is not correct.')]
     )
@@ -22,7 +21,7 @@ class LoginForm(Form):
 
 
 
-class RegisterForm(Form):
+class RegisterForm(FlaskForm):
     email = StringField(
         'Mail', validators=[DataRequired(), Email()]
     )
@@ -38,7 +37,7 @@ class RegisterForm(Form):
     submit = SubmitField('Sign up')
 
     def validate_email(self, field):
-        if User.select_by_email(field.data):
+        if User.select_user_by_email(field.data):
             raise ValidationError('Your email adress is already registered.')
 
 

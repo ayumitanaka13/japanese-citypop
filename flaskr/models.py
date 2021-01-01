@@ -30,25 +30,23 @@ class User(UserMixin, db.Model):
         self.email = email
         self.username = username
 
+    @classmethod
+    def select_user_by_email(cls, email):
+        return cls.query.filter_by(email=email).first()
+
     def validate_password(self, password):
         return check_password_hash(self.password, password)
 
-    def add_user(self):
-        with db.session.begin(subtransactions=True):
-            db.session.add(self)
-        db.session.commit()
+    def create_new_user(self):
+        db.session.add(self)
 
-    def save_new_password(self, new_password):
-        self.password = generate_password_hash(new_password)
-        self.is_active = True
-    
     @classmethod
     def select_user_by_id(cls, id):
         return cls.query.get(id)
 
-    @classmethod
-    def select_by_email(cls, email):
-        return cls.query.filter_by(email=email).first()
+    def save_new_password(self, new_password):
+        self.password = generate_password_hash(new_password)
+        self.is_active = True
 
 
 
