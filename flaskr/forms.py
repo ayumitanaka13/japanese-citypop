@@ -95,6 +95,7 @@ class SearchForm(FlaskForm):
     submit = SubmitField('Search')
 
 
+
 class AlbumLikeForm(FlaskForm):
     connect_condition = HiddenField()
     to_user_id = HiddenField()

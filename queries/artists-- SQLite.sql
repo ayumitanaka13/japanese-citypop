@@ -1,7 +1,10 @@
 -- SQLite
+
+DELETE FROM artists;
+
 INSERT INTO artists (id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path, from_album_id)
 VALUES (1, 1982, 'Eiichi Ohtaki', '大瀧 詠一', 'Kimi wa Tennen Shoku', '君は天然色', 'https://www.youtube.com/embed/dH9yLGoIxBw',
-        'The best of Japanese pop song! This one of the Ohtaki`s most popular song is included on the album "A long vacation".
+        'The best of Japanese pop song! This one of the Ohtaki`s most popular song is included in the album "A long vacation".
          Lyricist Takashi Matsumoto said everything he saw had lost its color after losing his sister.
          The lyrics reflect his feelings for her. Amazingly, the sound is a one-shot recording like Phil Spector did.',
         'Eiichi Ohtaki (July 28, 1948 – December 30, 2013) was a Japanese musician, songwriter and record producer.
@@ -17,9 +20,20 @@ VALUES (2, 1980, 'Tatsuro Yamashita', '山下 達郎', 'Ride On Time', 'ライ�
         'image/s2.jpg', 'image/p-yamashita.jpg', 2);
 
 INSERT INTO artists (id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path, from_album_id)
-VALUES (3, 1984, 'Mariya Takeuchi', '竹内まりや', 'Plastic Love', 'プラスティック・ラブ', 'https://www.youtube.com/embed/3bNITQR4Uso',
+VALUES (3, 1984, 'Mariya Takeuchi', '竹内 まりや', 'Plastic Love', 'プラスティック・ラブ', 'https://www.youtube.com/embed/9Gj47G2e1Jc',
         'This is the most popular Japanese city pop song! This song was produced by her husband Tatsuro Yamashita. He also has covered her song.
          She sings about a lonely woman who can not fall in love for real because of her past love. I like the sadness of this song.',
         'Mariya Takeuchi (March 20, 1955) is a Japanese singer-songwriter. In a Japanese pop music career spanning decades,
          Takeuchi is one of the best-selling music artists in Japan. Her early work during the late 70s to 80s is largely associated with the Japanese city pop.',
         'image/s3.jpg', 'image/p-takeuchi.jpg', 3);
+
+INSERT INTO artists (id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path, from_album_id)
+VALUES (4, 1976, 'Shigeru Suzuki', '鈴木 茂', 'Lady Pink Panther', 'レディ・ピンク・パンサー', 'https://www.youtube.com/embed/sQyKR-NQtLg',
+        'His first album is the Japanese funk rock masterpiece, but his 2nd album is the city pop AOR masterpiece!
+         This mellow bossanova song is included in the album "Lagoon". Haruomi Hosono participated as a bassist for this song.',
+        'Shigeru Suzuki (December 20, 1951) is a Japanese musician, songwriter and guitarist. He first became known as a member of the influential rock band
+         Happy End and Tin Pan Alley, but is now a prolific session musician. As of 2006, Suzuki had contributed to 588 recordings',
+        'image/s4.jpg', 'image/p-suzuki.jpg', 1);
+        
+        
+        

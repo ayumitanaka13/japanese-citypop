@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 
 login_manager = LoginManager()
-login_manager.login_view = 'app.view'
+login_manager.login_view = 'login.login'
 
 login_manager.login_message = 'Please login'
 
@@ -26,6 +26,7 @@ def create_app():
     from flaskr.login.views import login_bp
     from flaskr.logout.views import logout_bp
     from flaskr.signup.views import signup_bp
+    from flaskr.result.views import result_bp
     app.register_blueprint(history_bp)
     app.register_blueprint(artist_bp)
     app.register_blueprint(contact_bp)
@@ -33,6 +34,7 @@ def create_app():
     app.register_blueprint(login_bp)
     app.register_blueprint(logout_bp)
     app.register_blueprint(signup_bp)
+    app.register_blueprint(result_bp)
 
     from flaskr.views import bp
     app.register_blueprint(bp)
