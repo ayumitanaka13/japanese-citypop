@@ -112,6 +112,6 @@ class AlbumLikeForm(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-    to_user_id = HiddenField()
+    to_artist_id = HiddenField()
     comment = TextAreaField()
     submit = SubmitField('Add Comment')

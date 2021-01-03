@@ -16,22 +16,57 @@
                         Your Profile
                     </h4>
                     <div class="flex justify-center mt-2 md:mt-4">
+                        {% if current_user.picture_path %}
+                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="w-1/6 rounded-full">
+                        {% else %}
                         <img src="/static/image/logoa.jpg" class="w-1/6 rounded-full">
+                        {% endif %}
                     </div>
                     
-                    <form method="POST" enctype="multipart/form-data" class="flex items-end text-left mt-2 lg:mt-4">
+                    <form method="POST" enctype="multipart/form-data" class="flex items-end justify-center text-left mt-2">
                         {{form.csrf_token}}
                         <h4 class="text-base sm:text-lg 2xl:text-xl">
-                            {{render_field(form.picture_path, class="border-2 border-white rounded p-1 px-2")}}
+                            {{render_field(form.picture_path, class="border border-white bg-white text-gray-400 rounded p-1 px-2 mt-1")}}
                         </h4>
                         <h4 class="text-lg sm:text-xl 2xl:text-3xl ml-2">
-                            {{form.submit(class="border-2 border-blue-400 bg-blue-400 hover:bg-blue-500 rounded p-1 px-2")}}
+                            {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded p-1 px-2 mt-1")}}
                         </h4>
                     </form>
 
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-2 lg:mt-4">
+                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
                         Your Favorites
                     </h4>
+
+                    <div class="flex flex-wrap justify-around space-x-1 mt-2">
+                        <div class="w-1/6 my-2">
+                            <a href="#">
+                                <img src="/static/image/1.jpg" class="shadow-lg">
+                            </a>
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/6 my-2">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/6 my-2">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/6 my-2">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/6 my-2">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
