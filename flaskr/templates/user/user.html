@@ -7,9 +7,6 @@
         <div class="w-4/5 xl:w-1/2 box">
             {% if current_user.is_authenticated %}
             <h1 class="text-6xl lg:text-7xl 2xl:text-8xl text-center font-black box animate-pulse">Hello, {{current_user.username}}</h1>
-            {% else %}
-            <p>Login or Sign up</p>
-            {% endif %}
             <div class="flex w-full items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16">
                 <div class="text-center box">
                     <h4 class="text-lg sm:text-xl 2xl:text-3xl">
@@ -69,6 +66,9 @@
 
                 </div>
             </div>
+            {% else %}
+            <p>Login or Sign up</p>
+            {% endif %}
         </div>
     </div>
 </div>
