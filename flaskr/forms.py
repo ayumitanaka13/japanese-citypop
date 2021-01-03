@@ -83,8 +83,8 @@ class ChangePasswordForm(FlaskForm):
 
 
 class UserForm(FlaskForm):
-    picture_path = FileField('File upload')
-    submit = SubmitField('Update your info')
+    picture_path = FileField('Upload your icon')
+    submit = SubmitField('Submit')
 
 
 
@@ -112,6 +112,6 @@ class AlbumLikeForm(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-    to_user_id = HiddenField()
+    to_artist_id = HiddenField()
     comment = TextAreaField()
     submit = SubmitField('Add Comment')
