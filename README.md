@@ -18,6 +18,5 @@ Users can sign up and leave comments on your favorite artist's page.
 
 - Python Flask
 - SQL Alchemy
-- HTML5
 - Tailwind CSS
 
