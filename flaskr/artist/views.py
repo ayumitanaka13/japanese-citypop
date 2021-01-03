@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template
 from flask_login import login_required, current_user
 from flaskr.forms import CommentForm
 from flaskr.models import Artist, Comment, User
@@ -14,7 +14,6 @@ def artist():
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
 
-# @artist_bp.route('', methods=['GET', 'POST'])
 # @login_required
 # def add_comment():
 #     form = CommentForm(request.form)
@@ -25,7 +24,6 @@ def artist():
 #         with db.session.begin(subtransactions=True):
 #             new_comment.create_message()
 #         db.session.commit()
-#         return redirect(url_for('app.message', id=id))
 
     return render_template('artist/artist.html', artists=artists, comments=comments, form=form, to_artist_id=id, user=user)
 
