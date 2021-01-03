@@ -1,8 +1,7 @@
-from flask import Blueprint, request, render_template, redirect, url_for, flash, current_app
+from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_user
 from flaskr.forms import LoginForm
 from flaskr.models import User
-from flask_bcrypt import check_password_hash
 
 login_bp = Blueprint('login', __name__, url_prefix='/login')
 
