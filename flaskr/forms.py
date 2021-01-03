@@ -83,8 +83,8 @@ class ChangePasswordForm(FlaskForm):
 
 
 class UserForm(FlaskForm):
-    picture_path = FileField('File upload')
-    submit = SubmitField('Update your info')
+    picture_path = FileField('Upload your icon')
+    submit = SubmitField('Submit')
 
 
 
