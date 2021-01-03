@@ -12,6 +12,7 @@ def signup():
         user = User(
             email = form.email.data,
             username = form.username.data,
+            password = form.password.data
         )
         with db.session.begin(subtransactions=True):
             user.create_new_user()

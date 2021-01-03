@@ -20,15 +20,15 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), index=True)
-    password = db.Column(db.String(128), default=generate_password_hash('flaskapp'))
+    password = db.Column(db.String(128))
     picture_path = db.Column(db.Text)
-    is_active = db.Column(db.Boolean, unique=False, default=False)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
-    def __init__(self, email, username):
+    def __init__(self, email, username, password):
         self.email = email
         self.username = username
+        self.password = generate_password_hash(password)
 
     @classmethod
     def select_user_by_email(cls, email):
@@ -44,9 +44,9 @@ class User(UserMixin, db.Model):
     def select_user_by_id(cls, id):
         return cls.query.get(id)
 
-    def save_new_password(self, new_password):
-        self.password = generate_password_hash(new_password)
-        self.is_active = True
+    # def save_new_password(self, new_password):
+    #     self.password = generate_password_hash(new_password)
+    #     self.is_active = True
 
 
 

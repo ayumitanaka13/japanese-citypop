@@ -10,21 +10,27 @@
             <div class="flex w-full items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16">
                 <div class="text-center box">
                     <h4 class="text-lg sm:text-xl 2xl:text-3xl">
-                        Your image
+                        Search Result for {keyword}
                     </h4>
-                    <div class="flex justify-center mt-2 md:mt-4">
-                        <img src="/static/image/icon1.jpg" class="w-1/6 rounded-full">
+                    <div class="flex flex-wrap justify-around space-x-1 mt-2 md:mt-8">
+                        <div class="w-1/4 my-4">
+                            <a href="#">
+                                <img src="/static/image/1.jpg" class="shadow-lg">
+                            </a>
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/4 my-4">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
+                        <div class="w-1/4 my-4">
+                            <img src="/static/image/1.jpg">
+                            <h5 class="mt-4">{name}</h5>
+                            <h5 class="mt-2">{title}</h5>
+                        </div>
                     </div>
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl">
-                        Upload your icon
-                    </h4>
-    
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-2 lg:mt-4">
-                        Your email<br>{{current_user.email}}
-                    </h4>
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-2 lg:mt-4">
-                        Your Favorites
-                    </h4>
                 </div>
             </div>
         </div>

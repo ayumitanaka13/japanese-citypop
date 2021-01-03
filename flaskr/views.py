@@ -1,10 +1,22 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for,request
+from flaskr.forms import SearchForm
 
 bp = Blueprint('app', __name__, url_prefix='')
 
 @bp.route('/')
 def home():
     return render_template('home.html')
+
+# @bp.route('/search', methods=['GET'])
+# def search():
+#     form = SearchForm(request.form)
+#     session['url'] = 'app.search'
+#     keywords = None
+#     keyword = request.args.get('keyword', None, type=str)
+#     next_url = prev_url = None
+#     if keyword:
+#         page = request.args.get('page', 1, type=int)
+#     return render_template('base.html', form=form)
 
 @bp.route('/comingsoon')
 def comingsoon():
