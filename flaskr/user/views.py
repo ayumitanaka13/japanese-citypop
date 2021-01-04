@@ -22,7 +22,7 @@ def user():
                     str(int(datetime.now().timestamp())) + '.jpg'
                 picture_path = 'flaskr/static/image_user/' + file_name
                 open(picture_path, 'wb').write(file)
-                user.picture_path = 'user_image/' + file_name
+                user.picture_path = 'image_user/' + file_name
         db.session.commit()
         flash('User info update completed.')
     return render_template('user/user.html', form=form)

@@ -29,7 +29,6 @@ class User(UserMixin, db.Model):
         self.email = email
         self.username = username
         self.password = generate_password_hash(password)
-        self.picture_path = picture_path
 
     @classmethod
     def select_user_by_email(cls, email):

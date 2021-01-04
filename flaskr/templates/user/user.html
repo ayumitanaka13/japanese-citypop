@@ -14,9 +14,9 @@
                     </h4>
                     <div class="flex justify-center mt-2 md:mt-4">
                         {% if current_user.picture_path %}
-                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="w-1/6 rounded-full">
+                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="w-1/6 rounded-full border-2 xl:border-4 border-blue-500">
                         {% else %}
-                        <img src="/static/image/logoa.jpg" class="w-1/6 rounded-full">
+                        <img src="/static/image/logoa.jpg" class="w-1/6 rounded-full border-2 xl:border-4 border-blue-500">
                         {% endif %}
                     </div>
                     
