@@ -41,7 +41,7 @@
                             <div class="h-full col-span-8 flex items-center">
                                 <div class="w-full mx-2 sm:mx-4 2xl:mx-8 py-1 2xl:py-3 px-3 2xl:px-6 bg-white rounded shadow text-blue-400">
                                     <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-lg font-semibold">
-                                        @user.id.{{ comment.from_user_id }}
+                                        @user.id.{{ comment.from_user_id }} {{ user.username }}
                                     </p>
                                     <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-base">{{ comment.comment }}</p>
                                 </div>
@@ -57,9 +57,14 @@
                 </div>
             </div>
         </div>
-        <!-- comment -->
+
+        <!-- add comment -->
         <div class="h-1/5 flex items-center px-2 box">
             <div class="h-full w-full grid grid-cols-9 box">
+
+                {% block test %}
+                {% endblock %}
+
                 {% if current_user.is_authenticated %}
                 <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
                     {% if current_user.picture_path %}
@@ -88,8 +93,7 @@
                         <h4>You can add comment after you sign up!</h4>
                     </div>
                 </div>
-                {% endif %}
-                
+                {% endif %}                
             </div>
         </div>
     </div>

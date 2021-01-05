@@ -1,0 +1,38 @@
+<!-- {% from "/_formhelpers.html" import render_field %} -->
+
+{% block comment %}
+        <!-- add comment -->
+        <div class="h-1/5 flex items-center px-2 box">
+            <div class="h-full w-full grid grid-cols-9 box">
+                {% if current_user.is_authenticated %}
+                <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
+                    {% if current_user.picture_path %}
+                    <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="rounded-full border-solid border-2 xl:border-4 border-blue-500">
+                    {% else %}
+                    <img src="/static/image/logoa.jpg" class="rounded-full border-solid border-2 xl:border-4 border-blue-500">
+                    {% endif %}
+                </div>
+                <div class="h-full col-span-8 flex items-center flex items-center">
+                    <form method="POST" class="w-full mx-2 sm:mx-4 2xl:mx-8">
+                        {{form.csrf_token}}
+                        <h4 class="text-base sm:text-lg 2xl:text-xl">
+                            {{render_field(form.comment, class="w-full text-xl text-gray-400 rounded p-1 px-2 mt-1")}}
+                        </h4>
+                        <h4 class="text-base sm:text-lg 2xl:text-xl mt-2">
+                            {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded-full outline-none py-1 px-4")}}
+                        </h4>
+                    </form>
+                </div>
+                {% else %}
+                <div class="h-full col-span-1 flex items-center p-0 xl:p-2">
+                    <img src="/static/image/logoa.jpg" class="rounded-full border-solid  border-2 xl:border-4 border-blue-500">
+                </div>
+                <div class="h-full col-span-8 flex items-center flex items-center">
+                    <div class="w-full mx-2 sm:mx-4 2xl:mx-8">
+                        <h4>You can add comment after you sign up!</h4>
+                    </div>
+                </div>
+                {% endif %}                
+            </div>
+        </div>
+{% endblock %}

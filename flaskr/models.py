@@ -325,7 +325,7 @@ class Comment(db.Model):
         db.session.add(self)
     
     @classmethod
-    def get_comments(cls, id1, id2, offset_value=0, limit_value=100):
+    def get_comments(cls, id1, id2, offset_value=0, limit_value=10):
         return cls.query.filter(
             or_(
                 and_(
@@ -337,4 +337,6 @@ class Comment(db.Model):
                     cls.to_artist_id == id1
                 )
             )
-        ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).all()
+        ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).with_entities(
+           cls.username, cls.picture_path
+        ).all()
