@@ -322,7 +322,7 @@ class Comment(db.Model):
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
-    def __init__(self, from_user_id, to_artist_id, comment):
+    def __init__(self, from_user_id, to_artist_id, username, comment):
         self.from_user_id = from_user_id
         self.to_artist_id = to_artist_id
         self.username = username
