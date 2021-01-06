@@ -41,7 +41,7 @@
                             <div class="h-full col-span-8 flex items-center">
                                 <div class="w-full mx-2 sm:mx-4 2xl:mx-8 py-1 2xl:py-3 px-3 2xl:px-6 bg-white rounded shadow text-blue-400">
                                     <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-lg font-semibold">
-                                        @user.id.{{ comment.from_user_id }} {{ user.username }}
+                                        @user.id.{{ comment.from_user_id }}
                                     </p>
                                     <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-base">{{ comment.comment }}</p>
                                 </div>
@@ -76,11 +76,12 @@
                 <div class="h-full col-span-8 flex items-center flex items-center">
                     <form method="POST" class="w-full mx-2 sm:mx-4 2xl:mx-8">
                         {{form.csrf_token}}
+                        {{ form.to_artist_id(value=artist.id) }}
                         <h4 class="text-base sm:text-lg 2xl:text-xl">
-                            {{render_field(form.comment, class="w-full text-xl text-gray-400 rounded p-1 px-2 mt-1")}}
+                            {{render_field(form.comment, rows="2", class="w-full text-xl text-gray-400 rounded shadow p-1 px-2 mt-1")}}
                         </h4>
                         <h4 class="text-base sm:text-lg 2xl:text-xl mt-2">
-                            {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded-full outline-none py-1 px-4")}}
+                            {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded-full outline-none py-2 px-4")}}
                         </h4>
                     </form>
                 </div>

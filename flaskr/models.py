@@ -193,6 +193,10 @@ class Artist(db.Model):
         self.song_picture_path = song_picture_path
         self.artist_picture_path = artist_picture_path
 
+    @classmethod
+    def select_artist_by_id(cls, id):
+        return cls.query.get(id)
+
 
         
 class LikeAlbum(db.Model):

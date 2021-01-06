@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, flash
 from flask_login import login_required, current_user
 from flaskr.forms import CommentForm
 from flaskr.models import Artist, Comment, User
@@ -11,17 +11,19 @@ test_bp = Blueprint('test', __name__, url_prefix='/test')
 def artist():
     artists = Artist.query.all()
     comments = Comment.query.all()
-    # comments = Comment.get_comments(current_user.get_id(), id)
+
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
+    # artist_id = Artist.select_artist_by_id(Artist.id)
     form = CommentForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        new_comment = Comment(current_user.get_id(), Comment.to_artist_id(), form.comment.data)
+        new_comment = Comment(user_id, form.to_artist_id.data, form.comment.data) # user.username
         with db.session.begin(subtransactions=True):
             new_comment.create_comment()
         db.session.commit()
-    return render_template('artist/artist.html', artists=artists, comments=comments, user=user, form=form, to_artist_id=id)
+        flash("Your comment has been added!", "success")
+    return render_template('artist/artist.html', artists=artists, comments=comments, user=user, form=form)
 
 @test_bp.route('')
 def test():
