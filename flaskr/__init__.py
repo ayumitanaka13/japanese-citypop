@@ -20,14 +20,13 @@ def create_app():
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     from flaskr.history.views import history_bp
-    from flaskr.artist.views import artist_bp, test_bp
+    from flaskr.artist.views import artist_bp
     from flaskr.contact.views import contact_bp
     from flaskr.user.views import user_bp
     from flaskr.login.views import login_bp
     from flaskr.logout.views import logout_bp
     from flaskr.signup.views import signup_bp
     from flaskr.result.views import result_bp
-    # from flaskr.add_comment.views import add_comment_bp
     app.register_blueprint(history_bp)
     app.register_blueprint(artist_bp)
     app.register_blueprint(contact_bp)
@@ -36,7 +35,6 @@ def create_app():
     app.register_blueprint(logout_bp)
     app.register_blueprint(signup_bp)
     app.register_blueprint(result_bp)
-    app.register_blueprint(test_bp)
 
     from flaskr.views import bp
     app.register_blueprint(bp)
