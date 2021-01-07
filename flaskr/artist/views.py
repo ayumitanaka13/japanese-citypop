@@ -18,7 +18,7 @@ def artist():
     form = CommentForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        new_comment = Comment(user_id, form.to_artist_id.data, user.username, form.comment.data) # user.username
+        new_comment = Comment(user_id, form.to_artist_id.data, user.username, user.picture_path, form.comment.data)
         with db.session.begin(subtransactions=True):
             new_comment.create_comment()
         db.session.commit()
