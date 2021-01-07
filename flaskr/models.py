@@ -179,7 +179,6 @@ class Artist(db.Model):
     artist_info = db.Column(db.Text)
     song_picture_path = db.Column(db.Text)
     artist_picture_path = db.Column(db.Text)
-    comment = relationship("Comment")
 
     def __init__(self, from_album_id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path):
         self.from_album_id = from_album_id 
