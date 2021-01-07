@@ -13,7 +13,6 @@ def artist():
 
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
-    # artist_id = Artist.select_artist_by_id(Artist.id)
     form = CommentForm(request.form)
 
     if request.method == 'POST' and form.validate():
