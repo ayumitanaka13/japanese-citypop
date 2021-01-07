@@ -22,7 +22,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True)
     password = db.Column(db.String(128))
     picture_path = db.Column(db.Text)
-    # is_active = db.Column(db.Boolean, unique=False, default=False)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
@@ -193,12 +192,8 @@ class Artist(db.Model):
         self.song_picture_path = song_picture_path
         self.artist_picture_path = artist_picture_path
 
-    @classmethod
-    def select_artist_by_id(cls, id):
-        return cls.query.get(id)
 
 
-        
 class LikeAlbum(db.Model):
 
     __tablename__ = 'like_albums'
