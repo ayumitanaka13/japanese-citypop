@@ -1,3 +1,3 @@
 -- SQLite
+DROP TABLE users;
 DELETE FROM users;
-DELETE FROM users WHERE id = 2;

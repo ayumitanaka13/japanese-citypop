@@ -178,7 +178,6 @@ class Artist(db.Model):
     artist_info = db.Column(db.Text)
     song_picture_path = db.Column(db.Text)
     artist_picture_path = db.Column(db.Text)
-    comment = relationship("Comment")
 
     def __init__(self, from_album_id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path):
         self.from_album_id = from_album_id 
@@ -194,7 +193,7 @@ class Artist(db.Model):
         self.artist_picture_path = artist_picture_path
 
 
-        
+
 class LikeAlbum(db.Model):
 
     __tablename__ = 'like_albums'
@@ -312,29 +311,39 @@ class Comment(db.Model):
     to_artist_id = db.Column(
         db.Integer, db.ForeignKey('artists.id'), index=True
     )
+    username = db.Column(db.String(64), index=True)
+    picture_path = db.Column(db.Text)
     comment = db.Column(db.Text)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
-    def __init__(self, from_user_id, to_artist_id, comment):
+    def __init__(self, from_user_id, to_artist_id, username, picture_path, comment):
         self.from_user_id = from_user_id
         self.to_artist_id = to_artist_id
+        self.username = username
+        self.picture_path = picture_path
         self.comment = comment
 
     def create_comment(self):
         db.session.add(self)
     
-    @classmethod
-    def get_comments(cls, id1, id2, offset_value=0, limit_value=100):
-        return cls.query.filter(
-            or_(
-                and_(
-                    cls.from_user_id == id1,
-                    cls.to_artist_id == id2
-                ),
-                and_(
-                    cls.from_user_id == id2,
-                    cls.to_artist_id == id1
-                )
-            )
-        ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).all()
+    # @classmethod
+    # def get_comments(cls, id1, id2, offset_value=0, limit_value=10):
+    #     return cls.query.filter(
+    #         or_(
+    #             and_(
+    #                 cls.from_user_id == id1,
+    #                 cls.to_artist_id == id2
+    #             ),
+    #             and_(
+    #                 cls.from_user_id == id2,
+    #                 cls.to_artist_id == id1
+    #             )
+    #         )
+    #     ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).with_entities(
+    #        cls.username, cls.picture_path
+    #     ).all()
+
+        # SELECT * FROM comment where 
+        # (from_user_id = id AND to_artist_id = id2) OR
+        # (from_user_id = id AND to_artist_id = id2)
