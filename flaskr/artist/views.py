@@ -5,7 +5,6 @@ from flaskr.models import Artist, Comment, User
 from flaskr import db
 
 artist_bp = Blueprint('artist', __name__, url_prefix='/artist') 
-test_bp = Blueprint('test', __name__, url_prefix='/test') 
 
 @artist_bp.route('', methods=['GET', 'POST'])
 def artist():
@@ -24,7 +23,3 @@ def artist():
         db.session.commit()
         flash("Your comment has been added!", "success")
     return render_template('artist/artist.html', artists=artists, comments=comments, user=user, form=form)
-
-@test_bp.route('')
-def test():
-    return render_template('artist/test.html')
