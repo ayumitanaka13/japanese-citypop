@@ -220,8 +220,12 @@ class LikeAlbum(db.Model):
     def select_by_from_user_id(cls, from_user_id):
         return cls.query.filter_by(
             from_user_id = from_user_id,
-            to_album_id = album.get_id()
+            to_album_id = to_album_id.get_id()
         ).first()
+
+    # @classmethod
+    # def select_user_by_id(cls, id):
+    #     return cls.query.get(id)
 
     def update_status(self):
         self.status = 2
