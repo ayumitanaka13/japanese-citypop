@@ -99,7 +99,7 @@ class SearchForm(FlaskForm):
 class LikeAlbumForm(FlaskForm):
     # connect_condition = HiddenField()
     to_album_id = HiddenField()
-    submit = SubmitField('♡  Like')
+    submit = SubmitField('♡ Like')
 
     # def validate(self):
     #     if not super(FlaskForm, self).validate():
