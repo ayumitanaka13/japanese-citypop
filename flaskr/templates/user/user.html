@@ -31,10 +31,34 @@
                     </form>
 
                     <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
-                        Your Favorites
+                        Your Favorite Albums
                     </h4>
 
                     <div class="flex flex-wrap justify-around space-x-1 mt-2">
+                    {% for like_album in like_albums %}
+                    {% if current_user.id == like_album.from_user_id %}
+
+                        {% for album in albums %}
+                        {% if like_album.to_album_id == album.id %}
+                        <div class="w-1/6 my-2">
+                            <a href="{{ url_for('history.history', _anchor=album.title) }}">
+                                <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="shadow-lg">
+                            </a>
+                            <h5 class="mt-4">{{ album.name }}</h5>
+                            <h5 class="mt-2">{{ album.title }}</h5>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    {% else %}
+                        <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
+                            Save your favorites here!
+                        </h4>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+
+                    <!-- <div class="flex flex-wrap justify-around space-x-1 mt-2">
                         <div class="w-1/6 my-2">
                             <a href="#">
                                 <img src="/static/image/1.jpg" class="shadow-lg">
@@ -62,7 +86,7 @@
                             <h5 class="mt-4">{name}</h5>
                             <h5 class="mt-2">{title}</h5>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
