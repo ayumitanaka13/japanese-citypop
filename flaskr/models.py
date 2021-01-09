@@ -205,9 +205,6 @@ class LikeAlbum(db.Model):
     to_album_id = db.Column(
         db.Integer, db.ForeignKey('albums.id'), index=True
     )
-    # name = db.Column(db.String(128))
-    # title = db.Column(db.String(128))
-    # picture_path = db.Column(db.Text)
     status = db.Column(db.Integer, unique=False, default=1)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
@@ -215,13 +212,6 @@ class LikeAlbum(db.Model):
     def __init__(self, from_user_id, to_album_id):
         self.from_user_id = from_user_id
         self.to_album_id = to_album_id
-
-    # def __init__(self, from_user_id, to_album_id, name, title, picture_path):
-    #     self.from_user_id = from_user_id
-    #     self.to_album_id = to_album_id
-    #     self.name = name
-    #     self.title = title
-    #     self.picture_path = picture_path
 
     def create_new_like(self):
         db.session.add(self)
