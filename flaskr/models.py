@@ -205,7 +205,7 @@ class LikeAlbum(db.Model):
     to_album_id = db.Column(
         db.Integer, db.ForeignKey('albums.id'), index=True
     )
-    status = db.Column(db.Integer, unique=False, default=1)
+    status = db.Column(db.Integer, unique=False, default=0)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
@@ -219,8 +219,8 @@ class LikeAlbum(db.Model):
     @classmethod
     def select_by_from_user_id(cls, from_user_id):
         return cls.query.filter_by(
-            from_user_id = from_user_id,
-            to_album_id = to_album_id.get_id()
+            from_user_id = current_user.get_id(),
+            to_album_id = to_album_id
         ).first()
 
     # @classmethod
@@ -228,23 +228,16 @@ class LikeAlbum(db.Model):
     #     return cls.query.get(id)
 
     def update_status(self):
-        self.status = 2
+        self.status = 1
         self.update_at = datetime.now()
         
     @classmethod
     def is_like(cls, to_album_id):
         user = cls.query.filter(
-            or_(
-                and_(
-                    LikeAlbum.from_user_id == current_user.get_id(),
-                    LikeAlbum.to_album_id == to_album_id,
-                    LikeAlbum.status == 2
-                ),
-                and_(
-                    LikeAlbum.from_user_id == to_album_id,
-                    LikeAlbum.to_album_id == current_user.get_id(),
-                    LikeAlbum.status == 2
-                )
+            and_(
+                LikeAlbum.from_user_id == current_user.get_id(),
+                LikeAlbum.to_album_id == to_album_id,
+                LikeAlbum.status == 1
             )
         ).first()
         return True if user else False

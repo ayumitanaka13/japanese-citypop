@@ -21,18 +21,27 @@ def history():
     form = LikeAlbumForm(request.form)
 
     if request.method == 'POST' and form.validate():
-        # if form.connect_condition.data == 'connect':
-            new_like = LikeAlbum(user_id, form.to_album_id.data)
-            with db.session.begin(subtransactions=True):
-                new_like.create_new_like()
-                # connect.update_status()
-            db.session.commit()
-        # elif form.connect_condition.data == 'accept':
-        #     connect = LikeAlbum.select_by_from_user_id(form.to_album_id.data)
-        #     if connect:
-        #         with db.session.begin(subtransactions=True):
-        #             connect.update_status()
-        #         db.session.commit()
+        new_like = LikeAlbum(user_id, form.to_album_id.data)
+        
+        with db.session.begin(subtransactions=True):
+            new_like.create_new_like()
+            new_like.update_status()
+
+        db.session.commit()
+
+    
+    # if request.method == 'POST' and form.validate():
+    #     if form.connect_condition.data == 'connect':
+    #         new_like = LikeAlbum(current_user.get_id(), form.to_album_id.data)
+    #         with db.session.begin(subtransactions=True):
+    #             new_like.create_new_like()
+    #         db.session.commit()
+    #     elif form.connect_condition.data == 'accept':
+    #         connect = LikeAlbum.select_by_from_user_id(form.to_album_id.data)
+    #         if connect:
+    #             with db.session.begin(subtransactions=True):
+    #                 connect.update_status()
+    #             db.session.commit()
     # next_url = session.pop('url', 'app:home')
     # return redirect(url_for(next_url))
 
