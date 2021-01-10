@@ -315,17 +315,13 @@ class Comment(db.Model):
     to_artist_id = db.Column(
         db.Integer, db.ForeignKey('artists.id'), index=True
     )
-    username = db.Column(db.String(64), index=True)
-    picture_path = db.Column(db.Text)
     comment = db.Column(db.Text)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
-    def __init__(self, from_user_id, to_artist_id, username, picture_path, comment):
+    def __init__(self, from_user_id, to_artist_id, comment):
         self.from_user_id = from_user_id
         self.to_artist_id = to_artist_id
-        self.username = username
-        self.picture_path = picture_path
         self.comment = comment
 
     def create_comment(self):

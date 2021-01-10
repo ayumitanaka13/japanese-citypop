@@ -10,6 +10,7 @@ artist_bp = Blueprint('artist', __name__, url_prefix='/artist')
 def artist():
     artists = Artist.query.all()
     comments = Comment.query.all()
+    users = User.query.all()
 
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
@@ -21,4 +22,4 @@ def artist():
             new_comment.create_comment()
         db.session.commit()
         flash("Your comment has been added!", "success")
-    return render_template('artist/artist.html', artists=artists, comments=comments, user=user, form=form)
+    return render_template('artist/artist.html', artists=artists, comments=comments, users=users, user=user, form=form)
