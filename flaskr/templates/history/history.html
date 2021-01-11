@@ -45,8 +45,26 @@
                                         {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500") }}
                                     </h5>
 
-<!--  
-                                    {% for like_album in like_albums %}
+                                    <!-- {% for like_album in like_albums %}
+                                    {% if album.id == like_album.to_album_id %}
+
+                                    {% if like_album.status != 1 %}
+                                    <h5 class="text-base xl:text-xl">
+                                        {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500") }}
+                                    </h5>
+                                    {% else %}
+                                    <h5 class="text-base xl:text-xl">
+                                        <button class="bg-pink-400 hover:bg-pink-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none">
+                                            ♡ Liked
+                                        </button>
+                                    </h5>
+                                    {% endif %}
+                                    {% endif %}
+
+                                    {% endfor %} -->
+
+
+                               <!-- {% for like_album in like_albums %}
                                     {% if album.id == like_album.to_album_id %}
 
                                     {% if like_album.status == 1 %}

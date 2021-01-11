@@ -23,9 +23,12 @@ def history():
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)
         
-        with db.session.begin(subtransactions=True):
-            new_like.create_new_like()
-            new_like.update_status()
+        if 1 == 1:
+            with db.session.begin(subtransactions=True):
+                new_like.create_new_like()
+        else:
+            with db.session.begin(subtransactions=True):
+                new_like.update_status()
 
         db.session.commit()
 

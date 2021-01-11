@@ -48,6 +48,8 @@ class User(UserMixin, db.Model):
     #     self.password = generate_password_hash(new_password)
     #     self.is_active = True
 
+    
+
 
 
 class PasswordResetToken(db.Model):
