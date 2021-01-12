@@ -20,18 +20,21 @@ def history():
     user = User.select_user_by_id(user_id)
     form = LikeAlbumForm(request.form)
 
+    # status = LikeAlbum.status
+    # form_delete = UnlikeAlbumForm(request.form)
+
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)
-        
-        if 1 == 1:
-            with db.session.begin(subtransactions=True):
-                new_like.create_new_like()
-        else:
-            with db.session.begin(subtransactions=True):
-                new_like.update_status()
 
+        with db.session.begin(subtransactions=True):
+            new_like.add_like()
+            new_like.update_status()
         db.session.commit()
 
+        # if (status == 1):
+        #     with db.session.begin(subtransactions=True):
+        #         new_like.add_unlike()
+        #     db.session.commit()
     
     # if request.method == 'POST' and form.validate():
     #     if form.connect_condition.data == 'connect':

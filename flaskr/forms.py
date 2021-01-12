@@ -100,6 +100,7 @@ class LikeAlbumForm(FlaskForm):
     # connect_condition = HiddenField()
     from_user_id = HiddenField()
     to_album_id = HiddenField()
+    # status = HiddenField()
     submit = SubmitField('♡ Like')
 
     # def validate(self):
@@ -110,7 +111,12 @@ class LikeAlbumForm(FlaskForm):
     #         return False
     #     return True
 
-
+class UnlikeAlbumForm(FlaskForm):
+    # connect_condition = HiddenField()
+    from_user_id = HiddenField()
+    to_album_id = HiddenField()
+    status = HiddenField()
+    submit = SubmitField('♡ Unlike')
 
 class CommentForm(FlaskForm):
     to_artist_id = HiddenField()

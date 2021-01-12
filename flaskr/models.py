@@ -215,8 +215,12 @@ class LikeAlbum(db.Model):
         self.from_user_id = from_user_id
         self.to_album_id = to_album_id
 
-    def create_new_like(self):
+    def add_like(self):
         db.session.add(self)
+
+    # def add_unlike(self):
+    #     db.session.delete(self)
+
 
     @classmethod
     def select_by_from_user_id(cls, from_user_id):
