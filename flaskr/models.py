@@ -142,7 +142,13 @@ class Album(db.Model):
         self.album_picture_path = album_picture_path
         self.artist_picture_path = artist_picture_path
 
-
+    @classmethod
+    def search_by_name(cls, name, page=1):
+        return cls.query.filter(
+            cls.name.like(f'%{name}%')
+        ).with_entities(
+            cls.id, cls.name, cls.album_picture_path, cls.artist_picture_path
+        ).order_by(cls.name).paginate(page, 50, False)
 
 class AlbumArtist(db.Model):
 
@@ -207,9 +213,9 @@ class LikeAlbum(db.Model):
     to_album_id = db.Column(
         db.Integer, db.ForeignKey('albums.id'), index=True
     )
-    status = db.Column(db.Integer, unique=False, default=0)
+    # status = db.Column(db.Integer, unique=False, default=0)
     create_at = db.Column(db.DateTime, default=datetime.now)
-    update_at = db.Column(db.DateTime, default=datetime.now)
+    # update_at = db.Column(db.DateTime, default=datetime.now)
 
     def __init__(self, from_user_id, to_album_id):
         self.from_user_id = from_user_id
@@ -218,9 +224,17 @@ class LikeAlbum(db.Model):
     def add_like(self):
         db.session.add(self)
 
-    # def add_unlike(self):
-    #     db.session.delete(self)
-
+    # def delete_like(self, users, albums):
+    #     if self.is_liked(users, albums):
+    #         db.session.delete(self)
+    
+    def is_liked(self, users, albums):
+        return self.like_albums.filter(
+            and_(
+                from_user_id == users.id,
+                to_album_id == albums.id
+            ).count() > 0
+        )
 
     @classmethod
     def select_by_from_user_id(cls, from_user_id):
@@ -229,24 +243,24 @@ class LikeAlbum(db.Model):
             to_album_id = to_album_id
         ).first()
 
-    # @classmethod
-    # def select_user_by_id(cls, id):
-    #     return cls.query.get(id)
-
-    def update_status(self):
-        self.status = 1
-        self.update_at = datetime.now()
-        
     @classmethod
-    def is_like(cls, to_album_id):
+    def is_like(cls, from_user_id, to_album_id):
         user = cls.query.filter(
             and_(
                 LikeAlbum.from_user_id == current_user.get_id(),
                 LikeAlbum.to_album_id == to_album_id,
-                LikeAlbum.status == 1
             )
         ).first()
         return True if user else False
+    
+    # @classmethod
+    # def select_user_by_id(cls, id):
+    #     return cls.query.get(id)
+
+    # def update_status(self):
+    #     self.status = 1
+    #     self.update_at = datetime.now()
+        
 
 
 
