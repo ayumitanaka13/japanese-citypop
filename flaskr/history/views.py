@@ -20,36 +20,20 @@ def history():
     user = User.select_user_by_id(user_id)
     form = LikeAlbumForm(request.form)
 
-    # status = form.status.data
-    # form_delete = UnlikeAlbumForm(request.form)
-
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)
 
         with db.session.begin(subtransactions=True):
-            new_like.add_like()
-            new_like.update_status()
+            if new_like.is_liked(form.to_album_id.data) == False:
+                new_like.add_like()
+            else:
+                liked_items = LikeAlbum.query.filter_by(
+                    from_user_id = user_id,
+                    to_album_id = form.to_album_id.data
+                ).all()
+                for liked_item in liked_items:
+                    liked_item.delete_like()
         db.session.commit()
-
-        # if (form.status.data == 1):
-            # with db.session.begin(subtransactions=True):
-            #     new_like.delete_like()
-            # db.session.commit()
-        
-    # if request.method == 'POST' and form.validate():
-    #     if form.connect_condition.data == 'connect':
-    #         new_like = LikeAlbum(current_user.get_id(), form.to_album_id.data)
-    #         with db.session.begin(subtransactions=True):
-    #             new_like.create_new_like()
-    #         db.session.commit()
-    #     elif form.connect_condition.data == 'accept':
-    #         connect = LikeAlbum.select_by_from_user_id(form.to_album_id.data)
-    #         if connect:
-    #             with db.session.begin(subtransactions=True):
-    #                 connect.update_status()
-    #             db.session.commit()
-    # next_url = session.pop('url', 'app:home')
-    # return redirect(url_for(next_url))
 
     return render_template('history/history.html', albums=albums, artists=artists, like_albums=like_albums, user=user, form=form)
 

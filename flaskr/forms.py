@@ -97,7 +97,6 @@ class SearchForm(FlaskForm):
 
 
 class LikeAlbumForm(FlaskForm):
-    # connect_condition = HiddenField()
     from_user_id = HiddenField()
     to_album_id = HiddenField()
     submit = SubmitField('♡ Like')
