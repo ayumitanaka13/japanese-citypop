@@ -96,18 +96,18 @@ class SearchForm(FlaskForm):
 
 
 
-class AlbumLikeForm(FlaskForm):
-    connect_condition = HiddenField()
-    to_user_id = HiddenField()
-    submit = SubmitField()
+class LikeAlbumForm(FlaskForm):
+    from_user_id = HiddenField()
+    to_album_id = HiddenField()
+    submit = SubmitField('♡ Like')
 
-    def validate(self):
-        if not super(FlaskForm, self).validate():
-            return False
-        is_like = LikeAlbum.is_like(self.to_album_id.data)
-        if not is_like:
-            return False
-        return True
+    # def validate(self):
+    #     if not super(FlaskForm, self).validate():
+    #         return False
+    #     is_like = LikeAlbum.is_like(self.to_album_id.data)
+    #     if not is_like:
+    #         return False
+    #     return True
 
 
 

@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from uuid import uuid4
 
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
@@ -47,7 +48,7 @@ class User(UserMixin, db.Model):
     # def save_new_password(self, new_password):
     #     self.password = generate_password_hash(new_password)
     #     self.is_active = True
-
+    
 
 
 class PasswordResetToken(db.Model):
@@ -140,6 +141,14 @@ class Album(db.Model):
         self.album_picture_path = album_picture_path
         self.artist_picture_path = artist_picture_path
 
+    @classmethod
+    def search_by_name(cls, name, page=1):
+        return cls.query.filter(
+            cls.name.like(f'%{name}%')
+        ).with_entities(
+            cls.id, cls.name, cls.title, cls.album_picture_path, cls.artist_picture_path
+        ).order_by(cls.name).paginate(page, 50, False)
+
 
 
 class AlbumArtist(db.Model):
@@ -205,45 +214,34 @@ class LikeAlbum(db.Model):
     to_album_id = db.Column(
         db.Integer, db.ForeignKey('albums.id'), index=True
     )
-    status = db.Column(db.Integer, unique=False, default=1)
     create_at = db.Column(db.DateTime, default=datetime.now)
-    update_at = db.Column(db.DateTime, default=datetime.now)
 
     def __init__(self, from_user_id, to_album_id):
         self.from_user_id = from_user_id
         self.to_album_id = to_album_id
 
-    def create_new_like(self):
+    def add_like(self):
         db.session.add(self)
 
-    @classmethod
-    def select_by_from_user_id(cls, from_user_id):
+    def delete_like(self):
+        db.session.delete(self)
+    
+    def is_liked(cls, album_id):
         return cls.query.filter_by(
-            from_user_id = from_user_id,
-            to_album_id = album.get_id()
-        ).first()
+            from_user_id = current_user.get_id(),
+            to_album_id = album_id
+        ).count() > 0
 
-    def update_status(self):
-        self.status = 2
-        self.update_at = datetime.now()
-        
-    @classmethod
-    def is_like(cls, to_album_id):
-        user = cls.query.filter(
-            or_(
-                and_(
-                    LikeAlbum.from_user_id == current_user.get_id(),
-                    LikeAlbum.to_album_id == to_album_id,
-                    LikeAlbum.status == 2
-                ),
-                and_(
-                    LikeAlbum.from_user_id == to_album_id,
-                    LikeAlbum.to_album_id == current_user.get_id(),
-                    LikeAlbum.status == 2
-                )
-            )
-        ).first()
-        return True if user else False
+    # @classmethod
+    # def select_by_from_user_id(cls, from_user_id):
+    #     return cls.query.filter_by(
+    #         from_user_id = current_user.get_id(),
+    #         to_album_id = to_album_id
+    #     ).first()
+    
+    # @classmethod
+    # def select_user_by_id(cls, id):
+    #     return cls.query.get(id)
 
 
 
@@ -311,17 +309,13 @@ class Comment(db.Model):
     to_artist_id = db.Column(
         db.Integer, db.ForeignKey('artists.id'), index=True
     )
-    username = db.Column(db.String(64), index=True)
-    picture_path = db.Column(db.Text)
     comment = db.Column(db.Text)
     create_at = db.Column(db.DateTime, default=datetime.now)
     update_at = db.Column(db.DateTime, default=datetime.now)
 
-    def __init__(self, from_user_id, to_artist_id, username, picture_path, comment):
+    def __init__(self, from_user_id, to_artist_id, comment):
         self.from_user_id = from_user_id
         self.to_artist_id = to_artist_id
-        self.username = username
-        self.picture_path = picture_path
         self.comment = comment
 
     def create_comment(self):
@@ -343,7 +337,3 @@ class Comment(db.Model):
     #     ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).with_entities(
     #        cls.username, cls.picture_path
     #     ).all()
-
-        # SELECT * FROM comment where 
-        # (from_user_id = id AND to_artist_id = id2) OR
-        # (from_user_id = id AND to_artist_id = id2)
