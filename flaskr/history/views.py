@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for, session
+from flask import Blueprint, request, render_template, session
 from flask_login import current_user
 from flaskr.forms import LikeAlbumForm
 from flaskr.models import Age, Album, Artist, User, LikeAlbum
@@ -18,11 +18,12 @@ def history():
 
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
+
     form = LikeAlbumForm(request.form)
+
 
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)
-
         with db.session.begin(subtransactions=True):
             if new_like.is_liked(form.to_album_id.data) == False:
                 new_like.add_like()

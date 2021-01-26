@@ -232,22 +232,11 @@ class LikeAlbum(db.Model):
             to_album_id = album_id
         ).count() > 0
 
-    # @classmethod
-    # def select_by_from_user_id(cls, from_user_id):
-    #     return cls.query.filter_by(
-    #         from_user_id = current_user.get_id(),
-    #         to_album_id = to_album_id
-    #     ).first()
-    
-    # @classmethod
-    # def select_user_by_id(cls, id):
-    #     return cls.query.get(id)
 
 
+class LikeSong(db.Model):
 
-class LikeArtist(db.Model):
-
-    __tablename__ = 'like_artists'
+    __tablename__ = 'like_songs'
 
     id = db.Column(db.Integer, primary_key=True)
     from_user_id = db.Column(
@@ -256,45 +245,23 @@ class LikeArtist(db.Model):
     to_artist_id = db.Column(
         db.Integer, db.ForeignKey('artists.id'), index=True
     )
-    status = db.Column(db.Integer, unique=False, default=1)
     create_at = db.Column(db.DateTime, default=datetime.now)
-    update_at = db.Column(db.DateTime, default=datetime.now)
 
     def __init__(self, from_user_id, to_artist_id):
         self.from_user_id = from_user_id
         self.to_artist_id = to_artist_id
 
-    def create_new_like(self):
+    def add_like(self):
         db.session.add(self)
 
-    @classmethod
-    def select_by_from_user_id(cls, from_user_id):
-        return cls.query.filter_by(
-            from_user_id = from_user_id,
-            to_artist_id = artist.get_id()
-        ).first()
+    def delete_like(self):
+        db.session.delete(self)
 
-    def update_status(self):
-        self.status = 2
-        self.update_at = datetime.now()
-        
-    @classmethod
-    def is_like(cls, to_artist_id):
-        user = cls.query.filter(
-            or_(
-                and_(
-                    LikeArtist.from_user_id == current_user.get_id(),
-                    LikeArtist.to_artist_id == to_artist_id,
-                    LikeArtist.status == 2
-                ),
-                and_(
-                    LikeArtist.from_user_id == to_artist_id,
-                    LikeArtist.to_artist_id == current_user.get_id(),
-                    LikeArtist.status == 2
-                )
-            )
-        ).first()
-        return True if user else False
+    def is_liked(cls, artist_id):
+        return cls.query.filter_by(
+            from_user_id = current_user.get_id(),
+            to_artist_id = artist_id
+        ).count() > 0
 
 
 
@@ -320,20 +287,3 @@ class Comment(db.Model):
 
     def create_comment(self):
         db.session.add(self)
-    
-    # @classmethod
-    # def get_comments(cls, id1, id2, offset_value=0, limit_value=10):
-    #     return cls.query.filter(
-    #         or_(
-    #             and_(
-    #                 cls.from_user_id == id1,
-    #                 cls.to_artist_id == id2
-    #             ),
-    #             and_(
-    #                 cls.from_user_id == id2,
-    #                 cls.to_artist_id == id1
-    #             )
-    #         )
-    #     ).order_by(desc(cls.id)).offset(offset_value).limit(limit_value).with_entities(
-    #        cls.username, cls.picture_path
-    #     ).all()

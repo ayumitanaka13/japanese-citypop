@@ -101,13 +101,12 @@ class LikeAlbumForm(FlaskForm):
     to_album_id = HiddenField()
     submit = SubmitField('♡ Like')
 
-    # def validate(self):
-    #     if not super(FlaskForm, self).validate():
-    #         return False
-    #     is_like = LikeAlbum.is_like(self.to_album_id.data)
-    #     if not is_like:
-    #         return False
-    #     return True
+
+
+class LikeSongForm(FlaskForm):
+    from_user_id = HiddenField()
+    to_artist_id = HiddenField()
+    submit = SubmitField('♡ Like')
 
 
 
