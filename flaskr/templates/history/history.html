@@ -31,6 +31,10 @@
                                 {{ album.info }}
                             </p>
                             {% if current_user.is_authenticated %}
+
+                            {% for like_album in like_albums %}
+                            {% if like_album.from_user_id  %}
+
                             <form method="POST" class="mt-2">
                                 {{ form.csrf_token }}
                                 {{ form.from_user_id(value=current_user.id) }}
@@ -47,6 +51,8 @@
                                     </button>
                                 </a>
                             </h5>
+
+
                             {% endif %}
                         </div>
                     </div>       
