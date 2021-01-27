@@ -16,11 +16,17 @@ def history():
     artists = Artist.query.all()
     like_albums = LikeAlbum.query.all()
 
+    # is_liked_state = False
+    # for like_album in like_albums
+    #   if like_album.is_liked()
+    #     is_liked_state = True
+    #     break
+    # is_liked = LikeAlbum.is_liked()
+
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
 
     form = LikeAlbumForm(request.form)
-
 
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)

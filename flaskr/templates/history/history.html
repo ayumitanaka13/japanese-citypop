@@ -32,17 +32,35 @@
                             </p>
                             {% if current_user.is_authenticated %}
 
-                            {% for like_album in like_albums %}
-                            {% if like_album.from_user_id  %}
-
-                            <form method="POST" class="mt-2">
+                            <!-- <form method="POST" class="mt-2" id="like-album-form">
                                 {{ form.csrf_token }}
                                 {{ form.from_user_id(value=current_user.id) }}
                                 {{ form.to_album_id(value=album.id) }}
                                 <h5 class="text-base xl:text-xl">
                                     {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500 cursor-pointer") }}
                                 </h5>
+                            </form> -->
+                            <form method="POST" class="mt-2" id="like-album-form">
+                                {{ form.csrf_token }}
+                                {{ form.from_user_id(value=current_user.id) }}
+                                {{ form.to_album_id(value=album.id) }}
+
+                                {% set isLiked = {'isLiked':False} %}
+                                {% for like_album in like_albums %}
+                                    {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
+                                    <h5 class="text-base xl:text-xl">
+                                        {{ form.submit(value="♡ Unlike", class="bg-pink-400 hover:bg-pink-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500 cursor-pointer") }}
+                                    </h5>                                    
+                                    {% if isLiked.update({'isLiked':True}) %}{% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not isLiked.isLiked %}  
+                                    <h5 class="text-base xl:text-xl">
+                                        {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500 cursor-pointer") }}
+                                    </h5>
+                                {% endif %}
                             </form>
+
                             {% else %}
                             <h5 class="text-base xl:text-xl">
                                 <a href="{{ url_for('signup.signup') }}">
@@ -51,8 +69,6 @@
                                     </button>
                                 </a>
                             </h5>
-
-
                             {% endif %}
                         </div>
                     </div>       
