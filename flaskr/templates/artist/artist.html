@@ -34,7 +34,6 @@
                     {% set isCommented = {'isCommented':False} %}
                     {% for comment in comments %}      
                         {% if artist.id == comment.to_artist_id %}
-
                         <div class="h-full w-full grid grid-cols-9 box mb-2">
                             {% for user in users %}
                             {% if comment.from_user_id == user.id %}
@@ -55,8 +54,7 @@
                             </div>
                             {% endif %}
                             {% endfor %}
-                        </div>
-                        
+                        </div>                        
                         {% if isCommented.update({'isCommented':True}) %}{% endif %}
                         {% endif %}
                     {% endfor %}
@@ -118,15 +116,26 @@
                         <h4 class="text-lg sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl"><i class="fas fa-compact-disc mr-2"></i>{{ artist.year }}</h4>
                         <h4 class="text-base sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl pt-2">{{ artist.title }} <span>{{ artist.title_j }}</span></h4>
 
-
                         {% if current_user.is_authenticated %}
                         <form method="POST" class="mt-2">
                             {{ form.csrf_token }}
                             {{ form.from_user_id(value=current_user.id) }}
                             {{ form.to_artist_id(value=artist.id) }}
-                            <h5 class="text-base xl:text-xl">
-                                {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500 cursor-pointer") }}
-                            </h5>
+
+                            {% set isLiked = {'isLiked':False} %}
+                            {% for like_song in like_songs %}
+                                {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
+                                <h5 class="text-base xl:text-xl">
+                                    {{ form.submit(value="♥ Liked", class="bg-pink-400 hover:bg-transparent border-2 border-transparent hover:border-white py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow hover:shadow-none focus:outline-none focus:bg-black focus:bg-opacity-5 cursor-pointer") }}
+                                </h5>                                    
+                                {% if isLiked.update({'isLiked':True}) %}{% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not isLiked.isLiked %}  
+                                <h5 class="text-base xl:text-xl">
+                                    {{ form.submit(class="bg-transparent border-2 border-white hover:bg-pink-400 hover:border-transparent py-1 sm:py-2 px-2 sm:px-4 rounded-full hover:shadow focus:outline-none focus:bg-pink-500 focus:shadow-inner cursor-pointer") }}
+                                </h5>
+                            {% endif %}
                         </form>
                         {% else %}
                         <h5 class="text-base xl:text-xl">
@@ -154,7 +163,6 @@
             </p>
         </div>
     </div>
-
 </div>
 
 {% endfor %}
