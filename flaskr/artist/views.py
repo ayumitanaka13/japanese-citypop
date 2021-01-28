@@ -19,7 +19,6 @@ def artist():
     form = LikeSongForm(request.form)
     form_c = CommentForm(request.form)
 
-
     if request.method == 'POST' and form.validate():
         new_like = LikeSong(user_id, form.to_artist_id.data)
         with db.session.begin(subtransactions=True):
