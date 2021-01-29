@@ -31,16 +31,15 @@
                         </h4>
                     </form>
 
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl my-4 lg:my-8">
+                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-8 lg:mt-16">
                         Your Favorite Albums
                     </h4>
-                    <div class="flex flex-wrap justify-around space-x-1 mt-2 mx-12">
-                    
+                    <div class="flex flex-wrap justify-around space-x-1 space-y-1 my-4 mx-12">                 
                     {% set isLiked = {'isLiked':False} %}
                     {% for like_album in like_albums %}
                         {% for album in albums %}
                         {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                        <div class="w-1/5 m-2">
+                        <div class="w-1/5">
                             <a href="{{ url_for('history.history', _anchor=album.name) }}">
                                 <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
                             </a>
@@ -52,43 +51,21 @@
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <h5 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
+                        <h5 class="text-base sm:text-lg 2xl:text-xl mt-2">
                             Save your favorites here!
                         </h5>
                     {% endif %}
-
-                    <!-- {% for like_album in like_albums %}
-                    {% if current_user.id == like_album.from_user_id %}
-                        {% for album in albums %}
-                        {% if like_album.to_album_id == album.id %}
-                        <div class="w-1/5 m-2">
-                            <a href="{{ url_for('history.history', _anchor=album.name) }}">
-                                <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
-                            </a>
-                            <h5 class="mt-4">{{ album.name }}</h5>
-                            <h5 class="mt-2">{{ album.title }}</h5>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
-                            Save your favorites here!
-                        </h4>
-                    {% endif %}
-                    {% endfor %} -->
-
                     </div>
 
-                    <h4 class="text-lg sm:text-xl 2xl:text-3xl my-4 lg:my-8">
+                    <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-8 lg:mt-16">
                         Your Favorite Songs
                     </h4>
-                    <div class="flex flex-wrap justify-around space-x-1 mt-2 mx-12">
-
+                    <div class="flex flex-wrap justify-around space-x-1 space-y-1 my-4 mx-12">
                     {% set isLiked = {'isLiked':False} %}
                     {% for like_song in like_songs %}
                         {% for artist in artists %}
                         {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
-                        <div class="w-1/5 m-2">
+                        <div class="w-1/5">
                             <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
                                 <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
                             </a>
@@ -100,30 +77,10 @@
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <h5 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
+                        <h5 class="text-base sm:text-lg 2xl:text-xl mt-2">
                             Save your favorites here!
                         </h5>
                     {% endif %}    
-
-                    <!-- {% for like_song in like_songs %}
-                    {% if current_user.id == like_song.from_user_id %}
-                        {% for artist in artists %}
-                        {% if like_song.to_artist_id == artist.id %}
-                        <div class="w-1/5 m-2">
-                            <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
-                                <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="shadow-lg">
-                            </a>
-                            <h5 class="mt-4">{{ artist.name }}</h5>
-                            <h5 class="mt-2">{{ artist.title }}</h5>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
-                            Save your favorites here!
-                        </h4>
-                    {% endif %}
-                    {% endfor %} -->
                     </div>
                 </div>
             </div>
