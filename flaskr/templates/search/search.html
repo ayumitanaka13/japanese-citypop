@@ -1,0 +1,47 @@
+{% from "/_formhelpers.html" import render_field %}
+{% extends "/base.html" %}
+{% block content %}
+
+<div class="h-screen w-screen p-8 md:p-12 xl:p-20 md:py-20 pt-20 lg:pt-0 box">
+    <div class="h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
+        <div class="w-4/5 xl:w-1/2 box">
+
+            <h1 class="text-6xl lg:text-7xl 2xl:text-8xl text-center font-black box animate-pulse">Search</h1>
+
+            <div class="flex w-full items-center justify-center bg-white bg-opacity-40 rounded shadow-xl mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16">
+                <form method="POST" class="w-full mx-2 sm:mx-4 2xl:mx-8">
+                    {{form.csrf_token}}
+                    <h4 class="text-lg sm:text-xl 2xl:text-2xl">
+                        {{render_field(form.name, class="w-full text-xl text-gray-400 rounded p-2 mt-1")}}
+                    </h4>
+                    <h4 class="text-base sm:text-lg 2xl:text-xl mt-2">
+                        {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded-full outline-none py-2 px-4")}}
+                    </h4>
+                </form>
+
+
+                <div>
+                    {% for album in albums %}
+                    <div class="w-1/5">
+                        <a href="{{ url_for('album.album', _anchor=album.name) }}">
+                            <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
+                        </a>
+                        <h5 class="mt-4">{{ album.name }}</h5>
+                        <h5 class="mt-2">{{ album.title }}</h5>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if prev_url %}
+                <a href="{{ prev_url }}">prev</a>
+                {% endif %}
+                {% if next_url %}
+                    <a href="{{ next_url }}">next</a>
+                {% endif %}
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
