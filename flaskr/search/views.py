@@ -6,14 +6,14 @@ search_bp = Blueprint('search', __name__, url_prefix='/search')
 
 @search_bp.route('', methods=['GET', 'POST'])
 def search():
-    # albums = Album.query.all()
+    albums = Album.query.all()
     form = SearchForm(request.form)
 
     # session['url'] = 'search.search'
     # albums = None
     if request.method == 'POST' and form.validate():
         name = form.name.data
-        albums = Album.search_by_name(name)
+        # albums = Album.search_by_name(name)
 
     # name = request.args.get('name', None, type=str)
     # next_url = prev_url = None

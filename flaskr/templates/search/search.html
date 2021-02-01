@@ -19,24 +19,19 @@
                     </h4>
                 </form>
 
-
                 <div>
                     {% for album in albums %}
+                    {% if form.name.data.lower() in album.name.lower() %}
                     <div class="w-1/5">
-                        <a href="{{ url_for('album.album', _anchor=album.name) }}">
+                        <a href="{{ url_for('history.history', _anchor=album.name) }}">
                             <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
                         </a>
                         <h5 class="mt-4">{{ album.name }}</h5>
                         <h5 class="mt-2">{{ album.title }}</h5>
                     </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
-                {% if prev_url %}
-                <a href="{{ prev_url }}">prev</a>
-                {% endif %}
-                {% if next_url %}
-                    <a href="{{ next_url }}">next</a>
-                {% endif %}
             </div>
 
 
