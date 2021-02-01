@@ -20,14 +20,15 @@
                             </h4>
                         </div>
                     </form>
-                    <div class="flex flex-wrap w-full justify-around mt-12">
+                    <div class="flex flex-wrap w-full content-around justify-around space-x-1 mt-12">
                     {% if not form.keyword.data %}
                         <h5>Let's find your favs!</h5>
                     {% else %}
                         {% set isMatched = {'isMatched':False} %}
+
                         {% for album in albums %}
                         {% if form.keyword.data.lower() in album.name.lower() or form.keyword.data.lower() in album.title.lower() %}
-                        <div class="w-1/5">
+                        <div class="w-1/5 my-4">
                             <a href="{{ url_for('history.history', _anchor=album.name) }}">
                                 <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
                             </a>
@@ -37,6 +38,20 @@
                         {% if isMatched.update({'isMatched':True}) %}{% endif %}
                         {% endif %}
                         {% endfor %}
+
+                        {% for artist in artists %}
+                        {% if form.keyword.data.lower() in artist.name.lower() or form.keyword.data.lower() in artist.title.lower() %}
+                        <div class="w-1/5 my-4">
+                            <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
+                                <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="transform duration-300 ease-linear hover:scale-105 shadow-lg">
+                            </a>
+                            <h5 class="mt-4">{{ artist.name }}</h5>
+                            <h5 class="mt-2">{{ artist.title }}</h5>
+                        </div>
+                        {% if isMatched.update({'isMatched':True}) %}{% endif %}
+                        {% endif %}
+                        {% endfor %}
+
                         {% if not isMatched.isMatched %}
                         <h5>We couldn't find a match for "{{ form.keyword.data }}". Please try another Search.</h5>
                         {% endif %}
