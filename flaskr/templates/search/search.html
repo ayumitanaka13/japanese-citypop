@@ -22,6 +22,7 @@
                     </form>
                     <div class="flex flex-wrap w-full justify-around mt-12">
                     {% if not form.keyword.data %}
+                        <h5>Let's find your favs!</h5>
                     {% else %}
                         {% set isMatched = {'isMatched':False} %}
                         {% for album in albums %}
