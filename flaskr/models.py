@@ -141,13 +141,13 @@ class Album(db.Model):
         self.album_picture_path = album_picture_path
         self.artist_picture_path = artist_picture_path
 
-    @classmethod
-    def search_by_name(cls, name, page=1):
-        return cls.query.filter(
-            cls.name.like(f'%{name}%')
-        ).with_entities(
-            cls.id, cls.name, cls.title, cls.album_picture_path, cls.artist_picture_path
-        ).order_by(cls.name).paginate(page, 50, False)
+    # @classmethod
+    # def search_by_name(cls, name):
+    #     return cls.query.filter(
+    #         cls.name.like(f'%{name}%')
+    #     ).with_entities(
+    #         cls.id, cls.name, cls.title, cls.album_picture_path, cls.artist_picture_path
+    #     ).all()
 
 
 

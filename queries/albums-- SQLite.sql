@@ -1,4 +1,6 @@
 -- SQLite
+DELETE FROM albums;
+
 INSERT INTO albums (id, from_age_id, year, name, name_j, title, title_j, info, album_picture_path, artist_picture_path)
 VALUES (1, 1, 1970, 'Happy End', 'はっぴいえんど', 'Happy End', 'はっぴいえんど',
         'This is an iconic piece of Japanese rock music history. Happy End is a pioneering band that put Japanese lyrics on the rock sound.
@@ -7,7 +9,7 @@ VALUES (1, 1, 1970, 'Happy End', 'はっぴいえんど', 'Happy End', 'はっ�
         'image/1.jpg', 'image/1a.jpg');
 
 INSERT INTO albums (id, from_age_id, year, name, name_j, title, title_j, info, album_picture_path, artist_picture_path)
-VALUES (2, 2, 1975, 'Suger Babe', 'シュガーベイブ','Songs', 'ソングス',
+VALUES (2, 2, 1975, 'Sugar Babe', 'シュガーベイブ','Songs', 'ソングス',
         'This masterpiece produced by Eiichi Ohtaki was the starting point for city pop. Sugar Babe is the legendary band that
          Tatsuro Yamashita and Taeko Ohnuki were in. "Down Town ダウンタウン" is a famous song that a lot of artists have covered.
          I always get excited just listening to this beautiful song. It never gets old.',

@@ -90,7 +90,7 @@ class UserForm(FlaskForm):
 
 class SearchForm(FlaskForm):
     keyword = StringField(
-        'keyword', validators=[DataRequired()]
+        '', validators=[DataRequired()]
     )
     submit = SubmitField('Search')
 

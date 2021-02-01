@@ -15,7 +15,7 @@
         <div class="grid grid-rows-6 p-4">
             <!-- title -->
             <div class="row-span-1 flex items-center box">
-                <h3 class="text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">0{{ album.id }} - {{ album.name }} <span>{{ album.name_j }}</span></h3>
+                <h3 class="text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">0{{ loop.index }} - {{ album.name }} <span>{{ album.name_j }}</span></h3>
             </div>
             <!-- desc -->
             <div class="row-span-4 flex justify-center box">
@@ -30,18 +30,27 @@
                             <p class="text-base 2xl:text-xl py-1 lg:py-3">
                                 {{ album.info }}
                             </p>
+
                             {% if current_user.is_authenticated %}
-
-                            {% for like_album in like_albums %}
-                            {% if like_album.from_user_id  %}
-
                             <form method="POST" class="mt-2">
                                 {{ form.csrf_token }}
                                 {{ form.from_user_id(value=current_user.id) }}
                                 {{ form.to_album_id(value=album.id) }}
-                                <h5 class="text-base xl:text-xl">
-                                    {{ form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none focus:bg-pink-500 cursor-pointer") }}
-                                </h5>
+
+                                {% set isLiked = {'isLiked':False} %}
+                                {% for like_album in like_albums %}
+                                    {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
+                                    <h5 class="text-base xl:text-xl">
+                                        {{ form.submit(value="♥ Liked",　class="bg-pink-400 hover:bg-transparent border-2 border-transparent hover:border-white py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow hover:shadow-none focus:outline-none focus:bg-black focus:bg-opacity-5 cursor-pointer") }}
+                                    </h5>                                    
+                                    {% if isLiked.update({'isLiked':True}) %}{% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not isLiked.isLiked %}  
+                                    <h5 class="text-base xl:text-xl">
+                                        {{ form.submit(class="bg-transparent border-2 border-white hover:bg-pink-400 hover:border-transparent py-1 sm:py-2 px-2 sm:px-4 rounded-full hover:shadow focus:outline-none focus:bg-pink-500 focus:shadow-inner cursor-pointer") }}
+                                    </h5>
+                                {% endif %}
                             </form>
                             {% else %}
                             <h5 class="text-base xl:text-xl">
@@ -51,8 +60,6 @@
                                     </button>
                                 </a>
                             </h5>
-
-
                             {% endif %}
                         </div>
                     </div>       

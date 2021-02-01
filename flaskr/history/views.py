@@ -21,7 +21,6 @@ def history():
 
     form = LikeAlbumForm(request.form)
 
-
     if request.method == 'POST' and form.validate():
         new_like = LikeAlbum(user_id, form.to_album_id.data)
         with db.session.begin(subtransactions=True):
