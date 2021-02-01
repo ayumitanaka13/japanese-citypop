@@ -8,24 +8,16 @@ bp = Blueprint('app', __name__, url_prefix='')
 def home():
     return render_template('home.html')
 
-@bp.route('/search', methods=['GET'])
-def name_search():
-    albums = Album.query.all()
+# @bp.route('/searchbar', methods=['GET', 'POST'])
+# def searchbar():
+#     albums = Album.query.all()
+#     form = SearchForm(request.form)
 
-    form = SearchForm(request.form)
-    # session['url'] = 'app.user_search'
-    # users = None
-    name = request.args.get('name', None, type=str)
-    next_url = prev_url = None
-    if name:
-        page = request.args.get('page', 1, type=int)
-        posts = albums.search_by_name(name, page)
-        # next_url = url_for('app.user_search', page=posts.next_num, username=user_name) if posts.has_next else None
-        # prev_url = url_for('app.user_search', page=posts.prev_num, username=user_name) if posts.has_prev else None
-        # users = posts.items
-    return render_template(
-        'base.html', albums=albums, form=form, next_url=next_url, prev_url=prev_url
-    )
+#     if request.method == 'POST' and form.validate():
+#         name = form.name.data
+#         return redirect(url_for('result.result'))
+#     return render_template(
+#         'searchbar.html', albums=albums, form=form)
 
 @bp.route('/comingsoon')
 def comingsoon():
