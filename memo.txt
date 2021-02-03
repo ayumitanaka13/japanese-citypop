@@ -1,16 +1,20 @@
-                    <!-- <form method="POST" enctype="multipart/form-data" class="w-2/3 text-white box">
-                        {{form.csrf_token}}
-                        <h4 class="text-lg sm:text-xl 2xl:text-3xl">
-                            {{render_field(form.picture_path, class="w-full text-xl text-gray-400 rounded p-1 px-2 mt-1")}}
-                        </h4>
-                        <h4 class="text-lg sm:text-xl 2xl:text-3xl mt-4 lg:mt-8">
-                            {{form.submit(class="bg-blue-400 hover:bg-blue-500 rounded p-1 px-2")}}
-                        </h4>
-                    </form> -->
+module.exports = {
+  theme: {
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
 
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
 
-                    <form method="POST" enctype="multipart/form-data">
-                        {{form.csrf_token}}
-                        {{render_field(form.picture_path)}}
-                        {{form.submit()}}
-                    </form>
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    }
+  }
+}
