@@ -1,4 +1,6 @@
 *pyc
 .DS_Store
-migrations/
 __pycache__
+migrations/
+# node_modules/
+# tailwind-default.config.js

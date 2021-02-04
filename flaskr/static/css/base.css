@@ -18,24 +18,18 @@ body:after {
 }
 
 /* .box {
-    background-color: rgba(255, 255, 255, 0);
-    border: #fc5e55 1px solid;
-    z-index: 100;
+    border: white 1px solid;
 } */
 
-h1 {
+/* h1 {
     font-family: 'Codystar', sans-serif;
 }
 
 h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
-}
+} */
 
 span {
     font-size: 60%;
     font-weight: normal;
 }
-
-/* #dance {
-    transform: rotateY(180deg);
-} */

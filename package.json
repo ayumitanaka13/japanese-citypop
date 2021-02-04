@@ -1,0 +1,25 @@
+{
+  "name": "JapaneseCityPop_app",
+  "version": "1.0.0",
+  "description": "![readme](https://user-images.githubusercontent.com/55824449/101867136-4f9b1f80-3b2f-11eb-86a6-947c6db04bcd.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build flaskr/static/css/src/style.css -o flaskr/static/css/public/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayumitanaka13/citypop-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayumitanaka13/citypop-app/issues"
+  },
+  "homepage": "https://github.com/ayumitanaka13/citypop-app#readme",
+  "dependencies": {
+    "autoprefixer": "^10.2.4",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  }
+}
