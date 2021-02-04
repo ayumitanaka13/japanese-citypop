@@ -2,5 +2,5 @@
 .DS_Store
 __pycache__
 migrations/
-node_modules/
-tailwind-default.config.js
+# node_modules/
+# tailwind-default.config.js
