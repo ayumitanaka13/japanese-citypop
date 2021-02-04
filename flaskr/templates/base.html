@@ -45,17 +45,17 @@
     <title>Japanese City Pop</title>
 </head>
 
-<body class="text-white bg-purple-300" style="background: linear-gradient(to bottom right, #3dbaf4 0%, #ff93cd 100%)">
+<body class="bg-purple-300">
 
     {% block content %}
     {% block header %}
 
     <header>
-        <nav class="w-full flex flex-wrap items-center justify-between bg-transparent lg:text-lg py-4 lg:py-6 box">
+        <nav>
             <!-- search -->
-            <ul class="text-lg md:text-xl lg:flex">
+            <ul class="lg:flex">
                 <li>
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
+                    <a class="menu-block" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
                 </li>
             </ul>            
             <!-- toggle -->
@@ -67,34 +67,34 @@
                 </button>
             </div>
             <!-- nav bar -->
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-4 lg:pt-0" id="nav-content">
-                <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center text-right">
+            <div class="w-full lg:w-auto flex-grow lg:flex hidden lg:items-center pt-4 lg:pt-0" id="nav-content">
+                <ul class="lg:flex flex-1 items-center justify-end text-right">
                     <li>
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
+                        <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('history.history') }}">History</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('history.history') }}">History</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('artist.artist') }}">Artist</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('artist.artist') }}">Artist</a>
                     </li>
                     {% if current_user.is_authenticated %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('logout.logout')}}">Logout</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('logout.logout')}}">Logout</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('user.user')}}">User</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('user.user')}}">User</a>
                     </li>
                     {% else %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('signup.signup')}}">Sign up</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('signup.signup')}}">Sign up</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('login.login')}}">Login</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('login.login')}}">Login</a>
                     </li>
                     {% endif %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('contact.contact') }}">Contact</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('contact.contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>

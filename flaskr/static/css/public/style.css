@@ -548,9 +548,33 @@ video {
   height: auto;
 }
 
+body {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  --tw-gradient-from: #3dbaf4;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
+  --tw-gradient-to: #ff93cd;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity))
+}
+
+body::after {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  --tw-gradient-from: #3dbaf4;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
+  --tw-gradient-to: #ff93cd;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: -1
+}
+
 h1 {
   font-family: Codystar, cursive;
   font-weight: 900;
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 h2 {
@@ -563,6 +587,36 @@ h3 {
 
 h4 {
   font-family: Poppins, sans-serif;
+}
+
+span {
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px){
+  nav{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px){
+  nav{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 .container{
@@ -596,6 +650,98 @@ h4 {
 @media (min-width: 1536px){
   .container{
     max-width: 1536px;
+  }
+}
+
+.base-style {
+  height: 100vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 6rem;
+  width: 100vw;
+}
+
+@media (min-width: 768px){
+  .base-style{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .base-style{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 9rem;
+  }
+}
+
+.bg-style {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  width: 100%
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px){
+  .title{
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px){
+  .title{
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1280px){
+  .title{
+    font-size: 6rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1536px){
+  .title{
+    font-size: 8rem;
+    line-height: 1;
+  }
+}
+
+.subtitle {
+  font-size: 3.75rem;
+  line-height: 1;
+  text-align: center;
+}
+
+@media (min-width: 1024px){
+  .subtitle{
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1536px){
+  .subtitle{
+    font-size: 6rem;
+    line-height: 1;
   }
 }
 
@@ -633,6 +779,24 @@ h4 {
     padding-bottom: 0.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+}
+
+.menu-block {
+  display: inline-block;
+}
+
+.menu-block:hover{
+  opacity: 0.75;
+}
+
+.menu-ml {
+  margin-left: 1.5rem;
+}
+
+@media (min-width: 1280px){
+  .menu-ml{
+    margin-left: 3rem;
   }
 }
 
@@ -27529,6 +27693,10 @@ h4 {
   z-index: auto;
 }
 
+.-z-1{
+  z-index: -1;
+}
+
 .focus-within\:z-0:focus-within{
   z-index: 0;
 }
@@ -27557,6 +27725,10 @@ h4 {
   z-index: auto;
 }
 
+.focus-within\:-z-1:focus-within{
+  z-index: -1;
+}
+
 .focus\:z-0:focus{
   z-index: 0;
 }
@@ -27583,6 +27755,10 @@ h4 {
 
 .focus\:z-auto:focus{
   z-index: auto;
+}
+
+.focus\:-z-1:focus{
+  z-index: -1;
 }
 
 .gap-0{
@@ -58498,6 +58674,10 @@ h4 {
     z-index: auto;
   }
 
+  .sm\:-z-1{
+    z-index: -1;
+  }
+
   .sm\:focus-within\:z-0:focus-within{
     z-index: 0;
   }
@@ -58526,6 +58706,10 @@ h4 {
     z-index: auto;
   }
 
+  .sm\:focus-within\:-z-1:focus-within{
+    z-index: -1;
+  }
+
   .sm\:focus\:z-0:focus{
     z-index: 0;
   }
@@ -58552,6 +58736,10 @@ h4 {
 
   .sm\:focus\:z-auto:focus{
     z-index: auto;
+  }
+
+  .sm\:focus\:-z-1:focus{
+    z-index: -1;
   }
 
   .sm\:gap-0{
@@ -89402,6 +89590,10 @@ h4 {
     z-index: auto;
   }
 
+  .md\:-z-1{
+    z-index: -1;
+  }
+
   .md\:focus-within\:z-0:focus-within{
     z-index: 0;
   }
@@ -89430,6 +89622,10 @@ h4 {
     z-index: auto;
   }
 
+  .md\:focus-within\:-z-1:focus-within{
+    z-index: -1;
+  }
+
   .md\:focus\:z-0:focus{
     z-index: 0;
   }
@@ -89456,6 +89652,10 @@ h4 {
 
   .md\:focus\:z-auto:focus{
     z-index: auto;
+  }
+
+  .md\:focus\:-z-1:focus{
+    z-index: -1;
   }
 
   .md\:gap-0{
@@ -120306,6 +120506,10 @@ h4 {
     z-index: auto;
   }
 
+  .lg\:-z-1{
+    z-index: -1;
+  }
+
   .lg\:focus-within\:z-0:focus-within{
     z-index: 0;
   }
@@ -120334,6 +120538,10 @@ h4 {
     z-index: auto;
   }
 
+  .lg\:focus-within\:-z-1:focus-within{
+    z-index: -1;
+  }
+
   .lg\:focus\:z-0:focus{
     z-index: 0;
   }
@@ -120360,6 +120568,10 @@ h4 {
 
   .lg\:focus\:z-auto:focus{
     z-index: auto;
+  }
+
+  .lg\:focus\:-z-1:focus{
+    z-index: -1;
   }
 
   .lg\:gap-0{
@@ -151210,6 +151422,10 @@ h4 {
     z-index: auto;
   }
 
+  .xl\:-z-1{
+    z-index: -1;
+  }
+
   .xl\:focus-within\:z-0:focus-within{
     z-index: 0;
   }
@@ -151238,6 +151454,10 @@ h4 {
     z-index: auto;
   }
 
+  .xl\:focus-within\:-z-1:focus-within{
+    z-index: -1;
+  }
+
   .xl\:focus\:z-0:focus{
     z-index: 0;
   }
@@ -151264,6 +151484,10 @@ h4 {
 
   .xl\:focus\:z-auto:focus{
     z-index: auto;
+  }
+
+  .xl\:focus\:-z-1:focus{
+    z-index: -1;
   }
 
   .xl\:gap-0{
@@ -182114,6 +182338,10 @@ h4 {
     z-index: auto;
   }
 
+  .\32xl\:-z-1{
+    z-index: -1;
+  }
+
   .\32xl\:focus-within\:z-0:focus-within{
     z-index: 0;
   }
@@ -182142,6 +182370,10 @@ h4 {
     z-index: auto;
   }
 
+  .\32xl\:focus-within\:-z-1:focus-within{
+    z-index: -1;
+  }
+
   .\32xl\:focus\:z-0:focus{
     z-index: 0;
   }
@@ -182168,6 +182400,10 @@ h4 {
 
   .\32xl\:focus\:z-auto:focus{
     z-index: auto;
+  }
+
+  .\32xl\:focus\:-z-1:focus{
+    z-index: -1;
   }
 
   .\32xl\:gap-0{

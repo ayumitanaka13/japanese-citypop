@@ -19,6 +19,5 @@ module.exports = {
   }
 }
 
-  experimental: {
-    applyComplexClasses: true,
-  },
+
+1. body gradient

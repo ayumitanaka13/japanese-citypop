@@ -2,12 +2,12 @@
 {% block content %}
 
 <!-- top -->
-<div class="h-screen w-screen px-8 md:px-12 xl:px-20 pb-8 pb-24 md:pb-32 xl:pb-36 box">
+<div class="base-style">
     {% block header %}
     {{ super() }}
     {% endblock %}
-    <div class="h-full w-full flex flex-wrap items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-center font-black box animate-pulse">JAPANESE CITY POP</h1>
+    <div class="bg-style flex-wrap" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
+        <h1 class="title">JAPANESE CITY POP</h1>
     </div>
 <div>
 {% endblock %}

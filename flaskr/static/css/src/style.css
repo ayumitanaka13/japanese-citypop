@@ -5,8 +5,14 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply text-white bg-gradient-to-br from-lightblue to-lightpink
+    }
+    body::after {
+        @apply h-full w-full fixed top-0 left-0 -z-1 bg-gradient-to-br from-lightblue to-lightpink
+    }
     h1 {
-        @apply font-codystar font-black;
+        @apply font-codystar font-black animate-pulse;
     }
     h2 {
         @apply font-poppins;
@@ -17,10 +23,35 @@
     h4 {
         @apply font-poppins;
     }
+    span {
+        @apply font-normal;
+    }
+    nav {
+        @apply w-full flex flex-wrap items-center justify-between py-4 lg:py-6 text-lg md:text-xl;
+    }
 }
 
 @layer components {
+    .base-style {
+        @apply h-screen w-screen px-8 md:px-12 xl:px-20 pb-24 md:pb-32 xl:pb-36;
+    }
+    .bg-style {
+        @apply h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg
+    }
+    .
+    .title {
+        @apply text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+    }
+    .subtitle {
+        @apply text-center text-6xl lg:text-7xl 2xl:text-8xl;
+    }
     .btn-blue {
         @apply py-1 sm:py-2 px-4 sm:px-6 shadow rounded-full bg-blue-400 hover:bg-blue-500 focus:outline-none;
+    }
+    .menu-block {
+        @apply inline-block hover:opacity-75;
+    }
+    .menu-ml {
+        @apply ml-6 xl:ml-12;
     }
 }

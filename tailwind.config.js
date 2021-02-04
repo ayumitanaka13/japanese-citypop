@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         codystar: ['Codystar', 'cursive'],
         poppins: ['Poppins', 'sans-serif']
+      },
+      zIndex: {
+        '-1': '-1'
       }
     },
   },
