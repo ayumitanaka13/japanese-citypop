@@ -187,21 +187,21 @@
                             {% for like_song in like_songs %}
                                 {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
                                 <h5 class="text-sm sm:text-base xl:text-xl">
-                                    {{ form.submit(value="♥ Liked", class="bg-pink-400 hover:bg-transparent border sm:border-2 border-transparent hover:border-white py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow hover:shadow-none focus:outline-none focus:bg-black focus:bg-opacity-5 cursor-pointer") }}
+                                    {{ form.submit(value="♥ Liked", class="btn-pink") }}
                                 </h5>                                    
                                 {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                 {% endif %}
                             {% endfor %}
                             {% if not isLiked.isLiked %}  
                                 <h5 class="text-sm sm:text-base xl:text-xl">
-                                    {{ form.submit(class="bg-transparent border sm:border-2 border-white hover:bg-pink-400 hover:border-transparent py-1 sm:py-2 px-2 sm:px-4 rounded-full hover:shadow focus:outline-none focus:bg-pink-500 focus:shadow-inner cursor-pointer") }}
+                                    {{ form.submit(class="btn-transparent") }}
                                 </h5>
                             {% endif %}
                         </form>
                         {% else %}
                         <h5 class="text-sm sm:text-base xl:text-xl">
                             <a href="{{ url_for('signup.signup') }}">
-                                <button class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none">
+                                <button class="btn-blue">
                                     ♡ You can save your favorites after you sign up!
                                 </button>
                             </a>
