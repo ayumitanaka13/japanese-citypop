@@ -53,20 +53,22 @@
 </header>
 
 {% for album in albums %}
-<div class="min-h-screen w-screen grid grid-cols-3 flex items-center py-0 lg:py-12" id="{{ album.name }}">
+<div class="min-h-screen w-screen grid grid-cols-3 py-0 lg:py-12" id="{{ album.name }}">
     <!-- album age -->
     <div class="h-full col-span-3 lg:col-span-1 flex items-center justify-center bg-contain bg-left bg-no-repeat py-10 lg:py-0 box" style="background-image: url(/static/image/record.png);">
-        <div class="px-8 md:px-12 xl:pl-20 box">
-            <h2 class="text-5xl lg:text-6xl 2xl:text-7xl font-bold">{{ album.age }}</h2>
-            <p class="text-lg sm:text-xl md:text-2xl pt-3">{{ album.age_info }}</p>
+        <div class="px-8 md:px-12 xl:pl-20">
+            <h2>{{ album.age }}</h2>
+            <p class="mt-4">{{ album.age_info }}</p>
         </div>
     </div>
     <!-- album info -->
     <div class="h-full col-span-3 lg:col-span-2 flex items-center box">
         <div class="grid grid-rows-6 px-8 md:px-12 xl:pr-20">
             <!-- title -->
-            <div class="row-span-1 flex items-center box">
-                <h3 class="text-2xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold">0{{ loop.index }} - {{ album.name }} <span>{{ album.name_j }}</span></h3>
+            <div class="row-span-1 flex flex-wrap items-center box">
+                <h3 class="font-semibold">
+                    0{{ loop.index }} - {{ album.name }} <small>{{ album.name_j }}</small>
+                </h3>
             </div>
             <!-- desc -->
             <div class="row-span-4 flex justify-center box">
@@ -76,9 +78,13 @@
                     </div>
                     <div class="col-span-2 lg:col-span-1 flex items-center box">
                         <div class="py-1 md:py-0 px-4 xl:px-8 mt-4 lg:mt-0 box">
-                            <h4 class="text-2xl xl:text-3xl 2xl:text-4xl"><i class="fas fa-compact-disc mr-2"></i>{{ album.year }}</h4>
-                            <h4 class="text-2xl xl:text-3xl 2xl:text-4xl py-1 lg:py-2">{{ album.title }} <span>{{ album.title_j }}</span></h4>
-                            <p class="text-base 2xl:text-xl py-1 lg:py-3">
+                            <h4>
+                                <i class="fas fa-compact-disc mr-2"></i>{{ album.year }} {{ album.title }}
+                            </h4>
+                            <h4 class="mt-0 sm:mt-2">
+                                <small>{{ album.title_j }}</small>
+                            </h4>
+                            <p class="mt-0 sm:mt-2">
                                 {{ album.info }}
                             </p>
 
@@ -91,26 +97,26 @@
                                 {% set isLiked = {'isLiked':False} %}
                                 {% for like_album in like_albums %}
                                     {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                                    <h5 class="text-base xl:text-xl">
-                                        {{ form.submit(value="♥ Liked",　class="bg-pink-400 hover:bg-transparent border-2 border-transparent hover:border-white py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow hover:shadow-none focus:outline-none focus:bg-black focus:bg-opacity-5 cursor-pointer") }}
+                                    <h5>
+                                        {{ form.submit(value="♥ Liked",　class="btn-pink") }}
                                     </h5>                                    
                                     {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                     {% endif %}
                                 {% endfor %}
                                 {% if not isLiked.isLiked %}  
-                                    <h5 class="text-base xl:text-xl">
-                                        {{ form.submit(class="bg-transparent border-2 border-white hover:bg-pink-400 hover:border-transparent py-1 sm:py-2 px-2 sm:px-4 rounded-full hover:shadow focus:outline-none focus:bg-pink-500 focus:shadow-inner cursor-pointer") }}
+                                    <h5>
+                                        {{ form.submit(class="btn-transparent") }}
                                     </h5>
                                 {% endif %}
                             </form>
                             {% else %}
-                            <h5 class="text-base xl:text-xl">
+                            <p class="mt-2 sm:mt-4">
                                 <a href="{{ url_for('signup.signup') }}">
-                                    <button class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none">
-                                        ♡ You can save your favorites after you sign up!
+                                    <button class="btn-blue">
+                                        ♡ You can save your favs after you sign up!
                                     </button>
                                 </a>
-                            </h5>
+                            </p>
                             {% endif %}
                         </div>
                     </div>       
@@ -118,15 +124,17 @@
             </div>
             <!-- member -->
             <div class="row-span-1 flex items-center box">
-                <img class="w-24 sm:w-28 rounded-full mx-1 sm:mx-2 xl:mx-4 border-solid border-2 border-blue-500 shadow" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
+                <img class="w-24 sm:w-28 icon-style mx-1 sm:mx-2 xl:mx-4" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
                 <div class="flex flex-wrap">
                     {% for artist in artists %}
                         {% if album.id == artist.from_album_id %}
-                        <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
-                            <button class="bg-blue-400 hover:bg-blue-500 font-semibold my-1 ml-4 py-1 sm:py-2 px-2 sm:px-4 rounded-full shadow focus:outline-none text-sm xl:text-lg">
-                                # {{ artist.name }}
-                            </button>
-                        </a>
+                        <p>
+                            <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
+                                <button class="btn-blue font-semibold my-1 ml-4 px-4">
+                                    # {{ artist.name }}
+                                </button>
+                            </a>
+                        </p>
                         {% endif %}
                     {% endfor %}
                 </div>

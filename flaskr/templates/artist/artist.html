@@ -54,22 +54,22 @@
 </header>
 
 {% for artist in artists %}
-<div class="min-h-screen w-screen grid grid-cols-2 flex items-center px-8 md:px-12 xl:px-20 pb-8 pt-8 lg:pb-16 lg:pt-12 gap-8 box" id="{{ artist.name }}">
+<div class="artists-style" id="{{ artist.name }}">
     <!-- singer -->
-    <div class="h-screen lg:h-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300 p-4 sm:p-6">
+    <div class="artist-style">
         <!-- singer name -->
         <div class="h-1/5 box flex items-center">
             <div class="h-full w-full grid grid-cols-5">
                 <div class="h-full col-span-1 flex items-center box lg:p-2">
-                    <img src="{{ url_for('static', filename=artist.artist_picture_path) }}" class="w-full rounded-full border-solid border-2 sm:border-4 border-blue-500">
+                    <img src="{{ url_for('static', filename=artist.artist_picture_path) }}" class="w-full icon-style">
                 </div>
-                <div class="h-full col-span-4 flex items-center box">
-                    <div class="flex flex-wrap pl-2 sm:pl-4 2xl:pl-8 box">
-                        <h3 class="text-xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
+                <div class="h-full col-span-4 flex items-center">
+                    <div class="pl-2 sm:pl-4 2xl:pl-8">
+                        <h3 class="font-semibold">
                             {{ artist.name }}
                         </h3>
-                        <h3 class="ml-2 text-xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
-                            <span>{{ artist.name_j }}</span>
+                        <h3 class="mt-1 md:mt-2">
+                            <small>{{ artist.name_j }}</small>
                         </h3>
                     </div>
                 </div>       
@@ -77,7 +77,7 @@
         </div>
         <!-- singer desc -->
         <div class="h-1/5 flex items-center px-2 box">
-            <p class="text-sm sm:text-base 2xl:text-xl">
+            <p>
                 {{ artist.artist_info }}
             </p>
         </div>
@@ -93,17 +93,21 @@
                             {% if comment.from_user_id == user.id %}
                             <div class="h-full col-span-2 sm:col-span-1 flex items-center p-0 xl:p-1">
                                 {% if user.picture_path %}
-                                <img src="{{ url_for('static', filename=user.picture_path) }}" class="rounded-full border-solid border-2 md:border-4 border-blue-500">
+                                <img src="{{ url_for('static', filename=user.picture_path) }}" class="icon-style">
                                 {% else %}
-                                <img src="/static/image/logoa.jpg" class="rounded-full border-solid border-2 md:border-4 border-blue-500">
+                                <img src="/static/image/logoa.jpg" class="icon-style">
                                 {% endif %}                                
                             </div>
                             <div class="h-full col-span-7 sm:col-span-8 flex items-center">
                                 <div class="w-full h-auto sm:h-5/6 mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6 bg-white rounded shadow text-blue-400">
-                                    <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-lg font-semibold">
+                                    <p class="font-semibold">
                                         @{{ user.username}}
                                     </p>
-                                    <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-base">{{ comment.comment }}</p>
+                                    <p><small>{{ comment.comment }}</small></p>
+                                    <!-- <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-lg font-semibold">
+                                        @{{ user.username}}
+                                    </p>
+                                    <p class="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-base">{{ comment.comment }}</p> -->
                                 </div>
                             </div>
                             {% endif %}
@@ -114,7 +118,7 @@
                     {% endfor %}
 
                     {% if not isCommented.isCommented %}                
-                    <h2>There's no comment yet.</h2>
+                    <h6>There's no comment yet.</h5>
                     {% endif %}
                 </div>
             </div>
@@ -126,31 +130,35 @@
                 {% if current_user.is_authenticated %}
                 <div class="h-full col-span-2 sm:col-span-1 flex items-center p-0 xl:p-1">
                     {% if current_user.picture_path %}
-                    <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="rounded-full border-solid border-2 md:border-4 border-blue-500">
+                    <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-style">
                     {% else %}
-                    <img src="/static/image/logoa.jpg" class="rounded-full border-solid border-2 md:border-4 border-blue-500">
+                    <img src="/static/image/logoa.jpg" class="icon-style">
                     {% endif %}
                 </div>
                 <div class="h-full col-span-7 sm:col-span-8 flex items-center">
                     <form method="POST" class="w-full mx-2 sm:mx-4 2xl:mx-8">
                         {{form_c.csrf_token}}
                         {{ form_c.to_artist_id(value=artist.id) }}
-                        <h4 class="text-base sm:text-lg 2xl:text-xl">
+                        <h6>
                             {{render_field(form_c.comment, rows="2", class="w-full text-gray-400 rounded shadow p-1 px-2 mt-1")}}
-                        </h4>
-                        <h4 class="text-sm sm:text-lg 2xl:text-xl mt-1 sm:mt-2">
-                            {{form_c.submit(class="bg-blue-400 hover:bg-blue-500 rounded-full outline-none py-2 px-4")}}
-                        </h4>
+                        </h6>
+                        <h6 class="mt-1 sm:mt-2">
+                            {{form_c.submit(class="btn-blue")}}
+                        </h6>
                     </form>
                 </div>
                 {% else %}
                 <div class="h-full col-span-1 flex items-center p-0 xl:p-1">
-                    <img src="/static/image/logoa.jpg" class="rounded-full border-solid  border-2 xl:border-4 border-blue-500">
+                    <img src="/static/image/logoa.jpg" class="icon-style">
                 </div>
-                <div class="h-full col-span-8 flex items-center flex items-center">
-                    <div class="w-full mx-2 sm:mx-4 2xl:mx-8">
-                        <h4>You can add comment after you sign up!</h4>
-                    </div>
+                <div class="h-full col-span-8 w-full mx-2 sm:mx-4 2xl:mx-8 flex items-center">
+                    <h6>
+                        <a href="{{ url_for('signup.signup') }}">
+                            <button class="btn-blue">
+                                ♡ You can add comments after you sign up!
+                            </button>
+                        </a>
+                    </h6>
                 </div>
                 {% endif %}                
             </div>
@@ -158,54 +166,49 @@
     </div>
 
     <!-- song -->
-    <div class="h-screen lg:h-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg box border-t-2 border-blue-300 p-4 sm:p-6">
+    <div class="artist-style">
         <!-- song title -->
         <div class="h-1/5 box flex items-center">
             <div class="h-full w-full grid grid-cols-5">
-                <div class="h-full col-span-1 flex items-center lg:p-2 box">
+                <div class="h-full col-span-1 flex items-center lg:p-2">
                     <img src="{{ url_for('static', filename=artist.song_picture_path) }}" alt="" class="w-full shadow">
                 </div>
                 <div class="h-full col-span-4 flex items-center box">
-                    <div class="pl-2 sm:pl-4 2xl:pl-8 box">
-                        <h4 class="text-lg sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl"><i class="fas fa-compact-disc mr-2"></i>{{ artist.year }}</h4>
-                        <div class="flex flex-wrap sm:flex-nowrap">
-                            <h4 class="text-base sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl mt-0 sm:mt-2">
-                                {{ artist.title }}
-                            </h4>
-                            <h4 class="ml-2 text-base sm:text-2xl lg:text-xl xl:text-2xl 2xl:text-4xl mt-0 sm:mt-2">
-                                <span>{{ artist.title_j }}</span>
-                            </h4>
-                        </div>
-
+                    <div class="pl-2 sm:pl-4 2xl:pl-8">
+                        <h4>
+                            <i class="fas fa-compact-disc mr-2"></i>{{ artist.year }} {{ artist.title }}
+                        </h4>
+                        <h4 class="mt-0 sm:mt-2">
+                            <small>{{ artist.title_j }}</small>
+                        </h4>
                         {% if current_user.is_authenticated %}
                         <form method="POST" class="mt-2">
                             {{ form.csrf_token }}
                             {{ form.from_user_id(value=current_user.id) }}
                             {{ form.to_artist_id(value=artist.id) }}
-
                             {% set isLiked = {'isLiked':False} %}
                             {% for like_song in like_songs %}
                                 {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
-                                <h5 class="text-sm sm:text-base xl:text-xl">
+                                <h5>
                                     {{ form.submit(value="♥ Liked", class="btn-pink") }}
                                 </h5>                                    
                                 {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                 {% endif %}
                             {% endfor %}
                             {% if not isLiked.isLiked %}  
-                                <h5 class="text-sm sm:text-base xl:text-xl">
+                                <h5>
                                     {{ form.submit(class="btn-transparent") }}
                                 </h5>
                             {% endif %}
                         </form>
                         {% else %}
-                        <h5 class="text-sm sm:text-base xl:text-xl">
+                        <p class="mt-0 sm:mt-2">
                             <a href="{{ url_for('signup.signup') }}">
                                 <button class="btn-blue">
                                     ♡ You can save your favorites after you sign up!
                                 </button>
                             </a>
-                        </h5>
+                        </p>
                         {% endif %}
 
                     </div>
@@ -213,14 +216,12 @@
             </div>
         </div>
         <!-- song youtube -->
-        <div class="h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center lg:p-2 mt-0 md:pt-8 box">
+        <div class="h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center lg:p-2 mt-0 md:pt-8">
             <iframe class="w-full h-full shadow rounded-lg" src="{{ artist.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- song desc -->
-        <div class="h-2/5 sm:h-1/5 lg:h-2/5 xl:h-1/5 flex items-center px-2 box">
-            <p class="text-base 2xl:text-xl">
-                {{ artist.song_info }}
-            </p>
+        <div class="h-2/5 sm:h-1/5 lg:h-2/5 xl:h-1/5 flex items-center px-2">
+            <p>{{ artist.song_info }}</p>
         </div>
     </div>
 </div>

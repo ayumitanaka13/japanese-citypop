@@ -10,23 +10,23 @@
         <div class="w-4/5 xl:w-1/2 2xl:w-1/3 box">
             <h1 class="subtitle">Sign Up</h1>
             <div class="white-style">
-                <form method="POST" class="w-3/4 sm:w-2/3 text-white box">
+                <form method="POST" class="w-3/4 sm:w-2/3 text-white">
                     {{form.csrf_token}}
-                    <h5>
-                        {{render_field(form.username, class="w-full text-lg sm:text-xl text-gray-400 rounded p-1 sm:p-2 mt-1")}}
-                    </h5>
-                    <h5 class="mt-2 lg:mt-4">
-                        {{render_field(form.email, class="w-full text-lg sm:text-xl text-gray-400 rounded p-1 sm:p-2 mt-1")}}
-                    </h5>
-                    <h5 class="mt-2 lg:mt-4">
-                        {{render_field(form.password, class="w-full text-lg sm:text-xl text-gray-400 rounded p-1 sm:p-2 mt-1")}}
-                    </h5>
-                    <h5 class="mt-2 lg:mt-4">
-                        {{render_field(form.password_confirm, class="w-full text-lg sm:text-xl text-gray-400 rounded p-1 sm:p-2 mt-1")}}
-                    </h5>
-                    <h5 class="mt-4 lg:mt-8">
-                        {{form.submit(class="bg-blue-400 hover:bg-blue-500 py-1 sm:py-2 px-4 sm:px-6 rounded-full shadow focus:outline-none")}}
-                    </h5>
+                    <h6>
+                        {{render_field(form.username, class="input-form")}}
+                    </h6>
+                    <h6 class="mt-2 lg:mt-4">
+                        {{render_field(form.email, class="input-form")}}
+                    </h6>
+                    <h6 class="mt-2 lg:mt-4">
+                        {{render_field(form.password, class="input-form")}}
+                    </h6>
+                    <h6 class="mt-2 lg:mt-4">
+                        {{render_field(form.password_confirm, class="input-form")}}
+                    </h6>
+                    <h6 class="mt-4 lg:mt-8">
+                        {{form.submit(class="btn-blue")}}
+                    </h6>
                 </form>
             </div>
         </div>
