@@ -1,9 +1,3 @@
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
-
 body {
     background: linear-gradient(to bottom right, #3dbaf4 0%, #ff93cd 100%);
 }
@@ -15,21 +9,4 @@ body:after {
     content: "";
     background: linear-gradient(to bottom right, #3dbaf4 0%, #ff93cd 100%);
     z-index: -1;
-}
-
-/* .box {
-    border: white 1px solid;
-} */
-
-/* h1 {
-    font-family: 'Codystar', sans-serif;
-}
-
-h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
-} */
-
-span {
-    font-size: 60%;
-    font-weight: normal;
 }

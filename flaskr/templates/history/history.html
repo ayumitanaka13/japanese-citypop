@@ -2,9 +2,9 @@
 {% block content %}
 
 <header class="px-8 md:px-12 xl:px-20" id="top">
-    <nav class="w-full flex flex-wrap items-center justify-between bg-transparent lg:text-lg pt-4 lg:pt-6 box">
+    <nav class="nav-style pt-4 lg:pt-6">
         <!-- search -->
-        <ul class="text-lg md:text-xl lg:flex">
+        <ul class="ul-style">
             <li>
                 <a class="inline-block hover:opacity-75" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
             </li>
@@ -18,8 +18,9 @@
             </button>
         </div>
         <!-- nav bar -->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-4 lg:pt-0" id="nav-content">
-            <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center text-right">
+        <div class="nav-bar-style" id="nav-content">
+        <!-- <div class="w-full lg:w-auto flex-grow hidden lg:flex lg:items-center mt-2 lg:mt-0" id="nav-content"> -->
+            <ul class="nav-ul-style ul-style">
                 <li>
                     <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
                 </li>
@@ -97,16 +98,16 @@
                                 {% set isLiked = {'isLiked':False} %}
                                 {% for like_album in like_albums %}
                                     {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                                    <h5>
+                                    <p>
                                         {{ form.submit(value="♥ Liked",　class="btn-pink") }}
-                                    </h5>                                    
+                                    </p>                                    
                                     {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                     {% endif %}
                                 {% endfor %}
                                 {% if not isLiked.isLiked %}  
-                                    <h5>
+                                    <p>
                                         {{ form.submit(class="btn-transparent") }}
-                                    </h5>
+                                    </p>
                                 {% endif %}
                             </form>
                             {% else %}

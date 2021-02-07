@@ -16,13 +16,7 @@
 	<meta property="og:url" content="https://citypop.netlify.app/" />
 	<meta property="og:site_name" content="Japanese City Pop" />
     <!-- CSS -->
-    <!-- <link rel="stylesheet" href="../static/css/base.css"> -->
     <link rel="stylesheet" href="/static/css/public/style.css">
-    <!-- Tailwind -->
-    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
-	<!-- Google font -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
@@ -46,7 +40,6 @@
 </head>
 
 <body class="bg-purple-300">
-
     {% block content %}
 
     {% block header %}
@@ -69,7 +62,9 @@
                 </button>
             </div>
             <!-- nav bar -->
-            <div class="nav-style hidden" id="nav-content">
+            <div class="nav-bar-style" id="nav-content">
+            <!-- <div class="nav-style-2 lg:block" id="nav-content"> -->
+            <!-- <div class="w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0" id="nav-content"> -->
                 <ul class="nav-ul-style">
                     <li>
                         <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>

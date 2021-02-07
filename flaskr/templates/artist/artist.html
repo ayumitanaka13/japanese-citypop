@@ -3,7 +3,7 @@
 {% block content %}
 
 <header class="px-8 md:px-12 xl:px-20" id="top">
-    <nav class="w-full flex flex-wrap items-center justify-between bg-transparent lg:text-lg pt-4 lg:pt-6 box">
+    <nav class="w-full flex flex-wrap items-center justify-between pt-4 lg:pt-6">
         <!-- search -->
         <ul class="text-lg md:text-xl lg:flex">
             <li>
@@ -19,7 +19,7 @@
             </button>
         </div>
         <!-- nav bar -->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-4 lg:pt-0" id="nav-content">
+        <div class="w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0" id="nav-content">
             <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center text-right">
                 <li>
                     <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
@@ -152,13 +152,13 @@
                     <img src="/static/image/logoa.jpg" class="icon-style">
                 </div>
                 <div class="h-full col-span-8 w-full mx-2 sm:mx-4 2xl:mx-8 flex items-center">
-                    <h6>
+                    <p>
                         <a href="{{ url_for('signup.signup') }}">
                             <button class="btn-blue">
                                 ♡ You can add comments after you sign up!
                             </button>
                         </a>
-                    </h6>
+                    </p>
                 </div>
                 {% endif %}                
             </div>
