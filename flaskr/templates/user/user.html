@@ -3,7 +3,9 @@
 {% block content %}
 
 <div class="base-style">
-
+    {% block header %}
+    {{ super() }}
+    {% endblock %}
 
     {% block bg %}
     {{ super() }}
