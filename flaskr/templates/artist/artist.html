@@ -2,56 +2,9 @@
 {% extends "/base.html" %}
 {% block content %}
 
-<header class="px-8 md:px-12 xl:px-20" id="top">
-    <nav class="w-full flex flex-wrap items-center justify-between pt-4 lg:pt-6">
-        <!-- search -->
-        <ul class="text-lg md:text-xl lg:flex">
-            <li>
-                <a class="inline-block hover:opacity-75" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
-            </li>
-        </ul>            
-        <!-- toggle -->
-        <div class="block lg:hidden">
-            <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded hover:bg-blue-500 focus:outline-none">
-                <svg class="fill-current h-4 md:h-5 w-4 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-            </button>
-        </div>
-        <!-- nav bar -->
-        <div class="w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0" id="nav-content">
-            <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center text-right">
-                <li>
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('history.history') }}">History</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('artist.artist') }}">Artist</a>
-                </li>
-                {% if current_user.is_authenticated %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('logout.logout')}}">Logout</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('user.user')}}">User</a>
-                </li>
-                {% else %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('signup.signup')}}">Sign up</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('login.login')}}">Login</a>
-                </li>
-                {% endif %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('contact.contact') }}">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+{% block header2 %}
+{{ super() }}
+{% endblock %}
 
 {% for artist in artists %}
 <div class="artists-style" id="{{ artist.name }}">
@@ -216,7 +169,7 @@
             </div>
         </div>
         <!-- song youtube -->
-        <div class="h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center lg:p-2 mt-0 md:pt-8">
+        <div class="h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center lg:p-2 mt-0 md:mt-8">
             <iframe class="w-full h-full shadow rounded-lg" src="{{ artist.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- song desc -->

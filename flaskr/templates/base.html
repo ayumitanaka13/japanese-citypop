@@ -36,7 +36,7 @@
     <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Title -->
-    <title>Japanese City Pop</title>
+    <title>Japanese Citypop</title>
 </head>
 
 <body class="bg-purple-300">
@@ -63,8 +63,6 @@
             </div>
             <!-- nav bar -->
             <div class="nav-bar-style" id="nav-content">
-            <!-- <div class="nav-style-2 lg:block" id="nav-content"> -->
-            <!-- <div class="w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0" id="nav-content"> -->
                 <ul class="nav-ul-style">
                     <li>
                         <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
@@ -97,6 +95,61 @@
             </div>
         </nav>
     </header>
+    {% endblock %}
+
+    {% block header2 %}
+    <header class="header-style" id="top">
+        <nav class="pt-4 lg:pt-6">
+            <!-- search -->
+            <ul>
+                <li>
+                    <a class="menu-block" href="{{ url_for('search.search') }}">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </a>
+                </li>
+            </ul>            
+            <!-- toggle -->
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="btn-toggle">
+                    <svg class="svg-style" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+        <!-- nav bar -->
+            <div class="nav-bar-style" id="nav-content">
+                <ul class="nav-ul-style">
+                    <li>
+                        <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('history.history') }}">History</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('artist.artist') }}">Artist</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('logout.logout')}}">Logout</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('user.user')}}">User</a>
+                    </li>
+                    {% else %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('signup.signup')}}">Sign up</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('login.login')}}">Login</a>
+                    </li>
+                    {% endif %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('contact.contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>    
     {% endblock %}
 
     {% block bg %}

@@ -44,6 +44,9 @@
 }
 
 @layer components {
+    .header-style {
+        @apply px-8 md:px-12 xl:px-20;
+    }
     .nav-style {
         @apply w-full flex flex-wrap items-center justify-between py-4 lg:py-6;
     }
@@ -82,6 +85,66 @@
     }
     .album-bg-style {
         @apply h-full flex items-center justify-center col-span-3 lg:col-span-1 bg-contain bg-left bg-no-repeat py-10 lg:py-0;
+    }
+    .album-grid-row {
+        @apply grid grid-rows-6 px-8 md:px-12 xl:pr-20;
+    }
+    .album-grid-col {
+        @apply grid grid-cols-2 gap-5 lg:gap-0;
+    }
+    .album-row-1 {
+        @apply row-span-1 flex items-center;
+    }
+    .album-row-4 {
+        @apply row-span-4 flex justify-center;
+    }
+    .album-col-2 {
+        @apply col-span-2 lg:col-span-1 flex items-center;
+    }
+    .artist-grid-col-5 {
+        @apply h-full w-full grid grid-cols-5;
+    }
+    .artist-grid-col-9 {
+        @apply h-full w-full grid grid-cols-9 overflow-scroll;
+    }
+    .artist-col-1 {
+        @apply h-full col-span-1 flex items-center;
+    }
+    .artist-col-2 {
+        @apply h-full col-span-2 sm:col-span-1 flex items-center;
+    }
+    .artist-col-4 {
+        @apply h-full col-span-4 flex items-center;
+    }
+    .artist-col-7 {
+        @apply h-full col-span-7 sm:col-span-8 flex items-center;
+    }
+    .artist-col-8 {
+        @apply h-full w-full col-span-8 flex items-center mx-2 sm:mx-4 2xl:mx-8;
+    }
+    .artist-col-9 {
+        @apply h-full w-full grid grid-cols-9;
+    }
+    .artist-h-20 {
+        @apply h-1/5 flex items-center;
+    }
+    .artist-h-40 {
+        @apply h-2/5 flex items-center;
+    }
+    .youtube {
+        @apply w-full h-full shadow rounded-lg;
+    }
+    .artist-youtube-style {
+        @apply h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center mt-0 md:mt-8 lg:p-2;
+    }
+    .artist-song-style {
+        @apply h-2/5 sm:h-1/5 lg:h-2/5 xl:h-1/5 flex items-center px-2;
+    }
+    .artist-comment-style {
+        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6;
+    }
+    .artist-add-comment-style {
+        @apply w-full text-gray-400 shadow rounded mt-1 p-1 px-2;
     }
     .white-style {
         @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16;

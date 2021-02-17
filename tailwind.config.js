@@ -1,7 +1,8 @@
 module.exports = {
   purge: [
-    '/flaskr/templates/**/*.html',
-    '/flaskr/static/js/*.js',
+    'flaskr/templates/*.html',
+    'flaskr/templates/**/*.html',
+    'flaskr/static/js/*.js',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

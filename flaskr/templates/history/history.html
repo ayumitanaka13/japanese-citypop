@@ -1,79 +1,32 @@
+{% from "/_formhelpers.html" import render_field %}
 {% extends "/base.html" %}
 {% block content %}
 
-<header class="px-8 md:px-12 xl:px-20" id="top">
-    <nav class="nav-style pt-4 lg:pt-6">
-        <!-- search -->
-        <ul class="ul-style">
-            <li>
-                <a class="inline-block hover:opacity-75" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
-            </li>
-        </ul>            
-        <!-- toggle -->
-        <div class="block lg:hidden">
-            <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded hover:bg-blue-500 focus:outline-none">
-                <svg class="fill-current h-4 md:h-5 w-4 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-            </button>
-        </div>
-        <!-- nav bar -->
-        <div class="nav-bar-style" id="nav-content">
-        <!-- <div class="w-full lg:w-auto flex-grow hidden lg:flex lg:items-center mt-2 lg:mt-0" id="nav-content"> -->
-            <ul class="nav-ul-style ul-style">
-                <li>
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('history.history') }}">History</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('artist.artist') }}">Artist</a>
-                </li>
-                {% if current_user.is_authenticated %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('logout.logout')}}">Logout</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('user.user')}}">User</a>
-                </li>
-                {% else %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('signup.signup')}}">Sign up</a>
-                </li>
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{url_for('login.login')}}">Login</a>
-                </li>
-                {% endif %}
-                <li class="ml-6 xl:ml-12">
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('contact.contact') }}">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+{% block header2 %}
+{{ super() }}
+{% endblock %}
 
 {% for album in albums %}
-<div class="min-h-screen w-screen grid grid-cols-3 py-0 lg:py-12" id="{{ album.name }}">
+<div class="albums-style" id="{{ album.name }}">
     <!-- album age -->
-    <div class="h-full col-span-3 lg:col-span-1 flex items-center justify-center bg-contain bg-left bg-no-repeat py-10 lg:py-0 box" style="background-image: url(/static/image/record.png);">
+    <div class="album-bg-style" style="background-image: url(/static/image/record.png);">
         <div class="px-8 md:px-12 xl:pl-20">
             <h2>{{ album.age }}</h2>
             <p class="mt-4">{{ album.age_info }}</p>
         </div>
     </div>
     <!-- album info -->
-    <div class="h-full col-span-3 lg:col-span-2 flex items-center box">
+    <div class="album-style">
         <div class="grid grid-rows-6 px-8 md:px-12 xl:pr-20">
             <!-- title -->
-            <div class="row-span-1 flex flex-wrap items-center box">
+            <div class="row-span-1 flex flex-wrap items-center">
                 <h3 class="font-semibold">
                     0{{ loop.index }} - {{ album.name }} <small>{{ album.name_j }}</small>
                 </h3>
             </div>
             <!-- desc -->
             <div class="row-span-4 flex justify-center box">
-                <div class="grid grid-cols-2 row-gap-5 lg:row-gap-0">
+                <div class="grid grid-cols-2 gap-5 lg:gap-0">
                     <div class="col-span-2 lg:col-span-1 flex items-center p-2 md:p-1 box">
                         <img src="{{ url_for('static', filename=album.album_picture_path) }}" alt="" class="w-full shadow-md">
                     </div>
