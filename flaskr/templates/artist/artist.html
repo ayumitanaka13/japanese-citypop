@@ -91,9 +91,9 @@
                         <h6>
                             {{render_field(form_c.comment, rows="2", class="add-comment-style")}}
                         </h6>
-                        <h6 class="mt-1 sm:mt-2">
+                        <p class="mt-1 sm:mt-2">
                             {{form_c.submit(class="btn-blue")}}
-                        </h6>
+                        </p>
                     </form>
                 </div>
                 {% else %}
@@ -138,16 +138,16 @@
                             {% set isLiked = {'isLiked':False} %}
                             {% for like_song in like_songs %}
                                 {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
-                                <h5>
+                                <p>
                                     {{ form.submit(value="♥ Liked", class="btn-pink") }}
-                                </h5>                                    
+                                </p>                                    
                                 {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                 {% endif %}
                             {% endfor %}
                             {% if not isLiked.isLiked %}  
-                                <h5>
+                                <p>
                                     {{ form.submit(class="btn-transparent") }}
-                                </h5>
+                                </p>
                             {% endif %}
                         </form>
                         {% else %}
