@@ -13,10 +13,10 @@
        
     <div class="layout-2">
             <h1 class="subtitle">Search</h1>
-            <form method="POST" class="w-full mt-12 px-6 sm:px-8 md:px-16">
+            <form method="POST" class="search-form">
                 {{form.csrf_token}}
-                <div class="flex flex-wrap md:flex-nowrap justify-center">
-                    <h6 class="w-full pr-0 md:pr-2 lg:pr-4">
+                <div class="search-wrap">
+                    <h6 class="search-bar">
                         {{render_field(form.keyword, class="h-full input-form mt-0", placeholder="Let's find your city pop!")}}
                     </h6>
                     <h6 class="mt-4 md:mt-0">

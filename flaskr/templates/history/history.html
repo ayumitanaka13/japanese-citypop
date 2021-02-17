@@ -31,7 +31,7 @@
                         <img src="{{ url_for('static', filename=album.album_picture_path) }}" alt="" class="w-full shadow-md">
                     </div>
                     <div class="album-col-2">
-                        <div class="mt-4 lg:mt-0 py-1 md:py-0 px-4 xl:px-8">
+                        <div class="album-title">
                             <h4>
                                 <i class="fas fa-compact-disc mr-2"></i>{{ album.year }} {{ album.title }}
                             </h4>
@@ -78,7 +78,7 @@
             </div>
             <!-- member -->
             <div class="album-row-1">
-                <img class="w-24 sm:w-28 icon-style mx-1 sm:mx-2 xl:mx-4" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
+                <img class="album-icon icon-style" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
                 <div class="flex flex-wrap">
                     {% for artist in artists %}
                         {% if album.id == artist.from_album_id %}
