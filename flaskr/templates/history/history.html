@@ -43,7 +43,7 @@
                             </p>
 
                             {% if current_user.is_authenticated %}
-                            <form method="POST" class="mt-2">
+                            <form method="POST" class="mt-2 sm:mt-4">
                                 {{ form.csrf_token }}
                                 {{ form.from_user_id(value=current_user.id) }}
                                 {{ form.to_album_id(value=album.id) }}
@@ -51,26 +51,20 @@
                                 {% set isLiked = {'isLiked':False} %}
                                 {% for like_album in like_albums %}
                                     {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                                    <p>
                                         {{ form.submit(value="♥ Liked",　class="btn-pink") }}
-                                    </p>                                    
                                     {% if isLiked.update({'isLiked':True}) %}{% endif %}
                                     {% endif %}
                                 {% endfor %}
                                 {% if not isLiked.isLiked %}  
-                                    <p>
-                                        {{ form.submit(class="btn-transparent") }}
-                                    </p>
+                                    {{ form.submit(class="btn-transparent") }}
                                 {% endif %}
                             </form>
                             {% else %}
-                            <p class="mt-2 sm:mt-4">
-                                <a href="{{ url_for('signup.signup') }}">
-                                    <button class="btn-blue">
-                                        ♡ You can save your favs after you sign up!
-                                    </button>
-                                </a>
-                            </p>
+                            <a href="{{ url_for('signup.signup') }}">
+                                <button class="btn-blue mt-2 sm:mt-4">
+                                    ♡ You can save your favs after you sign up!
+                                </button>
+                            </a>
                             {% endif %}
                         </div>
                     </div>       

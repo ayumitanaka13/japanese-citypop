@@ -406,25 +406,8 @@ img {
 }
 
 body {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-  --tw-gradient-from: #3dbaf4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
-  --tw-gradient-to: #ff93cd;
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-
-body::after {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-  --tw-gradient-from: #3dbaf4;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
-  --tw-gradient-to: #ff93cd;
-  height: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  z-index: -1;
 }
 
 h1 {
@@ -1535,6 +1518,8 @@ ul {
 
 .btn-blue{
   border-radius: 9999px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .btn-blue:focus{
@@ -1549,10 +1534,14 @@ ul {
   padding-right: 0.5rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 @media (min-width: 640px){
   .btn-blue{
+    font-size: 1rem;
+    line-height: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
@@ -1564,6 +1553,13 @@ ul {
   .btn-blue{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .btn-blue{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -1595,6 +1591,8 @@ ul {
   border-radius: 9999px;
   border-width: 1px;
   cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .btn-pink:focus{
@@ -1616,13 +1614,27 @@ ul {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.btn-pink{
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 @media (min-width: 640px){
   .btn-pink{
     border-width: 2px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .btn-pink{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -1653,6 +1665,8 @@ ul {
   border-radius: 9999px;
   border-width: 1px;
   cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .btn-transparent:focus{
@@ -1677,13 +1691,27 @@ ul {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.btn-transparent{
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
 @media (min-width: 640px){
   .btn-transparent{
     border-width: 2px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .btn-transparent{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
