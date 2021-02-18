@@ -230,4 +230,7 @@
     .transform-scale {
         @apply transform duration-300 ease-linear hover:scale-105;
     }
+    .test {
+        @apply text-red-500;
+    }
 }
