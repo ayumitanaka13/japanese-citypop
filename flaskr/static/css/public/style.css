@@ -1753,11 +1753,6 @@ ul {
   transition-duration: 300ms;
 }
 
-.test {
-  --tw-text-opacity: 1;
-  color: rgba(239, 68, 68, var(--tw-text-opacity));
-}
-
 .bg-purple-300{
   --tw-bg-opacity: 1;
   background-color: rgba(196, 181, 253, var(--tw-bg-opacity));
