@@ -61,14 +61,14 @@
         @apply ml-6 xl:ml-12;
     }
     .menu-block {
-        @apply inline-block hover:opacity-75;
+        @apply inline-block hover:opacity-75 duration-300;
     }
     .btn-toggle {
-        @apply flex items-center bg-transparent hover:bg-blue-500 focus:outline-none border rounded py-2 px-3;
+        @apply flex items-center bg-transparent hover:bg-blue-500 focus:outline-none border rounded duration-300 py-2 px-3;
     }
     /* history.html */
     .albums-style {
-        @apply min-h-screen w-screen grid grid-cols-3 py-0 lg:py-12;
+        @apply min-h-screen w-screen grid grid-cols-3 bg-gradient-to-br from-lightblue to-lightpink sticky top-0 py-0 lg:py-14;
     }
     .album-style {
         @apply h-full flex items-center col-span-3 lg:col-span-2;
@@ -99,7 +99,7 @@
     }
     /* artist.html */
     .artists-style {
-        @apply min-h-screen w-screen grid grid-cols-2 gap-8 px-8 md:px-12 xl:px-20 pt-8 lg:pt-12 pb-8 lg:pb-16;
+        @apply min-h-screen w-screen grid grid-cols-2 gap-8 bg-gradient-to-br from-lightblue to-lightpink sticky top-0 py-0 lg:py-14 px-8 md:px-12 xl:px-20;
     }
     .artist-style {
         @apply h-screen lg:h-full w-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg border-t-2 border-blue-300 p-4 sm:p-6;
@@ -144,10 +144,10 @@
         @apply h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center mt-0 md:mt-8 lg:p-2;
     }
     .comment-style {
-        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6;
+        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 lg:py-1 px-4 2xl:px-6;
     }
     .add-comment-style {
-        @apply w-full text-gray-400 shadow rounded mt-1 p-1 px-2;
+        @apply w-full bg-white bg-opacity-80 hover:bg-opacity-100 focus:bg-opacity-100 outline-none text-gray-400 shadow rounded py-2 lg:py-1 px-4 2xl:px-6;
     }
     .add-comment-form {
         @apply w-full mx-2 sm:mx-4 2xl:mx-8;
@@ -195,7 +195,7 @@
         @apply text-center text-6xl lg:text-7xl 2xl:text-8xl;
     }
     .sub-subtitle {
-        @apply text-xl sm:text-2xl;
+        @apply animate-none text-xl sm:text-2xl;
     }
     .white-style {
         @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16;
@@ -213,18 +213,24 @@
         @apply w-4/5 xl:w-1/2 2xl:w-1/3;
     }
     .btn-blue {
-        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4 xl:px-6;
+        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4 xl:px-6;
+    }
+    .btn-blue-small {
+        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full cursor-pointer duration-300 text-white text-xs sm:text-sm 2xl:text-base py-1 sm:py-2 px-1 sm:px-2 xl:px-4;
     }
     .btn-pink {
-        @apply bg-pink-400 hover:bg-transparent focus:bg-black focus:bg-opacity-5 focus:outline-none border sm:border-2 border-transparent hover:border-white shadow hover:shadow-none rounded-full cursor-pointer text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4;
+        @apply bg-pink-400 hover:bg-transparent focus:bg-black focus:bg-opacity-5 focus:outline-none border sm:border-2 border-transparent hover:border-white shadow hover:shadow-none rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4;
     }
     .btn-transparent {
-        @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4;
+        @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4;
+    }
+    .btn-back {
+        @apply h-12 w-12 flex items-center justify-center bg-transparent hover:bg-white border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
     }
     .input-form {
-        @apply w-full bg-white bg-opacity-70 hover:bg-opacity-90 text-gray-400 focus:outline-none shadow rounded-full text-lg sm:text-xl mt-1 py-1 sm:py-2 px-2 sm:px-4;
+        @apply w-full bg-white bg-opacity-70 hover:bg-opacity-90 focus:bg-opacity-90 text-gray-400 focus:outline-none shadow rounded-full duration-300 text-lg sm:text-xl mt-1 py-1 sm:py-2 px-2 sm:px-4;
     }
     .transform-scale {
-        @apply transform duration-300 ease-linear hover:scale-105;
+        @apply transform hover:scale-105 ease-linear duration-300;
     }
 }

@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% for album in albums %}
+
 <div class="albums-style" id="{{ album.name }}">
+    
     <!-- album age -->
     <div class="album-bg-style" style="background-image: url(/static/image/record.png);">
         <div class="px-8 md:px-12 xl:pl-20">
@@ -89,6 +91,11 @@
             </div>
         </div>
     </div>
+
+    {% block back %}
+    {{ super() }}
+    {% endblock %}
+
 </div>
 {% endfor %}
 {% endblock %}

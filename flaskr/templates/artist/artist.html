@@ -53,9 +53,7 @@
                             </div>
                             <div class="artist-col-7">
                                 <div class="comment-style">
-                                    <p class="font-semibold">
-                                        @{{ user.username}}
-                                    </p>
+                                    <p><small class="font-semibold">@{{ user.username}}</small></p>
                                     <p><small>{{ comment.comment }}</small></p>
                                 </div>
                             </div>
@@ -66,8 +64,10 @@
                         {% endif %}
                     {% endfor %}
 
-                    {% if not isCommented.isCommented %}                
-                    <h6>There's no comment yet.</h5>
+                    {% if not isCommented.isCommented %}
+                        <p class="font-semibold mt-2">
+                            💬 No comments yet. Let's share your comment!
+                        </p>
                     {% endif %}
                 </div>
             </div>
@@ -88,11 +88,11 @@
                     <form method="POST" class="add-comment-form">
                         {{form_c.csrf_token}}
                         {{ form_c.to_artist_id(value=artist.id) }}
-                        <h6>
-                            {{render_field(form_c.comment, rows="2", class="add-comment-style")}}
-                        </h6>
+                        <p>
+                            {{render_field(form_c.comment, rows="3", class="add-comment-style")}}
+                        </p>
                         <p class="mt-1 sm:mt-2">
-                            {{form_c.submit(class="btn-blue")}}
+                            {{form_c.submit(class="btn-blue-small")}}
                         </p>
                     </form>
                 </div>
@@ -173,6 +173,10 @@
             <p>{{ artist.song_info }}</p>
         </div>
     </div>
+
+    {% block back %}
+    {{ super() }}
+    {% endblock %}
 </div>
 
 {% endfor %}
