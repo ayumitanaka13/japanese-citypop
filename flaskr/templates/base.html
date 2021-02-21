@@ -10,7 +10,7 @@
     <!-- ogp -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Japanese City Pop" />
-	<meta property="og:description" content="Japanese City Pop 70s-80s" />
+	<meta property="og:description" content="A website for people who love Japanese City Pop" />
 	<meta property="og:image" content="/static/image/ogp.png">
 	<meta property="og:image:alt" content="home">
 	<meta property="og:url" content="https://citypop.netlify.app/" />
@@ -65,7 +65,7 @@
             <!-- nav bar -->
             <div class="nav-bar-style" id="nav-content">
                 <ul class="nav-ul-style">
-                    <li>
+                    <li class="ml-6 md:ml-8 lg:ml-0">
                         <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
                     </li>
                     <li class="menu-ml">
@@ -99,7 +99,7 @@
     {% endblock %}
 
     {% block header2 %}
-    <header class="header-style sticky top-0">
+    <header class="header-style lg:sticky top-0">
         <nav class="pt-4 lg:pt-6">
             <!-- search -->
             <ul>
@@ -158,7 +158,7 @@
     {% endblock %}
 
     {% block back %}
-    <div class="fixed bottom-4 right-4">
+    <div class="fixed bottom-2 sm:bottom-2.5 lg:bottom-4 right-2 sm:right-2.5 lg:right-4">
         <a href="#top">
             <p class="btn-back">
                 <i class="fas fa-angle-double-up"></i>

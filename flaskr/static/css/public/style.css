@@ -664,8 +664,8 @@ h5 {
 
 h6 {
   font-family: Poppins, sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 @media (min-width: 640px){
@@ -710,9 +710,16 @@ nav {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   width: 100%;
+}
+
+@media (min-width: 640px){
+  nav{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 @media (min-width: 1024px){
@@ -723,20 +730,23 @@ nav {
 }
 
 ul {
+  font-family: Poppins, sans-serif;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
 @media (min-width: 768px){
   ul{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
 @media (min-width: 1024px){
   ul{
     display: flex;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -831,9 +841,14 @@ ul {
 
 .nav-ul-style {
   align-items: center;
-  justify-content: flex-end;
   flex: 1 1 0%;
-  text-align: right;
+}
+
+@media (min-width: 768px){
+  .nav-ul-style{
+    justify-content: flex-end;
+    text-align: right;
+  }
 }
 
 .svg-style {
@@ -851,6 +866,12 @@ ul {
 
 .menu-ml {
   margin-left: 1.5rem;
+}
+
+@media (min-width: 768px){
+  .menu-ml{
+    margin-left: 2rem;
+  }
 }
 
 @media (min-width: 1280px){
@@ -903,7 +924,6 @@ ul {
 /* history.html */
 
 .albums-style {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
   --tw-gradient-from: #3dbaf4;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
   --tw-gradient-to: #ff93cd;
@@ -911,8 +931,7 @@ ul {
   min-height: 100vh;
   padding-top: 0px;
   padding-bottom: 0px;
-  position: -webkit-sticky;
-  position: sticky;
+  position: static;
   top: 0px;
   width: 100vw;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -920,8 +939,11 @@ ul {
 
 @media (min-width: 1024px){
   .albums-style{
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
@@ -1067,7 +1089,6 @@ ul {
 /* artist.html */
 
 .artists-style {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
   --tw-gradient-from: #3dbaf4;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(61, 186, 244, 0));
   --tw-gradient-to: #ff93cd;
@@ -1077,8 +1098,7 @@ ul {
   padding-bottom: 0px;
   padding-left: 2rem;
   padding-right: 2rem;
-  position: -webkit-sticky;
-  position: sticky;
+  position: static;
   top: 0px;
   width: 100vw;
   gap: 2rem;
@@ -1094,8 +1114,11 @@ ul {
 
 @media (min-width: 1024px){
   .artists-style{
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
@@ -1321,13 +1344,6 @@ ul {
   }
 }
 
-@media (min-width: 1024px){
-  .comment-style{
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
-}
-
 @media (min-width: 1536px){
   .comment-style{
     margin-left: 2rem;
@@ -1353,8 +1369,14 @@ ul {
 
 .add-comment-style{
   border-radius: 0.25rem;
+}
+
+.add-comment-style:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.add-comment-style{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
@@ -2044,11 +2066,11 @@ ul {
   --tw-border-opacity: 1;
   border-color: rgba(255, 255, 255, var(--tw-border-opacity));
   border-radius: 9999px;
-  border-width: 2px;
+  border-width: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
+  height: 1.5rem;
   --tw-shadow: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
@@ -2061,8 +2083,23 @@ ul {
 }
 
 .btn-back{
-  width: 3rem;
+  width: 1.5rem;
   transition-duration: 300ms;
+}
+
+@media (min-width: 640px){
+  .btn-back{
+    border-width: 2px;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .btn-back{
+    height: 3rem;
+    width: 3rem;
+  }
 }
 
 .input-form {

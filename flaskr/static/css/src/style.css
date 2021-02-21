@@ -24,7 +24,7 @@
         @apply font-poppins text-lg sm:text-xl 2xl:text-3xl;
     }
     h6 {
-        @apply font-poppins text-lg sm:text-xl 2xl:text-2xl;
+        @apply font-poppins text-base sm:text-xl 2xl:text-2xl;
     }
     p {
         @apply text-sm sm:text-base 2xl:text-xl;
@@ -33,10 +33,10 @@
         @apply font-normal;
     }
     nav {
-        @apply w-full flex flex-wrap items-center justify-between py-4 lg:py-6;
+        @apply w-full flex flex-wrap items-center justify-between py-3 sm:py-4 lg:py-6;
     }
     ul {
-        @apply lg:flex text-lg md:text-xl;
+        @apply font-poppins lg:flex text-lg md:text-2xl lg:text-xl;
     }
 }
 
@@ -52,13 +52,13 @@
         @apply w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0;
     }
     .nav-ul-style {
-        @apply flex-1 items-center justify-end text-right;
+        @apply flex-1 items-center md:justify-end md:text-right;
     }
     .svg-style {
         @apply fill-current h-4 md:h-5 w-4 md:w-5;
     }
     .menu-ml {
-        @apply ml-6 xl:ml-12;
+        @apply ml-6 md:ml-8 xl:ml-12;
     }
     .menu-block {
         @apply inline-block hover:opacity-75 duration-300;
@@ -68,7 +68,7 @@
     }
     /* history.html */
     .albums-style {
-        @apply min-h-screen w-screen grid grid-cols-3 bg-gradient-to-br from-lightblue to-lightpink sticky top-0 py-0 lg:py-14;
+        @apply min-h-screen w-screen grid grid-cols-3 lg:bg-gradient-to-br from-lightblue to-lightpink static lg:sticky top-0 py-0 lg:py-14;
     }
     .album-style {
         @apply h-full flex items-center col-span-3 lg:col-span-2;
@@ -99,7 +99,7 @@
     }
     /* artist.html */
     .artists-style {
-        @apply min-h-screen w-screen grid grid-cols-2 gap-8 bg-gradient-to-br from-lightblue to-lightpink sticky top-0 py-0 lg:py-14 px-8 md:px-12 xl:px-20;
+        @apply min-h-screen w-screen grid grid-cols-2 gap-8 lg:bg-gradient-to-br from-lightblue to-lightpink static lg:sticky top-0 py-0 lg:py-14 px-8 md:px-12 xl:px-20;
     }
     .artist-style {
         @apply h-screen lg:h-full w-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg border-t-2 border-blue-300 p-4 sm:p-6;
@@ -144,10 +144,10 @@
         @apply h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center mt-0 md:mt-8 lg:p-2;
     }
     .comment-style {
-        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 lg:py-1 px-4 2xl:px-6;
+        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6;
     }
     .add-comment-style {
-        @apply w-full bg-white bg-opacity-80 hover:bg-opacity-100 focus:bg-opacity-100 outline-none text-gray-400 shadow rounded py-2 lg:py-1 px-4 2xl:px-6;
+        @apply w-full bg-white bg-opacity-80 hover:bg-opacity-100 focus:bg-opacity-100 focus:outline-none text-gray-400 shadow rounded py-2 lg:py-1 px-4 2xl:px-6;
     }
     .add-comment-form {
         @apply w-full mx-2 sm:mx-4 2xl:mx-8;
@@ -225,7 +225,7 @@
         @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base 2xl:text-xl py-1 sm:py-2 px-2 sm:px-4;
     }
     .btn-back {
-        @apply h-12 w-12 flex items-center justify-center bg-transparent hover:bg-white border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
+        @apply h-6 sm:h-8 lg:h-12 w-6 sm:w-8 lg:w-12 flex items-center justify-center bg-transparent hover:bg-white border sm:border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
     }
     .input-form {
         @apply w-full bg-white bg-opacity-70 hover:bg-opacity-90 focus:bg-opacity-90 text-gray-400 focus:outline-none shadow rounded-full duration-300 text-lg sm:text-xl mt-1 py-1 sm:py-2 px-2 sm:px-4;
