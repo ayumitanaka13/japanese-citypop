@@ -1,0 +1,7 @@
+OK
+home
+contact
+signup
+login
+history
+artist

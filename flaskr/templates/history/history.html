@@ -29,23 +29,23 @@
             <!-- desc -->
             <div class="album-row-4">
                 <div class="album-grid-col">
-                    <div class="album-col-2 p-2 md:p-1">
+                    <div class="album-col-2 px-2 lg:px-0 2xl:px-4">
                         <img src="{{ url_for('static', filename=album.album_picture_path) }}" alt="" class="w-full shadow-md">
                     </div>
                     <div class="album-col-2">
                         <div class="album-title">
-                            <h4>
-                                <i class="fas fa-compact-disc mr-2"></i>{{ album.year }} {{ album.title }}
+                            <h4 class="text-lg sm:text-2xl lg:text-xl 2xl:text-3xl">
+                                <i class="fas fa-compact-disc mr-1 sm:mr-2"></i>{{ album.year }} {{ album.title }}
                             </h4>
-                            <h4 class="mt-0 sm:mt-2">
+                            <h4 class="text-lg md:text-2xl lg:text-xl 2xl:text-3xl mt-0 xl:mt-2">
                                 <small>{{ album.title_j }}</small>
                             </h4>
-                            <p class="mt-0 sm:mt-2">
+                            <p class="mt-2">
                                 {{ album.info }}
                             </p>
 
                             {% if current_user.is_authenticated %}
-                            <form method="POST" class="mt-2 sm:mt-4">
+                            <form method="POST" class="mt-4">
                                 {{ form.csrf_token }}
                                 {{ form.from_user_id(value=current_user.id) }}
                                 {{ form.to_album_id(value=album.id) }}
@@ -63,8 +63,8 @@
                             </form>
                             {% else %}
                             <a href="{{ url_for('signup.signup') }}">
-                                <button class="btn-blue mt-2 sm:mt-4">
-                                    ♡ You can save your favs after you sign up!
+                                <button class="btn-blue mt-4">
+                                    ♡ You can save your favs after sign up!
                                 </button>
                             </a>
                             {% endif %}
@@ -74,7 +74,7 @@
             </div>
             <!-- member -->
             <div class="album-row-1">
-                <img class="album-icon icon-style" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="">
+                <img class="album-icon icon-style border-4" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="{{ album.name }}">
                 <div class="flex flex-wrap">
                     {% for artist in artists %}
                         {% if album.id == artist.from_album_id %}

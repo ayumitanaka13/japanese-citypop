@@ -27,19 +27,19 @@
                     
             {% if not form.keyword.data %}
             {% else %}
-            <div class="white-style">
+            <div class="white-style mt-6">
                 <div class="w-full h-80 overflow-scroll">
                     <div class="wrap-full-style">
                     {% set isMatched = {'isMatched':False} %}
 
                     {% for album in albums %}
                         {% if form.keyword.data.lower() in album.name.lower() or form.keyword.data.lower() in album.title.lower() %}
-                        <div class="w-1/5 my-4">
+                        <div class="w-full sm:w-1/3 lg:w-1/5 my-4">
                             <a href="{{ url_for('history.history', _anchor=album.name) }}">
                                 <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="mt-4"><b>{{ album.name }}</b></p>
-                            <p class="mt-2">{{ album.title }}</p>
+                            <p class="text-xs sm:text-sm font-semibold mt-2">{{ album.name }}</p>
+                            <p class="text-xs sm:text-sm mt-1">{{ album.title }}</p>
                         </div>
                         {% if isMatched.update({'isMatched':True}) %}{% endif %}
                         {% endif %}
@@ -47,12 +47,12 @@
 
                     {% for artist in artists %}
                         {% if form.keyword.data.lower() in artist.name.lower() or form.keyword.data.lower() in artist.title.lower() %}
-                        <div class="w-1/5 my-4">
+                        <div class="w-full sm:w-1/3 lg:w-1/5 my-4">
                             <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
                                 <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="mt-4"><b>{{ artist.name }}</b></p>
-                            <p class="mt-2">{{ artist.title }}</p>
+                            <p class="text-xs sm:text-sm font-semibold mt-2">{{ artist.name }}</p>
+                            <p class="text-xs sm:text-sm mt-1">{{ artist.title }}</p>
                         </div>
                         {% if isMatched.update({'isMatched':True}) %}{% endif %}
                         {% endif %}
