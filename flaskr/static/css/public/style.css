@@ -549,6 +549,8 @@ video {
 }
 
 body {
+  --tw-bg-opacity: 1;
+  background-color: rgba(196, 181, 253, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
@@ -603,21 +605,28 @@ h3 {
 
 h4 {
   font-family: Poppins, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 @media (min-width: 640px){
+  h4{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1024px){
   h4{
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
 
-@media (min-width: 1280px){
+@media (min-width: 1536px){
   h4{
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -768,12 +777,20 @@ ul {
 .header-style {
   padding-left: 2rem;
   padding-right: 2rem;
+  top: 0px;
 }
 
 @media (min-width: 768px){
   .header-style{
     padding-left: 3rem;
     padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .header-style{
+    position: -webkit-sticky;
+    position: sticky;
   }
 }
 
@@ -1233,6 +1250,34 @@ ul {
   height: 40%;
 }
 
+.artist-pl {
+  padding-left: 0.5rem;
+}
+
+@media (min-width: 640px){
+  .artist-pl{
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 768px){
+  .artist-pl{
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .artist-pl{
+    padding-left: 1rem;
+  }
+}
+
+@media (min-width: 1536px){
+  .artist-pl{
+    padding-left: 2rem;
+  }
+}
+
 .song-style {
   display: flex;
   align-items: center;
@@ -1417,6 +1462,20 @@ ul {
   margin-right: 3rem;
 }
 
+.user-icon-style {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px){
+  .user-icon-style{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .user-form {
   margin-top: 2rem;
   padding-left: 1rem;
@@ -1455,6 +1514,8 @@ ul {
 }
 
 .img-size {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
@@ -1609,7 +1670,7 @@ ul {
 
 @media (min-width: 1280px){
   .title{
-    font-size: 6rem;
+    font-size: 8rem;
     line-height: 1;
   }
 }
@@ -1638,6 +1699,18 @@ ul {
   .sub-subtitle{
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+}
+
+.small {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 640px){
+  .small{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -2006,6 +2079,26 @@ ul {
   .btn-back{
     height: 3rem;
     width: 3rem;
+  }
+}
+
+.btn-back-style {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+@media (min-width: 768px){
+  .btn-back-style{
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .btn-back-style{
+    right: 1rem;
+    bottom: 1rem;
   }
 }
 

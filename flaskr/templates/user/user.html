@@ -19,7 +19,8 @@
                     <h6>
                         Your Profile
                     </h6>
-                    <div class="flex justify-center my-2 md:my-4">
+                    <div class="user-icon-style">
+                    <!-- <div class="flex justify-center my-2 md:my-4"> -->
                         {% if current_user.picture_path %}
                         <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-size icon-style">
                         {% else %}
@@ -47,12 +48,12 @@
                     {% for like_album in like_albums %}
                         {% for album in albums %}
                         {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                        <div class="img-size my-4">
+                        <div class="img-size">
                             <a href="{{ url_for('history.history', _anchor=album.name) }}">
                                 <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="text-xs sm:text-sm font-semibold mt-2">{{ album.name }}</p>
-                            <p class="text-xs sm:text-sm mt-1">{{ album.title }}</p>
+                            <p class="small font-semibold mt-2">{{ album.name }}</p>
+                            <p class="small mt-1">{{ album.title }}</p>
                         </div>
                         {% if isLiked.update({'isLiked':True}) %}{% endif %}
                         {% endif %}
@@ -73,12 +74,12 @@
                     {% for like_song in like_songs %}
                         {% for artist in artists %}
                         {% if like_song.from_user_id == current_user.id and like_song.to_artist_id == artist.id %}
-                        <div class="img-size my-4">
+                        <div class="img-size">
                             <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
                                 <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="text-xs sm:text-sm font-semibold mt-2">{{ artist.name }}</p>
-                            <p class="text-xs sm:text-sm mt-1">{{ artist.title }}</p>
+                            <p class="small font-semibold mt-2">{{ artist.name }}</p>
+                            <p class="small mt-1">{{ artist.title }}</p>
                         </div>
                         {% if isLiked.update({'isLiked':True}) %}{% endif %}
                         {% endif %}

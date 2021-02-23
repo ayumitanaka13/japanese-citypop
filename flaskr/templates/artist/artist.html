@@ -16,7 +16,7 @@
                 <div class="artist-col-2 xl:p-2">
                     <img src="{{ url_for('static', filename=artist.artist_picture_path) }}" class="w-full icon-style border-4">
                 </div>
-                <div class="h-full col-span-3 sm:col-span-4 flex items-center">
+                <div class="artist-col-3">
                     <div class="pl-4 2xl:pl-8">
                         <h3 class="font-semibold">
                             {{ artist.name }}
@@ -122,8 +122,9 @@
                 <div class="artist-col-2 p-1 sm:p-0 xl:p-1">
                     <img src="{{ url_for('static', filename=artist.song_picture_path) }}" alt="" class="w-full shadow">
                 </div>
-                <div class="h-full col-span-3 sm:col-span-4 flex items-center">
-                    <div class="pl-2 sm:pl-4 md:pl-6 lg:pl-4 2xl:pl-8">
+                <div class="artist-col-3">
+                    <div class="artist-pl">
+                    <!-- <div class="pl-2 sm:pl-4 md:pl-6 lg:pl-4 2xl:pl-8"> -->
                         <h5>
                             <i class="fas fa-compact-disc mr-1 sm:mr-2"></i>{{ artist.year }} {{ artist.title }}
                         </h5>

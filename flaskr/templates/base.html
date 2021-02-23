@@ -5,16 +5,25 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Japanese City Pop">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="description" content="A website for people who love Japanese City Pop">
     <meta name="keywords" content="citypop, city pop, Tatsuro Yamashita, Mariya Takeuchi">
-    <!-- ogp -->
+    <meta name="author" content="Ayumi Tanaka">
+    <!-- OGP -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Japanese City Pop" />
 	<meta property="og:description" content="A website for people who love Japanese City Pop" />
 	<meta property="og:image" content="/static/image/ogp.png">
 	<meta property="og:image:alt" content="home">
 	<meta property="og:url" content="https://citypop.netlify.app/" />
-	<meta property="og:site_name" content="Japanese City Pop" />
+    <meta property="og:site_name" content="Japanese City Pop" />
+    <!-- Twitter -->
+    <meta name="twitter:site" content="@ayumitanaka_13" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="サイトのURL" />
+    <meta name="twitter:image" content="/static/image/ogp.png" />
+    <meta name="twitter:title" content="Japanese City Pop" />
+    <meta name="twitter:description" content="A website for people who love Japanese City Pop" />
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/public/style.css">
     <link rel="stylesheet" href="/static/css/base.css">
@@ -40,7 +49,8 @@
     <title>Japanese City Pop</title>
 </head>
 
-<body class="bg-purple-300" id="top">
+<body id="top">
+<!-- <body class="bg-purple-300" id="top"> -->
     {% block content %}
 
     {% block header %}
@@ -99,7 +109,8 @@
     {% endblock %}
 
     {% block header2 %}
-    <header class="header-style lg:sticky top-0">
+    <header class="header-style">
+    <!-- <header class="header-style lg:sticky top-0"> -->
         <nav class="pt-4 lg:pt-6">
             <!-- search -->
             <ul>
@@ -154,11 +165,12 @@
     {% endblock %}
 
     {% block bg %}
-    <div class="bg-style" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
+    <div class="bg-style" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon.jpeg)">
     {% endblock %}
 
     {% block back %}
-    <div class="fixed bottom-2 md:bottom-3 xl:bottom-4 right-2 md:right-3 xl:right-4">
+    <div class="btn-back-style">
+    <!-- <div class="fixed bottom-2 md:bottom-3 xl:bottom-4 right-2 md:right-3 xl:right-4"> -->
         <a href="#top">
             <p class="btn-back">
                 <i class="fas fa-angle-double-up"></i>
