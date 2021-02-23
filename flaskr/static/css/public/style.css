@@ -549,8 +549,6 @@ video {
 }
 
 body {
-  --tw-bg-opacity: 1;
-  background-color: rgba(196, 181, 253, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
@@ -1498,10 +1496,10 @@ ul {
 }
 
 .icon-size {
-  width: 33.333333%;
+  width: 50%;
 }
 
-@media (min-width: 768px){
+@media (min-width: 640px){
   .icon-size{
     width: 25%;
   }
