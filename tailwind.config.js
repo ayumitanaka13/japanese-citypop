@@ -9,15 +9,12 @@ module.exports = {
     extend: {
       colors: {
         lightpink: '#ff93cd',
-        lightblue: '#3dbaf4'
+        lightblue: '#3dbaf4',
       },
       fontFamily: {
         codystar: ['Codystar', 'cursive'],
-        poppins: ['Poppins', 'sans-serif']
+        poppins: ['Poppins', 'sans-serif'],
       },
-      zIndex: {
-        '-1': '-1'
-      }
     },
   },
   variants: {

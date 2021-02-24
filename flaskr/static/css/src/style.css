@@ -6,10 +6,7 @@
 
 @layer base {
     body {
-        @apply text-white bg-gradient-to-br from-lightblue to-lightpink;
-    }
-    body::after {
-        @apply h-full w-full fixed top-0 left-0 -z-1 bg-gradient-to-br from-lightblue to-lightpink;
+        @apply text-white;
     }
     h1 {
         @apply font-codystar font-black animate-pulse;
@@ -18,19 +15,19 @@
         @apply font-poppins font-bold text-5xl lg:text-6xl 2xl:text-7xl;
     }
     h3 {
-        @apply font-poppins text-xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+        @apply font-poppins text-xl sm:text-3xl 2xl:text-5xl;
     }
     h4 {
-        @apply font-poppins text-lg sm:text-2xl 2xl:text-4xl;
+        @apply font-poppins text-lg sm:text-2xl lg:text-xl 2xl:text-3xl;
     }
     h5 {
-        @apply font-poppins text-lg sm:text-xl 2xl:text-3xl;
+        @apply font-poppins text-base sm:text-lg md:text-xl lg:text-lg 2xl:text-2xl;
     }
     h6 {
-        @apply font-poppins text-lg sm:text-xl 2xl:text-2xl;
+        @apply font-poppins text-base md:text-lg lg:text-xl;
     }
     p {
-        @apply text-sm sm:text-base 2xl:text-xl;
+        @apply text-sm sm:text-base;
     }
     small {
         @apply font-normal;
@@ -39,39 +36,36 @@
         @apply w-full flex flex-wrap items-center justify-between py-4 lg:py-6;
     }
     ul {
-        @apply lg:flex text-lg md:text-xl;
+        @apply font-poppins lg:flex text-lg md:text-xl lg:text-lg;
     }
 }
 
 @layer components {
     /* base.html */
     .header-style {
-        @apply px-8 md:px-12 xl:px-20;
-    }
-    .ul-style {
-        @apply lg:flex text-lg md:text-xl;
+        @apply  lg:sticky top-0 px-8 md:px-12 xl:px-20;
     }
     .nav-bar-style {
         @apply w-full lg:w-auto hidden lg:flex flex-grow lg:items-center mt-2 lg:mt-0;
     }
     .nav-ul-style {
-        @apply flex-1 items-center justify-end text-right;
+        @apply flex-1 items-center lg:justify-end lg:text-right;
     }
     .svg-style {
         @apply fill-current h-4 md:h-5 w-4 md:w-5;
     }
     .menu-ml {
-        @apply ml-6 xl:ml-12;
+        @apply ml-6 md:ml-8 lg:ml-12;
     }
     .menu-block {
-        @apply inline-block hover:opacity-75;
+        @apply inline-block hover:opacity-75 duration-300;
     }
     .btn-toggle {
-        @apply flex items-center bg-transparent hover:bg-blue-500 focus:outline-none border rounded py-2 px-3;
+        @apply flex items-center bg-transparent hover:bg-blue-500 focus:outline-none border rounded duration-300 py-2 px-3;
     }
     /* history.html */
     .albums-style {
-        @apply min-h-screen w-screen grid grid-cols-3 py-0 lg:py-12;
+        @apply min-h-screen w-screen grid grid-cols-3 lg:bg-gradient-to-br from-lightblue to-lightpink static lg:sticky top-0 py-0 lg:py-14;
     }
     .album-style {
         @apply h-full flex items-center col-span-3 lg:col-span-2;
@@ -102,7 +96,7 @@
     }
     /* artist.html */
     .artists-style {
-        @apply min-h-screen w-screen grid grid-cols-2 gap-8 px-8 md:px-12 xl:px-20 pt-8 lg:pt-12 pb-8 lg:pb-16;
+        @apply min-h-screen w-screen grid grid-cols-2 gap-8 lg:bg-gradient-to-br from-lightblue to-lightpink static lg:sticky top-0 py-0 lg:py-14 px-10 sm:px-8 md:px-12 xl:px-20;
     }
     .artist-style {
         @apply h-screen lg:h-full w-full col-span-2 lg:col-span-1 shadow-2xl rounded-lg border-t-2 border-blue-300 p-4 sm:p-6;
@@ -118,6 +112,9 @@
     }
     .artist-col-2 {
         @apply h-full col-span-2 sm:col-span-1 flex items-center;
+    }
+    .artist-col-3 {
+        @apply h-full col-span-3 sm:col-span-4 flex items-center;
     }
     .artist-col-4 {
         @apply h-full col-span-4 flex items-center;
@@ -137,6 +134,9 @@
     .artist-h-40 {
         @apply h-2/5 flex items-center;
     }
+    .artist-pl {
+        @apply pl-2 sm:pl-4 md:pl-6 lg:pl-4 2xl:pl-8;
+    }
     .song-style {
         @apply h-2/5 sm:h-1/5 lg:h-2/5 xl:h-1/5 flex items-center px-2;
     }
@@ -144,13 +144,13 @@
         @apply w-full h-full shadow rounded-lg;
     }
     .youtube-style {
-        @apply h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center mt-0 md:mt-8 lg:p-2;
+        @apply h-2/5 sm:h-3/5 lg:h-2/5 xl:h-3/5 flex items-center p-1 2xl:p-2;
     }
     .comment-style {
-        @apply w-full h-auto sm:h-5/6 bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6;
+        @apply w-full h-auto bg-white text-blue-400 shadow rounded mx-2 sm:mx-4 2xl:mx-8 py-2 px-4 2xl:px-6;
     }
     .add-comment-style {
-        @apply w-full text-gray-400 shadow rounded mt-1 p-1 px-2;
+        @apply w-full bg-white bg-opacity-80 hover:bg-opacity-100 focus:bg-opacity-100 focus:outline-none text-gray-400 shadow rounded p-2;
     }
     .add-comment-form {
         @apply w-full mx-2 sm:mx-4 2xl:mx-8;
@@ -162,14 +162,17 @@
     .wrap-style {
         @apply flex flex-wrap justify-around space-x-1 space-y-1 my-4 mx-12;
     }
+    .user-icon-style {
+        @apply flex justify-center my-2 md:my-4;
+    }
     .user-form {
         @apply w-full px-4 sm:px-8 md:px-16 mt-8;
     }
     .icon-size {
-        @apply w-1/3 md:w-1/4 lg:w-1/6;
+        @apply w-1/2 sm:w-1/4 lg:w-1/6;
     }
     .img-size {
-        @apply w-full md:w-1/3 lg:w-1/5;
+        @apply w-full sm:w-1/3 lg:w-1/5 my-4;
     }
     /* search.html */
     .wrap-full-style {
@@ -192,16 +195,19 @@
         @apply h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg;
     }
     .title {
-        @apply text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+        @apply text-center text-5xl md:text-6xl lg:text-7xl xl:text-9xl;
     }
     .subtitle {
-        @apply text-center text-6xl lg:text-7xl 2xl:text-8xl;
+        @apply text-center text-6xl xl:text-7xl;
     }
     .sub-subtitle {
-        @apply text-xl sm:text-2xl;
+        @apply animate-none text-xl sm:text-2xl;
+    }
+    .small {
+        @apply text-xs sm:text-sm;
     }
     .white-style {
-        @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-4 lg:mt-8 py-4 lg:py-8 2xl:py-16;
+        @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-4 lg:mt-8 py-8;
     }
     .form-style {
         @apply w-3/4 sm:w-2/3 text-white;
@@ -213,21 +219,30 @@
         @apply w-4/5 xl:w-3/5 2xl:w-1/2;
     }
     .layout-3 {
-        @apply w-4/5 xl:w-1/2 2xl:w-1/3;
+        @apply w-4/5 lg:w-1/2 2xl:w-1/3;
     }
     .btn-blue {
-        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full py-1 sm:py-2 px-2 sm:px-4 xl:px-6;
+        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base py-1 sm:py-2 px-4 xl:px-6;
+    }
+    .btn-blue-small {
+        @apply bg-blue-400 hover:bg-blue-500 focus:outline-none shadow rounded-full cursor-pointer duration-300 text-white text-xs sm:text-sm py-1 sm:py-2 px-2 md:px-4;
     }
     .btn-pink {
-        @apply bg-pink-400 hover:bg-transparent focus:bg-black focus:bg-opacity-5 focus:outline-none border sm:border-2 border-transparent hover:border-white shadow hover:shadow-none rounded-full cursor-pointer py-1 sm:py-2 px-2 sm:px-4;
+        @apply bg-pink-400 hover:bg-transparent focus:bg-black focus:bg-opacity-5 focus:outline-none border sm:border-2 border-transparent hover:border-white shadow hover:shadow-none rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base py-2 sm:py-1 px-4 sm:px-3;
     }
     .btn-transparent {
-        @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer py-1 sm:py-2 px-2 sm:px-4;
+        @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base py-2 sm:py-1 px-4 sm:px-3;
+    }
+    .btn-back {
+        @apply h-6 lg:h-8 xl:h-12 w-6 lg:w-8 xl:w-12 flex items-center justify-center bg-transparent hover:bg-white border lg:border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
+    }
+    .btn-back-style {
+        @apply fixed bottom-2 md:bottom-3 xl:bottom-4 right-2 md:right-3 xl:right-4;
     }
     .input-form {
-        @apply w-full bg-white bg-opacity-70 hover:bg-opacity-90 text-gray-400 focus:outline-none shadow rounded-full text-lg sm:text-xl mt-1 py-1 sm:py-2 px-2 sm:px-4;
+        @apply w-full bg-white bg-opacity-70 hover:bg-opacity-90 focus:bg-opacity-90 text-gray-400 focus:outline-none shadow rounded-full duration-300 text-sm sm:text-base mt-1 py-1 sm:py-2 px-2 sm:px-4;
     }
     .transform-scale {
-        @apply transform duration-300 ease-linear hover:scale-105;
+        @apply transform hover:scale-105 ease-linear duration-300;
     }
 }

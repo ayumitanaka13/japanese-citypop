@@ -13,15 +13,15 @@
         <!-- singer name -->
         <div class="artist-h-20">
             <div class="artist-grid-col-5">
-                <div class="artist-col-1 lg:p-2">
-                    <img src="{{ url_for('static', filename=artist.artist_picture_path) }}" class="w-full icon-style">
+                <div class="artist-col-2 xl:p-2">
+                    <img src="{{ url_for('static', filename=artist.artist_picture_path) }}" class="w-full icon-style border-4">
                 </div>
-                <div class="artist-col-4">
-                    <div class="pl-2 sm:pl-4 2xl:pl-8">
+                <div class="artist-col-3">
+                    <div class="pl-4 2xl:pl-8">
                         <h3 class="font-semibold">
                             {{ artist.name }}
                         </h3>
-                        <h3 class="mt-1 md:mt-2">
+                        <h3 class="mt-1">
                             <small>{{ artist.name_j }}</small>
                         </h3>
                     </div>
@@ -53,10 +53,8 @@
                             </div>
                             <div class="artist-col-7">
                                 <div class="comment-style">
-                                    <p class="font-semibold">
-                                        @{{ user.username}}
-                                    </p>
-                                    <p><small>{{ comment.comment }}</small></p>
+                                    <p class="font-semibold text-xs 2xl:text-sm">@{{ user.username}}</p>
+                                    <p class="leading-tight text-xs">{{ comment.comment }}</p>
                                 </div>
                             </div>
                             {% endif %}
@@ -66,8 +64,10 @@
                         {% endif %}
                     {% endfor %}
 
-                    {% if not isCommented.isCommented %}                
-                    <h6>There's no comment yet.</h5>
+                    {% if not isCommented.isCommented %}
+                        <p class="font-semibold mt-2">
+                            <span class="mr-2">💬</span>No comments yet. Let's share your comment!
+                        </p>
                     {% endif %}
                 </div>
             </div>
@@ -88,23 +88,23 @@
                     <form method="POST" class="add-comment-form">
                         {{form_c.csrf_token}}
                         {{ form_c.to_artist_id(value=artist.id) }}
-                        <h6>
+                        <p>
                             {{render_field(form_c.comment, rows="2", class="add-comment-style")}}
-                        </h6>
+                        </p>
                         <p class="mt-1 sm:mt-2">
-                            {{form_c.submit(class="btn-blue")}}
+                            {{form_c.submit(class="btn-blue-small")}}
                         </p>
                     </form>
                 </div>
                 {% else %}
-                <div class="artist-col-1 p-0 xl:p-1">
+                <div class="artist-col-2 p-0 xl:p-1">
                     <img src="/static/image/logoa.jpg" class="icon-style">
                 </div>
-                <div class="artist-col-8">
+                <div class="artist-col-7 mx-2 sm:mx-4 2xl:mx-8">
                     <p>
                         <a href="{{ url_for('signup.signup') }}">
                             <button class="btn-blue">
-                                ♡ You can add comments after you sign up!
+                                ♡ You can add comments after sign up!
                             </button>
                         </a>
                     </p>
@@ -115,21 +115,21 @@
     </div>
 
     <!-- song -->
-    <div class="artist-style">
+    <div class="artist-style mb-8 lg:mb-0">
         <!-- song title -->
         <div class="artist-h-20">
             <div class="artist-grid-col-5">
-                <div class="artist-col-1 lg:p-2">
+                <div class="artist-col-2 p-1 sm:p-0 xl:p-1">
                     <img src="{{ url_for('static', filename=artist.song_picture_path) }}" alt="" class="w-full shadow">
                 </div>
-                <div class="artist-col-4">
-                    <div class="pl-2 sm:pl-4 2xl:pl-8">
-                        <h4>
-                            <i class="fas fa-compact-disc mr-2"></i>{{ artist.year }} {{ artist.title }}
-                        </h4>
-                        <h4 class="mt-0 sm:mt-2">
+                <div class="artist-col-3">
+                    <div class="artist-pl">
+                        <h5>
+                            <i class="fas fa-compact-disc mr-1 sm:mr-2"></i>{{ artist.year }} {{ artist.title }}
+                        </h5>
+                        <h5>
                             <small>{{ artist.title_j }}</small>
-                        </h4>
+                        </h5>
                         {% if current_user.is_authenticated %}
                         <form method="POST" class="mt-2">
                             {{ form.csrf_token }}
@@ -154,25 +154,28 @@
                         <p class="mt-0 sm:mt-2">
                             <a href="{{ url_for('signup.signup') }}">
                                 <button class="btn-blue">
-                                    ♡ You can save your favorites after you sign up!
+                                    ♡ You can save your favs after sign up!
                                 </button>
                             </a>
                         </p>
                         {% endif %}
-
                     </div>
                 </div>
             </div>
         </div>
         <!-- song youtube -->
-        <div class="youtube-style">
+        <div class="youtube-style pt-12 sm:pt-2">
             <iframe class="youtube" src="{{ artist.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- song desc -->
         <div class="song-style">
-            <p>{{ artist.song_info }}</p>
+            <p class="text-base">{{ artist.song_info }}</p>
         </div>
     </div>
+
+    {% block back %}
+    {{ super() }}
+    {% endblock %}
 </div>
 
 {% endfor %}

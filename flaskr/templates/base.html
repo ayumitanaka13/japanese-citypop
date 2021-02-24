@@ -5,18 +5,28 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Japanese City Pop">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="description" content="A website for people who love Japanese City Pop">
     <meta name="keywords" content="citypop, city pop, Tatsuro Yamashita, Mariya Takeuchi">
-    <!-- ogp -->
+    <meta name="author" content="Ayumi Tanaka">
+    <!-- OGP -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Japanese City Pop" />
-	<meta property="og:description" content="Japanese City Pop 70s-80s" />
+	<meta property="og:description" content="A website for people who love Japanese City Pop" />
 	<meta property="og:image" content="/static/image/ogp.png">
 	<meta property="og:image:alt" content="home">
 	<meta property="og:url" content="https://citypop.netlify.app/" />
-	<meta property="og:site_name" content="Japanese City Pop" />
+    <meta property="og:site_name" content="Japanese City Pop" />
+    <!-- Twitter -->
+    <meta name="twitter:site" content="@ayumitanaka_13" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="サイトのURL" />
+    <meta name="twitter:image" content="/static/image/ogp.png" />
+    <meta name="twitter:title" content="Japanese City Pop" />
+    <meta name="twitter:description" content="A website for people who love Japanese City Pop" />
     <!-- CSS -->
     <link rel="stylesheet" href="/static/css/public/style.css">
+    <link rel="stylesheet" href="/static/css/base.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
@@ -36,10 +46,10 @@
     <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Title -->
-    <title>Japanese Citypop</title>
+    <title>Japanese City Pop</title>
 </head>
 
-<body class="bg-purple-300">
+<body class="bg-purple-300" id="top">
     {% block content %}
 
     {% block header %}
@@ -64,7 +74,7 @@
             <!-- nav bar -->
             <div class="nav-bar-style" id="nav-content">
                 <ul class="nav-ul-style">
-                    <li>
+                    <li class="menu-ml lg:ml-0">
                         <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
                     </li>
                     <li class="menu-ml">
@@ -98,7 +108,7 @@
     {% endblock %}
 
     {% block header2 %}
-    <header class="header-style" id="top">
+    <header class="header-style">
         <nav class="pt-4 lg:pt-6">
             <!-- search -->
             <ul>
@@ -119,7 +129,7 @@
         <!-- nav bar -->
             <div class="nav-bar-style" id="nav-content">
                 <ul class="nav-ul-style">
-                    <li>
+                    <li class="menu-ml lg:ml-0">
                         <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
                     </li>
                     <li class="menu-ml">
@@ -153,15 +163,25 @@
     {% endblock %}
 
     {% block bg %}
-    <div class="bg-style" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon5.jpeg)">
+    <div class="bg-style" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon.jpeg)">
+    {% endblock %}
+
+    {% block back %}
+    <div class="btn-back-style">
+        <a href="#top">
+            <p class="btn-back">
+                <i class="fas fa-angle-double-up"></i>
+            </p>
+        </a>
+    </div>
     {% endblock %}
 
     {% endblock %}
 
     <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script> -->
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/4538f04da3.js" crossorigin="anonymous"></script>   
     <!-- javascript -->

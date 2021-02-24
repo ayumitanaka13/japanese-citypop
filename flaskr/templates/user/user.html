@@ -16,14 +16,14 @@
             <h1 class="subtitle">Hello, {{current_user.username}}</h1>
             <div class="white-style">
                 <div class="w-full text-center">
-                    <h5>
+                    <h6>
                         Your Profile
-                    </h5>
-                    <div class="flex justify-center my-2 md:my-4">
+                    </h6>
+                    <div class="user-icon-style">
                         {% if current_user.picture_path %}
-                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-size icon-style">
+                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-size icon-style border-4">
                         {% else %}
-                        <img src="/static/image/logoa.jpg" class="icon-size icon-style">
+                        <img src="/static/image/logoa.jpg" class="icon-size icon-style border-4">
                         {% endif %}
                     </div>
 
@@ -39,9 +39,9 @@
                         </div>
                     </form>
                     
-                    <h5 class="mt-8 lg:mt-16">
+                    <h6 class="mt-8 lg:mt-16">
                         Your Favorite Albums
-                    </h5>
+                    </h6>
                     <div class="wrap-style">                 
                     {% set isLiked = {'isLiked':False} %}
                     {% for like_album in like_albums %}
@@ -51,23 +51,23 @@
                             <a href="{{ url_for('history.history', _anchor=album.name) }}">
                                 <img src="{{ url_for('static', filename=album.album_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="mt-4"><b>{{ album.name }}</b></p>
-                            <p class="mt-2">{{ album.title }}</p>
+                            <p class="small font-semibold mt-2">{{ album.name }}</p>
+                            <p class="small mt-1">{{ album.title }}</p>
                         </div>
                         {% if isLiked.update({'isLiked':True}) %}{% endif %}
                         {% endif %}
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <h5 class="mt-2">
-                            Save your favorites here!
-                        </h5>
+                        <p class="font-semibold mt-2">
+                            Save your favs here!
+                        </p>
                     {% endif %}
                     </div>
 
-                    <h5 class="mt-8 lg:mt-16">
+                    <h6 class="mt-8 lg:mt-16">
                         Your Favorite Songs
-                    </h5>
+                    </h6>
                     <div class="wrap-style">
                     {% set isLiked = {'isLiked':False} %}
                     {% for like_song in like_songs %}
@@ -77,17 +77,17 @@
                             <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
                                 <img src="{{ url_for('static', filename=artist.song_picture_path) }}" class="transform-scale shadow-lg">
                             </a>
-                            <p class="mt-4"><b>{{ artist.name }}</b></p>
-                            <p class="mt-2">{{ artist.title }}</p>
+                            <p class="small font-semibold mt-2">{{ artist.name }}</p>
+                            <p class="small mt-1">{{ artist.title }}</p>
                         </div>
                         {% if isLiked.update({'isLiked':True}) %}{% endif %}
                         {% endif %}
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <h5 class="mt-2">
+                        <p class="font-semibold mt-2">
                             Save your favs here!
-                        </h5>
+                        </p>
                     {% endif %}    
                     </div>
                 </div>
