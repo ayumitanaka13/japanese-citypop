@@ -8,17 +8,6 @@ bp = Blueprint('app', __name__, url_prefix='')
 def home():
     return render_template('home.html')
 
-# @bp.route('/searchbar', methods=['GET', 'POST'])
-# def searchbar():
-#     albums = Album.query.all()
-#     form = SearchForm(request.form)
-
-#     if request.method == 'POST' and form.validate():
-#         name = form.name.data
-#         return redirect(url_for('result.result'))
-#     return render_template(
-#         'searchbar.html', albums=albums, form=form)
-
 @bp.route('/comingsoon')
 def comingsoon():
     return render_template('comingsoon.html')

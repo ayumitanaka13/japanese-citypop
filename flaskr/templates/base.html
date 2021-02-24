@@ -5,24 +5,28 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Japanese City Pop">
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="description" content="A website for people who love Japanese City Pop">
     <meta name="keywords" content="citypop, city pop, Tatsuro Yamashita, Mariya Takeuchi">
-    <!-- ogp -->
+    <meta name="author" content="Ayumi Tanaka">
+    <!-- OGP -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Japanese City Pop" />
-	<meta property="og:description" content="Japanese City Pop 70s-80s" />
+	<meta property="og:description" content="A website for people who love Japanese City Pop" />
 	<meta property="og:image" content="/static/image/ogp.png">
 	<meta property="og:image:alt" content="home">
 	<meta property="og:url" content="https://citypop.netlify.app/" />
-	<meta property="og:site_name" content="Japanese City Pop" />
+    <meta property="og:site_name" content="Japanese City Pop" />
+    <!-- Twitter -->
+    <meta name="twitter:site" content="@ayumitanaka_13" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="サイトのURL" />
+    <meta name="twitter:image" content="/static/image/ogp.png" />
+    <meta name="twitter:title" content="Japanese City Pop" />
+    <meta name="twitter:description" content="A website for people who love Japanese City Pop" />
     <!-- CSS -->
-    <!-- <link rel="stylesheet" href="../static/css/base.css"> -->
     <link rel="stylesheet" href="/static/css/public/style.css">
-    <!-- Tailwind -->
-    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
-	<!-- Google font -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Codystar&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-
+    <link rel="stylesheet" href="/static/css/base.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
@@ -45,69 +49,139 @@
     <title>Japanese City Pop</title>
 </head>
 
-<body class="text-white bg-purple-300" style="background: linear-gradient(to bottom right, #3dbaf4 0%, #ff93cd 100%)">
-
+<body class="bg-purple-300" id="top">
     {% block content %}
-    {% block header %}
 
+    {% block header %}
     <header>
-        <nav class="w-full flex flex-wrap items-center justify-between bg-transparent lg:text-lg py-4 lg:py-6 box">
+        <nav>
             <!-- search -->
-            <ul class="text-lg md:text-xl lg:flex">
+            <ul>
                 <li>
-                    <a class="inline-block hover:opacity-75" href="{{ url_for('search.search') }}"><i class="fas fa-search mr-2"></i>Search</a>
+                    <a class="menu-block" href="{{ url_for('search.search') }}">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </a>
                 </li>
             </ul>            
             <!-- toggle -->
             <div class="block lg:hidden">
-                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded hover:bg-blue-500 focus:outline-none">
-                    <svg class="fill-current h-4 md:h-5 w-4 md:w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <button id="nav-toggle" class="btn-toggle">
+                    <svg class="svg-style" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
                     </svg>
                 </button>
             </div>
             <!-- nav bar -->
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-4 lg:pt-0" id="nav-content">
-                <ul class="text-lg md:text-xl lg:flex justify-end flex-1 items-center text-right">
-                    <li>
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('app.home') }}">Home</a>
+            <div class="nav-bar-style" id="nav-content">
+                <ul class="nav-ul-style">
+                    <li class="menu-ml lg:ml-0">
+                        <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('history.history') }}">History</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('history.history') }}">History</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('artist.artist') }}">Artist</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('artist.artist') }}">Artist</a>
                     </li>
                     {% if current_user.is_authenticated %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('logout.logout')}}">Logout</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('logout.logout')}}">Logout</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('user.user')}}">User</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('user.user')}}">User</a>
                     </li>
                     {% else %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('signup.signup')}}">Sign up</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('signup.signup')}}">Sign up</a>
                     </li>
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{url_for('login.login')}}">Login</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('login.login')}}">Login</a>
                     </li>
                     {% endif %}
-                    <li class="ml-6 xl:ml-12">
-                        <a class="inline-block hover:opacity-75" href="{{ url_for('contact.contact') }}">Contact</a>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('contact.contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-
     {% endblock %}
+
+    {% block header2 %}
+    <header class="header-style">
+        <nav class="pt-4 lg:pt-6">
+            <!-- search -->
+            <ul>
+                <li>
+                    <a class="menu-block" href="{{ url_for('search.search') }}">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </a>
+                </li>
+            </ul>            
+            <!-- toggle -->
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="btn-toggle">
+                    <svg class="svg-style" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                    </svg>
+                </button>
+            </div>
+        <!-- nav bar -->
+            <div class="nav-bar-style" id="nav-content">
+                <ul class="nav-ul-style">
+                    <li class="menu-ml lg:ml-0">
+                        <a class="menu-block" href="{{ url_for('app.home') }}">Home</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('history.history') }}">History</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('artist.artist') }}">Artist</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('logout.logout')}}">Logout</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('user.user')}}">User</a>
+                    </li>
+                    {% else %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('signup.signup')}}">Sign up</a>
+                    </li>
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{url_for('login.login')}}">Login</a>
+                    </li>
+                    {% endif %}
+                    <li class="menu-ml">
+                        <a class="menu-block" href="{{ url_for('contact.contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>    
+    {% endblock %}
+
+    {% block bg %}
+    <div class="bg-style" style="background-image: linear-gradient(135deg, rgba(255, 147, 205, 0.3), rgba(61, 186, 244, 0.3)), url(/static/image/neon.jpeg)">
+    {% endblock %}
+
+    {% block back %}
+    <div class="btn-back-style">
+        <a href="#top">
+            <p class="btn-back">
+                <i class="fas fa-angle-double-up"></i>
+            </p>
+        </a>
+    </div>
+    {% endblock %}
+
     {% endblock %}
 
     <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.1/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/CSSRulePlugin.min.js"></script> -->
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/4538f04da3.js" crossorigin="anonymous"></script>   
     <!-- javascript -->
