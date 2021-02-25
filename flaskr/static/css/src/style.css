@@ -195,7 +195,7 @@
         @apply h-full w-full flex items-center justify-center bg-cover bg-center bg-no-repeat shadow-lg rounded-lg;
     }
     .title {
-        @apply text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+        @apply text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
     }
     .subtitle {
         @apply text-center text-6xl xl:text-7xl;

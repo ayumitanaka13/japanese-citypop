@@ -1673,13 +1673,6 @@ ul {
   }
 }
 
-@media (min-width: 1536px){
-  .title{
-    font-size: 8rem;
-    line-height: 1;
-  }
-}
-
 .subtitle {
   font-size: 3.75rem;
   line-height: 1;
