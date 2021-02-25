@@ -21,7 +21,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 klepto==0.1.9
 Mako==1.1.3
-MarkupSafe @ file:///opt/concourse/worker/volumes/live/cb778296-98db-45ad-411e-6f726e102dc3/volume/markupsafe_1594371638608/work
+MarkupSafe==1.1.1
 pox==0.2.8
 psycopg2==2.8.6
 pycparser==2.20
@@ -31,4 +31,4 @@ python-editor==1.0.4
 six==1.15.0
 SQLAlchemy==1.3.20
 Werkzeug==1.0.1
-WTForms @ file:///tmp/build/80754af9/wtforms_1597707484216/work
+WTForms==2.3.3
