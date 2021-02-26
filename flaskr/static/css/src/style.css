@@ -160,7 +160,7 @@
         @apply h-5/6 w-4/5 xl:w-1/2 overflow-scroll;
     }
     .wrap-style {
-        @apply flex flex-wrap justify-around space-x-1 space-y-1 my-4 mx-12;
+        @apply flex flex-wrap justify-around my-4 mx-12;
     }
     .user-icon-style {
         @apply flex justify-center my-2 md:my-4;
@@ -172,7 +172,7 @@
         @apply w-1/2 sm:w-1/4 lg:w-1/6;
     }
     .img-size {
-        @apply w-full sm:w-1/3 lg:w-1/5 my-4;
+        @apply w-full sm:w-1/3 lg:w-1/5 p-2 md:p-4 lg:p-0;
     }
     /* search.html */
     .wrap-full-style {
@@ -207,7 +207,7 @@
         @apply text-xs sm:text-sm;
     }
     .white-style {
-        @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-4 lg:mt-8 py-8;
+        @apply flex w-full items-center justify-center bg-white bg-opacity-40 shadow-xl rounded mt-6 lg:mt-8 py-8;
     }
     .form-style {
         @apply w-3/4 sm:w-2/3 text-white;
@@ -234,7 +234,7 @@
         @apply bg-transparent hover:bg-pink-400 focus:bg-pink-500 focus:outline-none border sm:border-2 border-white hover:border-transparent hover:shadow focus:shadow-inner rounded-full cursor-pointer duration-300 text-white text-sm sm:text-base py-2 sm:py-1 px-4 sm:px-3;
     }
     .btn-back {
-        @apply h-6 lg:h-8 xl:h-12 w-6 lg:w-8 xl:w-12 flex items-center justify-center bg-transparent hover:bg-white border lg:border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
+        @apply h-6 md:h-7 lg:h-8 xl:h-12 w-6 md:w-7 lg:w-8 xl:w-12 flex items-center justify-center bg-transparent hover:bg-white border lg:border-2 border-white shadow-none hover:shadow rounded-full duration-300 hover:text-pink-400;
     }
     .btn-back-style {
         @apply fixed bottom-2 md:bottom-3 xl:bottom-4 right-2 md:right-3 xl:right-4;
