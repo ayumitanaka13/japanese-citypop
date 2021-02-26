@@ -20,11 +20,13 @@
                         Your Profile
                     </h6>
                     <div class="user-icon-style">
-                        {% if current_user.picture_path %}
-                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="h-24 lg:h-28 w-auto icon-style border-4">
-                        {% else %}
-                        <img src="/static/image/logoa.jpg" class="icon-size icon-style border-4">
-                        {% endif %}
+                        <div class="icon-size">
+                            {% if current_user.picture_path %}
+                            <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-style border-4">
+                            {% else %}
+                            <img src="/static/image/logoa.jpg" class="icon-style border-4">
+                            {% endif %}
+                        </div>
                     </div>
 
                     <form method="POST" enctype="multipart/form-data" class="user-form">
