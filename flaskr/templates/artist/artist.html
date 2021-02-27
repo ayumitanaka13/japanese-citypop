@@ -8,9 +8,9 @@
 
 {% for artist in artists %}
 <div class="artists-style" id="{{ artist.name }}">
-    <!-- singer -->
+    <!-- artist -->
     <div class="artist-style">
-        <!-- singer name -->
+        <!-- artist name -->
         <div class="artist-h-20">
             <div class="artist-grid-col-5">
                 <div class="artist-col-2 xl:p-2">
@@ -28,9 +28,9 @@
                 </div>       
             </div>
         </div>
-        <!-- singer desc -->
+        <!-- artist desc -->
         <div class="artist-h-20 px-2">
-            <p class="text-xs">
+            <p class="text-xs sm:text-base md:text-lg lg:text-base">
                 {{ artist.artist_info }}
             </p>
         </div>
@@ -44,7 +44,7 @@
                         <div class="artist-col-9 overflow-scroll">
                             {% for user in users %}
                             {% if comment.from_user_id == user.id %}
-                            <div class="artist-col-2 p-0 xl:p-1">
+                            <div class="artist-col-2 xl:p-1">
                                 {% if user.picture_path %}
                                 <img src="{{ url_for('static', filename=user.picture_path) }}" class="icon-style">
                                 {% else %}
@@ -54,7 +54,7 @@
                             <div class="artist-col-7">
                                 <div class="comment-style">
                                     <p class="font-semibold text-xs 2xl:text-sm">@{{ user.username}}</p>
-                                    <p class="leading-tight text-xs">{{ comment.comment }}</p>
+                                    <p class="leading-snug text-xs">{{ comment.comment }}</p>
                                 </div>
                             </div>
                             {% endif %}
@@ -164,13 +164,12 @@
             </div>
         </div>
         <!-- song youtube -->
-        <div class="youtube-style pt-10 sm:pt-2">
+        <div class="youtube-style">
             <iframe class="youtube" src="{{ artist.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <!-- song desc -->
         <div class="song-style">
             <p>{{ artist.song_info }}</p>
-            <!-- <p class="text-base">{{ artist.song_info }}</p> -->
         </div>
     </div>
 
