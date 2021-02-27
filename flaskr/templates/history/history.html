@@ -62,11 +62,13 @@
                                 {% endif %}
                             </form>
                             {% else %}
-                            <a href="{{ url_for('signup.signup') }}">
-                                <button class="btn-blue mt-4">
-                                    ♡ You can save your favs after sign up!
-                                </button>
-                            </a>
+                            <p class="mt-4">
+                                <a href="{{ url_for('signup.signup') }}">
+                                    <button class="btn-blue px-3">
+                                        ♡ You can save your favs after sign up!
+                                    </button>
+                                </a>
+                            </p>
                             {% endif %}
                         </div>
                     </div>       
@@ -80,7 +82,7 @@
                         {% if album.id == artist.from_album_id %}
                         <p>
                             <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
-                                <button class="btn-blue font-medium my-1 ml-4 px-4">
+                                <button class="btn-blue font-medium my-1 ml-4 px-2">
                                     # {{ artist.name }}
                                 </button>
                             </a>

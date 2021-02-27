@@ -20,11 +20,13 @@
                         Your Profile
                     </h6>
                     <div class="user-icon-style">
-                        {% if current_user.picture_path %}
-                        <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-size icon-style border-4">
-                        {% else %}
-                        <img src="/static/image/logoa.jpg" class="icon-size icon-style border-4">
-                        {% endif %}
+                        <div class="icon-size">
+                            {% if current_user.picture_path %}
+                            <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-style border-4">
+                            {% else %}
+                            <img src="/static/image/logoa.jpg" class="icon-style border-4">
+                            {% endif %}
+                        </div>
                     </div>
 
                     <form method="POST" enctype="multipart/form-data" class="user-form">
@@ -59,7 +61,7 @@
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <p class="font-semibold mt-2">
+                        <p class="mt-2">
                             Save your favs here!
                         </p>
                     {% endif %}
@@ -85,7 +87,7 @@
                         {% endfor %}
                     {% endfor %}
                     {% if not isLiked.isLiked %}  
-                        <p class="font-semibold mt-2">
+                        <p class="mt-2">
                             Save your favs here!
                         </p>
                     {% endif %}    

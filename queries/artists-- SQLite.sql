@@ -28,7 +28,7 @@ VALUES (3, 1984, 'Mariya Takeuchi', '竹内 まりや', 'Plastic Love', 'プラ�
         'image/s3.jpg', 'image/p-takeuchi.jpg', 3);
 
 INSERT INTO artists (id, year, name, name_j, title, title_j, youtube, song_info, artist_info, song_picture_path, artist_picture_path, from_album_id)
-VALUES (4, 1976, 'Shigeru Suzuki', '鈴木 茂', 'Lady Pink Panther', 'レディ・ピンク・パンサー', 'https://www.youtube.com/embed/sQyKR-NQtLg',
+VALUES (4, 1976, 'Shigeru Suzuki', '鈴木 茂', 'Lady Pink Panther', 'レディ・ピンクパンサー', 'https://www.youtube.com/embed/sQyKR-NQtLg',
         'His first album is the Japanese funk rock masterpiece, but his 2nd album is the city pop AOR masterpiece!
          This mellow bossanova song is included in the album "Lagoon". Haruomi Hosono participated as a bassist for this song.',
         'Shigeru Suzuki (December 20, 1951) is a Japanese musician, songwriter and guitarist. He first became known as a member of the influential rock band
