@@ -454,6 +454,20 @@ h3 {
   }
 }
 
+@media (min-width: 1024px){
+  h3{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1280px){
+  h3{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 @media (min-width: 1536px){
   h3{
     font-size: 3rem;
@@ -2298,6 +2312,10 @@ ul {
     display: none;
   }
 
+  .lg\:h-1\/2{
+    height: 50%;
+  }
+
   .lg\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
@@ -2313,6 +2331,10 @@ ul {
 
   .lg\:mt-4{
     margin-top: 1rem;
+  }
+
+  .lg\:mt-6{
+    margin-top: 1.5rem;
   }
 
   .lg\:mt-8{
@@ -2334,6 +2356,10 @@ ul {
 }
 
 @media (min-width: 1280px){
+
+  .xl\:h-1\/3{
+    height: 33.333333%;
+  }
 
   .xl\:mt-2{
     margin-top: 0.5rem;

@@ -15,7 +15,7 @@
         @apply font-poppins font-bold text-5xl lg:text-6xl 2xl:text-7xl;
     }
     h3 {
-        @apply font-poppins text-xl sm:text-3xl md:text-4xl 2xl:text-5xl;
+        @apply font-poppins text-xl sm:text-3xl md:text-4xl lg:text-2xl xl:text-4xl 2xl:text-5xl;
     }
     h4 {
         @apply font-poppins text-lg sm:text-2xl lg:text-xl 2xl:text-3xl;
