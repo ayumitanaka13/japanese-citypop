@@ -103,7 +103,7 @@
                 <div class="artist-col-7 mx-2 sm:mx-4 2xl:mx-8">
                     <p>
                         <a href="{{ url_for('signup.signup') }}">
-                            <button class="btn-blue text-xs">
+                            <button class="btn-blue text-xs xl:px-4">
                                 ♡ You can add comments after sign up!
                             </button>
                         </a>
@@ -131,7 +131,7 @@
                             <small>{{ artist.title_j }}</small>
                         </h5>
                         {% if current_user.is_authenticated %}
-                        <form method="POST" class="mt-2">
+                        <form method="POST" class="mt-0 sm:mt-2">
                             {{ form.csrf_token }}
                             {{ form.from_user_id(value=current_user.id) }}
                             {{ form.to_artist_id(value=artist.id) }}
@@ -153,7 +153,7 @@
                         {% else %}
                         <p class="mt-0 sm:mt-2">
                             <a href="{{ url_for('signup.signup') }}">
-                                <button class="btn-blue text-xs">
+                                <button class="btn-blue text-xs xl:px-4">
                                     ♡ You can save your favs after sign up!
                                 </button>
                             </a>

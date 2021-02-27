@@ -1103,7 +1103,7 @@ ul {
   align-items: center;
   height: 40%;
   padding: 0.25rem;
-  padding-top: 2.5rem;
+  padding-top: 3rem;
 }
 
 @media (min-width: 640px){
@@ -1138,10 +1138,10 @@ ul {
   height: auto;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-text-opacity: 1;
@@ -1153,6 +1153,8 @@ ul {
   .comment-style{
     margin-left: 1rem;
     margin-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -2343,6 +2345,11 @@ ul {
 
   .xl\:p-2{
     padding: 0.5rem;
+  }
+
+  .xl\:px-4{
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .xl\:pl-20{
