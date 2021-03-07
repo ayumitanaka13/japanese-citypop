@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, flash
+from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask_login import login_required, current_user
 from flaskr.forms import CommentForm, LikeSongForm
 from flaskr.models import Artist, Comment, LikeSong, User
@@ -32,6 +32,7 @@ def artist():
                 for liked_item in liked_items:
                     liked_item.delete_like()
         db.session.commit()
+        return redirect(url_for('artist.artist'))
 
     if request.method == 'POST' and form_c.validate():
         new_comment = Comment(user_id, form_c.to_artist_id.data, form_c.comment.data)
@@ -39,5 +40,5 @@ def artist():
             new_comment.create_comment()
         db.session.commit()
         flash("Your comment has been added!", "success")
-
+        return redirect(url_for('artist.artist'))
     return render_template('artist/artist.html', artists=artists, comments=comments, like_songs=like_songs, users=users, user=user, form=form, form_c=form_c)

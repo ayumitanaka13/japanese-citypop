@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, session
+from flask import Blueprint, request, render_template, session, redirect, url_for
 from flask_login import current_user
 from flaskr.forms import LikeAlbumForm
 from flaskr.models import Age, Album, Artist, User, LikeAlbum
@@ -34,6 +34,5 @@ def history():
                 for liked_item in liked_items:
                     liked_item.delete_like()
         db.session.commit()
-
+        return redirect(url_for('history.history'))
     return render_template('history/history.html', albums=albums, artists=artists, like_albums=like_albums, user=user, form=form)
-
