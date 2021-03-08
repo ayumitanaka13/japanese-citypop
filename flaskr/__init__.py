@@ -3,6 +3,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from dotenv import load_dotenv
+
+load_dotenv()
 
 login_manager = LoginManager()
 login_manager.login_view = 'login.login'
@@ -17,9 +20,7 @@ def create_app():
     app = Flask(__name__)
     SECRET_KEY = os.urandom(32)
     app.config['SECRET_KEY'] = 'SECRET_KEY'
-    app.config['SQLALCHEMY_DATABASE_URI'] = \
-        'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-    # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     from flaskr.history.views import history_bp
     from flaskr.artist.views import artist_bp
