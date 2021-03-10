@@ -29,7 +29,7 @@ class User(UserMixin, db.Model):
     def __init__(self, email, username, password):
         self.email = email
         self.username = username
-        self.password = generate_password_hash(password)
+        self.password = generate_password_hash(password).decode("utf-8")
 
     @classmethod
     def select_user_by_email(cls, email):
