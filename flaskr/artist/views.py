@@ -16,10 +16,10 @@ def artist():
     user_id = current_user.get_id()
     user = User.select_user_by_id(user_id)
 
-    form = LikeSongForm(request.form)
-    form_c = CommentForm(request.form)
+    form = LikeSongForm(request.form, prefix='form')
+    form_c = CommentForm(request.form, prefix='form_c')
 
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST' and form.validate_on_submit():
         new_like = LikeSong(user_id, form.to_artist_id.data)
         with db.session.begin(subtransactions=True):
             if new_like.is_liked(form.to_artist_id.data) == False:
@@ -34,7 +34,7 @@ def artist():
         db.session.commit()
         return redirect(url_for('artist.artist'))
 
-    if request.method == 'POST' and form_c.validate():
+    if request.method == 'POST' and form_c.validate_on_submit():
         new_comment = Comment(user_id, form_c.to_artist_id.data, form_c.comment.data)
         with db.session.begin(subtransactions=True):
             new_comment.create_comment()
