@@ -46,7 +46,7 @@
                             {% if comment.from_user_id == user.id %}
                             <div class="artist-col-2 xl:p-1">
                                 {% if user.picture_path %}
-                                <img src="{{current_user.picture_path}}" class="icon-style">
+                                <img src="{{user.picture_path}}" class="icon-style">
                                 {% else %}
                                 <img src="/static/image/logoa.jpg" class="icon-style">
                                 {% endif %}                                
