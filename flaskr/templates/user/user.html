@@ -22,7 +22,9 @@
                     <div class="user-icon-style">
                         <div class="icon-size">
                             {% if current_user.picture_path %}
-                            <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-style border-4">
+                            <img src="{{current_user.picture_path}}" class="icon-style border-4">
+                            <!-- <img src="{{ url_for('static', filename=current_user.picture_path) }}" class="icon-style border-4"> -->
+                            <!-- <img src="response.location, 'https://www.linkedin.com/in/zeinab-abbasimazar-0327aa47" class="icon-style border-4"> -->
                             {% else %}
                             <img src="/static/image/logoa.jpg" class="icon-style border-4">
                             {% endif %}
