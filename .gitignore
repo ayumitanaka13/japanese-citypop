@@ -4,5 +4,4 @@
 __pycache__
 migrations/
 node_modules/
-config.py
 tailwind-default.config.js
