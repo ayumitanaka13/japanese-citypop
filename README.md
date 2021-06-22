@@ -17,7 +17,6 @@ Users can leave comments on their favorite artist's page and save their favorite
 ## Design
 
 ![work-1ui](https://user-images.githubusercontent.com/55824449/122985959-a2158e00-d353-11eb-934c-5762ddf4dff2.png)
-<!-- ![JapaneseCityPopUI](https://user-images.githubusercontent.com/55824449/103028413-92380100-450c-11eb-96ec-19da0810d482.png) -->
 
 ## Technologies Used
 
