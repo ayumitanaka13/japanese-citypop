@@ -1,103 +1,98 @@
-{% from "/_formhelpers.html" import render_field %}
-{% extends "/base.html" %}
-{% block content %}
-
-{% block header2 %}
-{{ super() }}
-{% endblock %}
-
-{% for album in albums %}
+{% from "/_formhelpers.html" import render_field %} {% extends "/base.html" %}
+{% block content %} {% block header2 %} {{ super() }} {% endblock %} {% for
+album in albums %}
 
 <div class="albums-style" id="{{ album.name }}">
-    
-    <!-- album age -->
-    <div class="album-bg-style" style="background-image: url(/static/image/record.png);">
-        <div class="px-8 md:px-12 xl:pl-20">
-            <h2>{{ album.age }}</h2>
-            <h6 class="mt-4">{{ album.age_info }}</h6>
-        </div>
+  <!-- album age -->
+  <div
+    class="album-bg-style"
+    style="background-image: url(/static/image/record.png)"
+  >
+    <div class="px-8 md:px-12 xl:pl-20">
+      <h2>{{ album.age }}</h2>
+      <h6 class="mt-4">{{ album.age_info }}</h6>
     </div>
-    <!-- album info -->
-    <div class="album-style">
-        <div class="album-grid-row">
-            <!-- title -->
-            <div class="album-row-1 flex-wrap">
-                <h3 class="font-semibold">
-                    0{{ loop.index }} - {{ album.name }} <small>{{ album.name_j }}</small>
-                </h3>
-            </div>
-            <!-- desc -->
-            <div class="album-row-4">
-                <div class="album-grid-col">
-                    <div class="album-col-2 px-2 lg:px-0 2xl:px-4">
-                        <img src="{{ url_for('static', filename=album.album_picture_path) }}" alt="" class="w-full shadow-md">
-                    </div>
-                    <div class="album-col-2">
-                        <div class="album-title">
-                            <h4>
-                                <i class="fas fa-compact-disc mr-1 sm:mr-2"></i>{{ album.year }} {{ album.title }}
-                            </h4>
-                            <h4 class="mt-0 xl:mt-2">
-                                <small>{{ album.title_j }}</small>
-                            </h4>
-                            <p class="mt-2">
-                                {{ album.info }}
-                            </p>
+  </div>
+  <!-- album info -->
+  <div class="album-style">
+    <div class="album-grid-row">
+      <!-- title -->
+      <div class="album-row-1 flex-wrap">
+        <h3 class="font-semibold">
+          0{{ loop.index }} - {{ album.name }} <small>{{ album.name_j }}</small>
+        </h3>
+      </div>
+      <!-- desc -->
+      <div class="album-row-4">
+        <div class="album-grid-col">
+          <div class="album-col-2 px-2 lg:px-0 2xl:px-4">
+            <img
+              src="{{ url_for('static', filename=album.album_picture_path) }}"
+              alt=""
+              class="w-full shadow-md"
+            />
+          </div>
+          <div class="album-col-2">
+            <div class="album-title">
+              <h4>
+                <i class="fas fa-compact-disc mr-1 sm:mr-2"></i>{{ album.year }}
+                {{ album.title }}
+              </h4>
+              <h4 class="mt-0 xl:mt-2">
+                <small>{{ album.title_j }}</small>
+              </h4>
+              <p class="mt-2">{{ album.info }}</p>
 
-                            {% if current_user.is_authenticated %}
-                            <form method="POST" class="mt-4">
-                                {{ form.csrf_token }}
-                                {{ form.from_user_id(value=current_user.id) }}
-                                {{ form.to_album_id(value=album.id) }}
-
-                                {% set isLiked = {'isLiked':False} %}
-                                {% for like_album in like_albums %}
-                                    {% if like_album.from_user_id == current_user.id and like_album.to_album_id == album.id %}
-                                        {{ form.submit(value="♥ Liked",　class="btn-pink") }}
-                                    {% if isLiked.update({'isLiked':True}) %}{% endif %}
-                                    {% endif %}
-                                {% endfor %}
-                                {% if not isLiked.isLiked %}  
-                                    {{ form.submit(class="btn-transparent") }}
-                                {% endif %}
-                            </form>
-                            {% else %}
-                            <p class="mt-4">
-                                <a href="{{ url_for('signup.signup') }}">
-                                    <button class="btn-blue px-3">
-                                        ♡ You can save your favs after sign up!
-                                    </button>
-                                </a>
-                            </p>
-                            {% endif %}
-                        </div>
-                    </div>       
-                </div>
+              {% if current_user.is_authenticated %}
+              <form method="POST" class="mt-4">
+                {{ form.csrf_token }} {{
+                form.from_user_id(value=current_user.id) }} {{
+                form.to_album_id(value=album.id) }} {% set isLiked =
+                {'isLiked':False} %} {% for like_album in like_albums %} {% if
+                like_album.from_user_id == current_user.id and
+                like_album.to_album_id == album.id %} {{ form.submit(value="♥
+                Liked",　class="btn-pink") }} {% if
+                isLiked.update({'isLiked':True}) %}{% endif %} {% endif %} {%
+                endfor %} {% if not isLiked.isLiked %} {{
+                form.submit(class="btn-transparent") }} {% endif %}
+              </form>
+              {% else %}
+              <p class="mt-4">
+                <a href="{{ url_for('signup.signup') }}">
+                  <button class="btn-blue px-3">
+                    ♡ You can save your favs after sign up!
+                  </button>
+                </a>
+              </p>
+              {% endif %}
             </div>
-            <!-- member -->
-            <div class="album-row-1">
-                <img class="album-icon icon-style border-4" src="{{ url_for('static', filename=album.artist_picture_path) }}" alt="{{ album.name }}">
-                <div class="flex flex-wrap">
-                    {% for artist in artists %}
-                        {% if album.id == artist.from_album_id %}
-                        <p>
-                            <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
-                                <button class="btn-blue font-medium my-1 ml-4 px-2">
-                                    # {{ artist.name }}
-                                </button>
-                            </a>
-                        </p>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <!-- member -->
+      <div class="album-row-1">
+        <img
+          class="album-icon icon-style border-4"
+          src="{{ url_for('static', filename=album.artist_picture_path) }}"
+          alt="{{ album.name }}"
+        />
+        <div class="flex flex-wrap">
+          {% for artist in artists %} {% if album.id == artist.from_album_id %}
+          <p>
+            <a href="{{ url_for('artist.artist', _anchor=artist.name) }}">
+              <button class="btn-blue font-medium my-1 ml-4 px-2">
+                # {{ artist.name }}
+              </button>
+            </a>
+          </p>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
     </div>
+  </div>
 
-    {% block back %}
+  <!-- {% block back %}
     {{ super() }}
-    {% endblock %}
-
+    {% endblock %} -->
 </div>
-{% endfor %}
-{% endblock %}
+{% endfor %} {% endblock %}
