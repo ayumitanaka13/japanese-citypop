@@ -50,8 +50,7 @@ album in albums %}
                 form.to_album_id(value=album.id) }} {% set isLiked =
                 {'isLiked':False} %} {% for like_album in like_albums %} {% if
                 like_album.from_user_id == current_user.id and
-                like_album.to_album_id == album.id %} {{ form.submit(value="♥
-                Liked",　class="btn-pink") }} {% if
+                like_album.to_album_id == album.id %} {{ form.submit(value="♥ Liked",　class="btn-pink") }}{% if
                 isLiked.update({'isLiked':True}) %}{% endif %} {% endif %} {%
                 endfor %} {% if not isLiked.isLiked %} {{
                 form.submit(class="btn-transparent") }} {% endif %}
