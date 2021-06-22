@@ -16,9 +16,11 @@ Users can sign up and leave comments on your favorite artist's page.
 
 # Technologies Used
 
-- Tailwind CSS
 - Python Flask
+- Jinja
 - SQL Alchemy
 - PostgreSQL
 - Firebase
 - Heroku
+- Tailwind CSS
+- Figma
