@@ -629,6 +629,7 @@ ul {
 /* base.html */
 
 .header-style {
+  position: sticky;
   top: 0px;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -650,12 +651,6 @@ ul {
   .header-style{
     padding-left: 3rem;
     padding-right: 3rem;
-  }
-}
-
-@media (min-width: 1024px){
-  .header-style{
-    position: sticky;
   }
 }
 

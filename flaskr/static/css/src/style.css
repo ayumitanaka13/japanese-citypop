@@ -43,7 +43,7 @@
 @layer components {
   /* base.html */
   .header-style {
-    @apply lg:sticky top-0 backdrop-filter backdrop-blur px-8 md:px-12 xl:px-20;
+    @apply sticky top-0 backdrop-filter backdrop-blur px-8 md:px-12 xl:px-20;
   }
   /* .header-style {
     @apply lg:sticky top-0 px-8 md:px-12 xl:px-20;
