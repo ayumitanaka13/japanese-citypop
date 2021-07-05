@@ -43,7 +43,7 @@ Artist Page
 
 ![work-1ui](https://user-images.githubusercontent.com/55824449/122985959-a2158e00-d353-11eb-934c-5762ddf4dff2.png)
 
-## Technologies Used
+## Technologies
 
 - Python Flask
 - Jinja
