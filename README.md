@@ -11,7 +11,7 @@ Users can leave comments on their favorite artist's page and save their favorite
 
 I created this app to learn how the web app works.
 Since I've been learning front-end, I wasn't familiar with back-end.
-Creating this app was a good opportunity to learn to code with Python Flask, and using Postgresql.
+Creating this app was a good opportunity to learn to code with Python Flask, and to use Postgresql.
 
 ### How I build this app?
 
